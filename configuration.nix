@@ -94,7 +94,6 @@
       gnomeExtensions.dash-to-dock
       amberol
       neovim
-
     ];
   };
 
