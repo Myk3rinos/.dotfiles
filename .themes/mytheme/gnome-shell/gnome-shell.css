@@ -1,0 +1,179 @@
+
+/* ----------------- Top Bar ------------------- */
+#panel {
+  background-color: rgba(0, 0, 0, 0);
+  height: 1.86em;
+  /* transition: 0.5s ease-in-out; */
+  margin: 0.5em;
+}
+
+.panel-button {
+  border: 1px solid #78a9ff;
+  color: #78a9ff;
+  border-radius: 0.5em;
+  background-color: rgba(0, 0, 0, 1);
+}
+.panel-button:hover {
+  border: 1px solid #ee5396;
+  box-shadow: none;
+}
+.panel-button:active {
+  border: 1px solid #ee5396;
+  box-shadow: none;
+}
+/* Activities */
+.workspace-dot {
+  background-color: #50FA7B;
+  width: 1.0em;
+}
+#panel:overview #panelActivities.panel-button {
+  border: 1px solid #ee5396;
+  box-shadow: none;
+}
+
+/* Clock */
+.panel-button.clock-display {
+  font-family: "CaskaydiaCove Nerd Font";
+  font-style: italic;
+  font-feature-settings: "ss01";
+}
+.panel-button.clock-display .clock::first-letter{
+  color: #50FA7B;
+  content: "";
+  content: 'g';
+  position: absolute;
+  transform: translate(-100%, 0);
+}
+.panel-button.clock-display:hover .clock {
+  box-shadow: none;
+}
+.panel-button.clock-display:active .clock {
+  box-shadow: none;
+}
+.panel-button.clock-display:active {
+  border: 1px solid #ee5396;
+}
+
+
+
+
+/*--------------------------  OVERVIEW   ---------------------------*/
+#overview {
+  background-color: rgba(0, 0, 0, 1);
+  /* spacing: 0.5em; */
+}
+.workspace-background {
+  padding: 0.5em;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #c8a5ff;
+}
+.workspace-thumbnail {
+  background-color: rgba(10, 10, 10, 1);
+}
+.workspace-thumbnail-indicator {
+  border: 1px solid #c8a5ff;
+}
+
+.search-entry {
+  background-color: rgba(0, 0, 0, 1);
+  border: 1px solid #c8a5ff;
+  border-radius: 0.5em;
+  font-family: "CaskaydiaCove Nerd Font";
+  font-style: italic;
+  font-feature-settings: "ss01";
+}
+.search-entry:focus {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #ee5396;
+  box-shadow: none;
+  outline: none;
+}
+.search-entry:hover {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #ee5396;
+  box-shadow: none;
+  outline: none;
+}
+.search-entry .search-entry-icon {
+  color: #25be6a;
+  font-style: bold;
+}
+.search-entry StLabel.hint-text {
+  color: #444444;
+  font-style: bold;
+}
+
+
+/*--------------------------  SEARCH   ---------------------------*/
+#searchResultsContent StLabel {
+  font-family: "CaskaydiaCove Nerd Font";
+  font-style: italic;
+  font-feature-settings: "ss01";
+}
+.search-section .search-section-separator {
+  background-color: rgba(10, 10, 10, 1);
+  border: 1px solid #c8a5ff;
+  border-radius: 0.5em;
+}
+.search-section-content {
+  background-color: rgba(0, 0, 0, 1);
+}
+.list-search-results {
+  background-color: rgba(0, 0, 0, 1);
+}
+.list-search-result {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+/*--------------------------  DASH   ---------------------------*/
+#dash {
+  color: #c8a5ff;
+  border-radius: 0em;
+  background-color: rgba(0, 0, 50, 1);
+}
+.dash-background {
+  background-color: rgba(0, 40, 0, 1);
+  /* border: 1px solid #78a9ff; */
+  border-radius: 0em;
+}
+.dash-separator {
+  /* background-color: rgba(10, 80, 10, 1); */
+  width: 5px;
+  margin: 10 7px 0.5em;
+}
+#dashtodockContainer .app-well-app-running-dot {
+  background-color: #78a9ff;
+  border: 1px solid black;
+  border-radius: 0em;
+  color: #c8a5ff;
+  width: 1.0em;
+  border-radius: 0.5em;
+}
+#dashtodockContainer StWidget.focused .app-well-app-running-dot {
+  background-color: #50FA7B;
+  transform: rotate(45deg);
+}
+#dashtodockContainer.extended:overview {
+  background-color: #50FA7B;
+  color: #c8a5ff;
+}
+
+
+/*--------------------------  MENU POP UP   ---------------------------*/
+.popup-menu-boxpointer {
+  background-color: rgba(0, 0, 0, 1);
+  /* border: 1px solid #c8a5ff; */
+  /* border-radius: 0.5em; */
+  color: #c8a5ff;
+}
+.popup-menu .popup-menu-item {
+  background-color: rgba(0, 0, 0, 1);
+  /* border: 1px solid #c8a5ff; */
+  /* border-radius: 0.5em; */
+  color: #c8a5ff;
+}
+.popup-menu .popup-menu-content {
+  background-color: rgba(0, 0, 0, 1);
+  border: 1px solid #ee5396;
+  box-shadow: none;
+}
