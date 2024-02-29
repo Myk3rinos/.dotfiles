@@ -88,15 +88,14 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
-        neofetch
-        gnome.gnome-tweaks
-        gnomeExtensions.dash-to-dock
-        amberol
-        neovim
+    # thunderbird
+      neofetch
+      gnome.gnome-tweaks
+      gnomeExtensions.dash-to-dock
+      amberol
+      neovim
 
     ];
-    # ------------------------------------
   };
 
   # Allow unfree packages
@@ -107,47 +106,34 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  vim
   	xdotool
-	yazi
-	nodejs
-	git
-        gitAndTools.gh
-	starship
-        zsh
-        lsd
-        eza
-        fzf
-        ncdu
-        kitty
-        alacritty
-        alacritty-theme
-	catppuccin-gtk
-        nightfox-gtk-theme
-	tokyo-night-gtk
-        orchis-theme
-
-	lazygit
-	htop
-  btop
-  python3
-  gcc_multi
-  tldr
-  whitesur-icon-theme
-  libsForQt5.dolphin
-  luna-icons
-  sweet-folders
-  gnomeExtensions.cpufreq
-  gnomeExtensions.removable-drive-menu
-  gnomeExtensions.caffeine
-
+	  yazi
+	  nodejs
+	  git
+    gitAndTools.gh
+	  starship
+    zsh
+    lsd
+    fzf
+    ncdu
+    kitty
+    catppuccin-gtk
+    nightfox-gtk-theme
+    tokyo-night-gtk
+    orchis-theme
+    lazygit
+    htop
+    btop
+    gcc_multi
+    tldr
+    gnomeExtensions.removable-drive-menu
+    gnomeExtensions.caffeine
  ];
 
 programs.zsh.syntaxHighlighting.enable = true;
 programs.zsh.autosuggestions.enable = true;
 programs.zsh.enable = true;
 programs.starship.enable = true;
-
 users.defaultUserShell = pkgs.zsh;
 
 programs.neovim = {
@@ -160,7 +146,6 @@ fonts.packages = with pkgs; [
   fira-code
   (nerdfonts.override { fonts = [ "FiraCode" "CascadiaCode" ]; })
 ];
-
 
 # services.xserver.videoDrivers = ["nvidia"]; # bug with libinput
 
