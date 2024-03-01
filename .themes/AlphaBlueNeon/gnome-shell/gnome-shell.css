@@ -2,17 +2,19 @@
 /* ----------------- Top Bar ------------------- */
 #panel {
   background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(51, 0, 0, 1); */
   height: 1.86em;
   /* transition: 0.5s ease-in-out; */
   margin: 0.5em;
 }
 
 .panel-button {
-  border: 1px solid #78a9ff;
+  /* border: 1px solid #78a9ff; */
   color: #78a9ff;
   /* color: inherit; */
   border-radius: 0.5em;
   background-color: rgba(0, 0, 0, 1);
+  cursor: hand;
 }
 .panel-button:hover {
   border: 1px solid #ee5396;
@@ -33,6 +35,42 @@
   border: 1px solid #ee5396;
   box-shadow: none;
 }
+/*--------------------------  Test   ---------------------------*/
+.panel-workspace-indicator-box {
+  border: 1px solid red;
+  color: red;
+}
+.system-status-icon {
+  color: #c8a5ff;
+  border: none;
+}
+.popup-menu-button-active {
+  color: yellow;
+ border: 1px solid #ee5396;
+  box-shadow: none; 
+}
+.no-spacing {
+  margin: 10em;
+  padding: 10em;
+  font-family: "CaskaydiaCove Nerd Font";
+  font-style: italic;
+  font-feature-settings: "ss01";
+  color: #ffffff;
+  /* color: #50FA7B; */
+}
+/*   .system-status-icon { */
+/*   color: #50FA7B; */
+/*   border: none; */
+/* } */
+.media-playback-pause-symbolic {
+  color: yellow;
+  border: none;
+}
+#iconPlayPause {
+  color: yellow;
+  border: none;
+}
+/*--------------------------  Test   ---------------------------*/
 /* Clock */
 .panel-button.clock-display {
   font-family: "CaskaydiaCove Nerd Font";
@@ -186,9 +224,19 @@ input[type=button]::-moz-focus-inner {
 }
 
 /*--------------------------  DASH   ---------------------------*/
+#dashtodockContainer.bottom.shrink #dash .dash-background {
+  /* background-color: rgba(0, 0, 0, 1); */
+  /* border: 1px solid #c8a5ff; */
+  border-radius: 0px !important;
+  /* background-size: contain; */
+  
+}
+.dash-item-container {
+  border-radius: 0em;
+}
 #dash {
   color: #c8a5ff;
-  /* border-radius: 0.5em; */
+  border-radius: 0em;
   /* border: 1px solid #78a9ff; */
   /* background-color: rgba(0, 0, 0, 1); */
   /* margin: 1.5em; */
@@ -198,7 +246,7 @@ input[type=button]::-moz-focus-inner {
 .dash-background {
   background-color: rgba(0, 0, 0, 1);
   /* border: 1px solid #78a9ff; */
-  border-radius: 0 !important;
+  border-radius: 0px !important;
   box-shadow: none;
   transform: translateY(5.5em);
 }
