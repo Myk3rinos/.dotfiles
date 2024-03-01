@@ -15,7 +15,7 @@ createSymlinks() {
 }
 
 copieNixosConfig() {
-    if [ -f $1 ] || [ -r $1 ]; then
+    if [ -f $1 ]; then
       # rm /etc/nixos/configuration.nix
       sudo cp configuration.nix /etc/nixos/configuration.nix
         echo "nixos config copied."
