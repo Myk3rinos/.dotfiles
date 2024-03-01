@@ -48,12 +48,12 @@
   # services.xserver.wayland.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager = {
-    xfce.enable = true;
-    xterm.enable = false;
-
-  };
+  # services.xserver.displayManager = {
+  #   xfce.enable = true;
+  #   xterm.enable = false;
+  # };
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -146,11 +146,26 @@
     wayland
     sway
     waybar
+    # dbus   # make dbus-update-activation-environment available in the path
+    # dbus-sway-environment
+    swaylock
+    swayidle
+    # xdg-utils
+
  ];
-
+# services.dbus.enable = true;
+# xdg.portal = {
+#     enable = true;
+#     wlr.enable = true;
+#     # gtk portal needed to make gtk apps happy
+#     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+};
 # hardware.wayland.compositor.enable = true;
-programs.sway.enable = true;
 
+programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 programs.zsh.syntaxHighlighting.enable = true;
 programs.zsh.autosuggestions.enable = true;
 programs.zsh.enable = true;
