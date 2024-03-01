@@ -126,6 +126,7 @@
     gcc_multi
     tldr
     conky
+    gnomeExtensions.media-controls
     gnomeExtensions.extension-list
     gnomeExtensions.removable-drive-menu
     gnomeExtensions.vitals

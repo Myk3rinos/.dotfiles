@@ -10,12 +10,14 @@
 .panel-button {
   border: 1px solid #78a9ff;
   color: #78a9ff;
+  /* color: inherit; */
   border-radius: 0.5em;
   background-color: rgba(0, 0, 0, 1);
 }
 .panel-button:hover {
   border: 1px solid #ee5396;
   box-shadow: none;
+  cursor: pointer;
 }
 .panel-button:active {
   border: 1px solid #ee5396;
@@ -25,11 +27,15 @@
 .workspace-dot {
   background-color: #50FA7B;
   width: 1.0em;
-  border-radius: 0.1em;
+  border-radius: 0.2em;
 }
 #panel:overview #panelActivities.panel-button {
   border: 1px solid #ee5396;
   box-shadow: none;
+}
+
+.panel-button.gnome-shell-extension-prefs {
+  color: #ee5396;
 }
 
 /* Clock */
@@ -37,6 +43,9 @@
   font-family: "CaskaydiaCove Nerd Font";
   font-style: italic;
   font-feature-settings: "ss01";
+}
+.panel-button.clock-display {
+  color: #ffffff;
 }
 .panel-button.clock-display:hover .clock {
   box-shadow: none;

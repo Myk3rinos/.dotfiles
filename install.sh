@@ -49,7 +49,7 @@ createAllSymlink() {
 
 
 setGnomeConfig() {
-    gsettings set org.gnome.desktop.background picture-uri-dark file:///home/will/Images/wallpaper/1.jpg
+    gsettings set org.gnome.desktop.background picture-uri-dark file:///home/will/Images/wallpaper/2.jpg
 
 
     gsettings set org.gnome.desktop.interface gtk-theme "Nightfox-Dusk-BL-LB"
@@ -93,8 +93,13 @@ setGnomeConfig
 gitinit
 
 
-echo "------------------ rebuild nixos ------------------"
-sudo nixos-rebuild switch
+if [ "$HOSTNAME"  = "nixos" ]
+then
+   nixos-rebuild switch --upgrade
+   echo "------------------ nixos rebuild done ------------------"
+else
+    echo $HOSTNAME 
+fi
 
 askForReboot
 echo "------------------ finished ------------------"
