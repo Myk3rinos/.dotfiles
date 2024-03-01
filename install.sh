@@ -49,7 +49,7 @@ createAllSymlink() {
 
 
 setGnomeConfig() {
-    gsettings set org.gnome.desktop.background picture-uri file:///home/will/Images/wallpaper/1.jpg
+    gsettings set org.gnome.desktop.background picture-uri-dark file:///home/will/Images/wallpaper/1.jpg
 
 
     gsettings set org.gnome.desktop.interface gtk-theme "Nightfox-Dusk-BL-LB"
@@ -69,7 +69,7 @@ setGnomeConfig() {
 
     gsettings set org.gnome.shell.extensions.user-theme name "AlphaBlueNeon"
     
-    gsettings set org.gnome.shell favorite-apps "['firefox.desktop','org.gnome.Nautilus.desktop', 'org.gnome.Geary.desktop','org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'io.bassi.Amberol.desktop','kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extenions.desktop']"
+    gsettings set org.gnome.shell favorite-apps "['firefox.desktop','org.gnome.Nautilus.desktop', 'org.gnome.Geary.desktop','org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'io.bassi.Amberol.desktop','kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extensions.desktop']"
 
     # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height 
     echo "------------------ gnome config set ------------------"
@@ -89,8 +89,8 @@ askForReboot() {
 
 copieNixosConfig
 createAllSymlink
-gitinit
 setGnomeConfig
+gitinit
 
 
 echo "------------------ rebuild nixos ------------------"
