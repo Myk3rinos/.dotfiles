@@ -45,6 +45,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  wservices.xserver.wayland.enable = true;
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -139,27 +140,9 @@
     sway
     waybar
  ];
- hardware = {
-    wayland.compositor.enable = true;
-    # Additional packages to install along with Sway.
-    environment.systemPackages = with pkgs; [
-      sway
-      # Add other packages as needed
-    ];
-  };
 
-  # Configure the Sway window manager.
-  programs.sway = {
-    enable = true;
-    extraPackages = with pkgs; [
-      # Additional Sway-related packages
-    ];
-
-    # Sway configuration file
-    config = ''
-      # Add your Sway configuration here
-    '';
-  };
+# hardware.wayland.compositor.enable = true;
+programs.sway.enable = true;
 
 programs.zsh.syntaxHighlighting.enable = true;
 programs.zsh.autosuggestions.enable = true;
