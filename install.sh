@@ -61,17 +61,17 @@ setGnomeConfig() {
     # gsettings set org.gnome.desktop.interface clock-show-date true
 
     gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
-    gsettings set org.gnome.desktop.wm.preferences num-workspaces :4
+    # gsettings set org.gnome.desktop.wm.preferences num-workspaces :4
     gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 
-    gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
-    gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+    # gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+    # gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 
     gsettings set org.gnome.shell.extensions.user-theme name "AlphaBlueNeon"
     
     gsettings set org.gnome.shell favorite-apps "['firefox.desktop','org.gnome.Nautilus.desktop', 'org.gnome.Geary.desktop','org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'io.bassi.Amberol.desktop','kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extenions.desktop']"
 
-    gsettings set org.gnome.shell.extensions.dash-to-dock extend-height 
+    # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height 
     echo "------------------ gnome config set ------------------"
 
 }
