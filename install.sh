@@ -6,8 +6,8 @@ echo "------------------ starting ------------------"
 
 createSymlinks() {
     if [ -f $1 ] || [ -r $1 ]; then # check if file exists
-      rm ~/"$2""$1"
-      ln -s $(pwd)/$1 ~/"$2""$1"
+       rm ~/"$2""$1"
+       ln -s $(pwd)/$1 ~/"$2""$1"
         echo "$1 config linked."
     else
         echo "WARNING: no $1 config found; can't link for now."
@@ -87,7 +87,6 @@ askForReboot() {
     done
 }
 
-copieNixosConfig
 createAllSymlink
 setGnomeConfig
 gitinit
@@ -95,10 +94,12 @@ gitinit
 
 if [ "$HOSTNAME"  = "nixos" ]
 then
-   nixos-rebuild switch --upgrade
+   copieNixosConfig
+   sudo nixos-rebuild switch --upgrade
    echo "------------------ nixos rebuild done ------------------"
+    echo "you have to install $fileToLinkInConfig and $filesToLinkInHome manually." 
 else
-    echo $HOSTNAME 
+    echo "you have to install $fileToLinkInConfig and $filesToLinkInHome manually." 
 fi
 
 askForReboot
