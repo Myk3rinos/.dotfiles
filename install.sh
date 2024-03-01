@@ -47,6 +47,37 @@ createAllSymlink() {
     echo "------------- creation off symlink done -------------" 
 }
 
+
+setGnomeConfig() {
+    gsettings set org.gnome.desktop.background picture-uri file:///home/Images/wallpaper/1.jpg
+
+
+    gsettings set org.gnome.desktop.interface gtk-theme "Nightfox-Dusk-BL-LB"
+    gsettings set org.gnome.desktop.interface icon-theme "Tokyonight-Dark"
+    gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+    gsettings set org.gnome.desktop.interface monospace-font-name "Source Code Pro 10"
+    # gsettings set org.gnome.desktop.interface document-font-name "Sans 12"
+    # gsettings set org.gnome.desktop.interface font-name "Cantarell 12"
+    # gsettings set org.gnome.desktop.interface clock-show-date true
+
+    gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
+    gsettings set org.gnome.desktop.wm.preferences num-workspaces :4
+    gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
+
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+    gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+
+    gsettings set org.gnome.shell.extensions.user-theme name "AlphaBlueNeon"
+    
+    gsettings set org.gnome.shell favorite-apps "['firefox.desktop','org.gnome.Nautilus.desktop', 'org.gnome.Geary.desktop','org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'io.bassi.Amberol.desktop','kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extenions.desktop']"
+
+    gsettings set org.gnome.shell enabled-extensions "['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info']"
+    
+
+    echo "------------------ gnome config set ------------------"
+}
+
+
 askForReboot() {
     echo "Do you want to reboot? (y/n)"
     select yn in "Yes" "No"; do
@@ -60,6 +91,8 @@ askForReboot() {
 copieNixosConfig
 gitinit
 createAllSymlink
+setGnomeConfigi
+
 
 echo "------------------ rebuild nixos ------------------"
 sudo nixos-rebuild switch

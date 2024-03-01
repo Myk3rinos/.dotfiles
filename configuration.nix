@@ -125,8 +125,16 @@
     btop
     gcc_multi
     tldr
+    conky
+    gnomeExtensions.extension-list
     gnomeExtensions.removable-drive-menu
+    gnomeExtensions.vitals
     gnomeExtensions.caffeine
+    gnomeExtensions.tophat
+    gnomeExtensions.impatience
+    gnomeExtensions.top-bar-organizer
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.color-picker
  ];
 
 programs.zsh.syntaxHighlighting.enable = true;

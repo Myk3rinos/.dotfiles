@@ -56,7 +56,7 @@ syntect_theme = "~/.config/yazi/CatppuccinMocha.tmTheme"
 # separator_open  = ""
 separator_open  = ""
 # separator_close = ""
-separator_close = ""
+separator_close = "  "
 # separator_close = ""
 # separator_style = { fg = "#44475A", bg = "#44475A" }
 separator_style = { fg = "#50FA7B", bg = "#000000" }
@@ -183,7 +183,10 @@ rules = [
 	{ mime = "application/vnd.*", fg = "green" },
 
 	# Fallback
+	{ name = ".*", fg = "gray" },
 	{ name = "*", fg = "#f2f4f8" },
+	{ name = ".config/", fg = "green" },
+	{ name = ".*/", fg = "blue" },
 	{ name = "*/", fg = "#78a9ff" }
 ]
 
@@ -336,7 +339,7 @@ rules = [
 	{ name = "Videos/"     , text = "" },
 	
 	# Default
-	{ name = "*" , text = "" },
+	# { name = "*" , text = "" },
 	# { name = "*/", text = "" },
 ]
 
