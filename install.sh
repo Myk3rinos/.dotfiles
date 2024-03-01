@@ -49,7 +49,7 @@ createAllSymlink() {
 
 
 setGnomeConfig() {
-    gsettings set org.gnome.desktop.background picture-uri file:///home/Images/wallpaper/1.jpg
+    gsettings set org.gnome.desktop.background picture-uri file:///home/will/Images/wallpaper/1.jpg
 
 
     gsettings set org.gnome.desktop.interface gtk-theme "Nightfox-Dusk-BL-LB"
@@ -71,10 +71,9 @@ setGnomeConfig() {
     
     gsettings set org.gnome.shell favorite-apps "['firefox.desktop','org.gnome.Nautilus.desktop', 'org.gnome.Geary.desktop','org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'io.bassi.Amberol.desktop','kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extenions.desktop']"
 
-    gsettings set org.gnome.shell enabled-extensions "['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info']"
-    
-
+    gsettings set org.gnome.shell.extensions.dash-to-dock extend-height 
     echo "------------------ gnome config set ------------------"
+
 }
 
 
