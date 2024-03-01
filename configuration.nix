@@ -126,7 +126,7 @@
     gcc_multi
     tldr
     conky
-    # gnomeExtensions.media-controls
+    gnomeExtensions.media-controls
     gnomeExtensions.extension-list
     gnomeExtensions.removable-drive-menu
     gnomeExtensions.vitals
@@ -135,7 +135,31 @@
     gnomeExtensions.top-bar-organizer
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.color-picker
+
+    sway
+    waybar
  ];
+ hardware = {
+    wayland.compositor.enable = true;
+    # Additional packages to install along with Sway.
+    environment.systemPackages = with pkgs; [
+      sway
+      # Add other packages as needed
+    ];
+  };
+
+  # Configure the Sway window manager.
+  programs.sway = {
+    enable = true;
+    extraPackages = with pkgs; [
+      # Additional Sway-related packages
+    ];
+
+    # Sway configuration file
+    config = ''
+      # Add your Sway configuration here
+    '';
+  };
 
 programs.zsh.syntaxHighlighting.enable = true;
 programs.zsh.autosuggestions.enable = true;

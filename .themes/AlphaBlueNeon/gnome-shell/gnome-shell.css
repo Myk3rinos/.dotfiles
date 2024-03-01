@@ -33,18 +33,13 @@
   border: 1px solid #ee5396;
   box-shadow: none;
 }
-
-.panel-button.gnome-shell-extension-prefs {
-  color: #ee5396;
-}
-
 /* Clock */
 .panel-button.clock-display {
   font-family: "CaskaydiaCove Nerd Font";
   font-style: italic;
   font-feature-settings: "ss01";
 }
-.panel-button.clock-display {
+.clock {
   color: #ffffff;
 }
 .panel-button.clock-display:hover .clock {

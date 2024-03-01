@@ -29,9 +29,8 @@ gitinit() {
     echo "Do you want to connect to your github? (y/n)"
     select yn in "Yes" "No"; do
         case $yn in
-            # No ) exit;;
             Yes ) gh auth login; break;;
-            No ) break;;
+            No ) break;; #exit;;
         esac
     done
 }
@@ -49,7 +48,7 @@ createAllSymlink() {
 
 
 setGnomeConfig() {
-    gsettings set org.gnome.desktop.background picture-uri-dark file:///home/will/Images/wallpaper/2.jpg
+    gsettings set org.gnome.desktop.background picture-uri-dark file:///home/"$USER"/Images/wallpaper/2.jpg
 
 
     gsettings set org.gnome.desktop.interface gtk-theme "Nightfox-Dusk-BL-LB"
@@ -97,9 +96,8 @@ then
    copieNixosConfig
    sudo nixos-rebuild switch --upgrade
    echo "------------------ nixos rebuild done ------------------"
-    echo "you have to install $fileToLinkInConfig and $filesToLinkInHome manually." 
 else
-    echo "you have to install $fileToLinkInConfig and $filesToLinkInHome manually." 
+    echo "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
 fi
 
 askForReboot
