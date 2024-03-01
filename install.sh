@@ -88,9 +88,9 @@ askForReboot() {
 }
 
 copieNixosConfig
-gitinit
 createAllSymlink
-setGnomeConfigi
+gitinit
+setGnomeConfig
 
 
 echo "------------------ rebuild nixos ------------------"
