@@ -134,8 +134,7 @@
     gnomeExtensions.top-bar-organizer
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.color-picker
-
-
+    gnomeExtensions.desk-changer
  ];
 
 programs.zsh.syntaxHighlighting.enable = true;
