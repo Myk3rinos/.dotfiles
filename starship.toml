@@ -128,10 +128,13 @@ when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
 # when = "[[ $(git branch -a) == *'remotes/origin/${git branch --show-current}'* ]]"
 command = "git remote -v | head -c 1"
 style = "060"
-format = "[$output  ]($style)"
+# format = "[$output  ]($style)"
 # format = "[$output 󰌗 ]($style)"
 # format = "[$output 󰽜 ]($style)"
 #  format = "[$output ]($style)"
+#  format = "[$output ]($style)"
+ format = "[$output ]($style)"
+
 
 [git_status]
 format = '([$all_status$ahead_behind]($style))'
