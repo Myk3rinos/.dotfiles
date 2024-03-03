@@ -48,8 +48,19 @@ createAllSymlink() {
 
 
 setGnomeConfig() {
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.background picture-uri-dark file:///home/"$USER"/Images/wallpaper/2.jpg
 
+    gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+    gsettings set org.gnome.desktop.peripherals.touchpad click-method 'fingers'
+    gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click false
+    gsettings set org.gnome.desktop.peripherals.touchpad speed 0.238
+    gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
+
+    gsettings set org.gnome.mutter dynamic-workspaces true
+    gsettings set org.gnome.mutter edge-tiling true
+    gsettings set org.gnome.mutter workspaces-only-on-primary false
+    gsettings set org.gnome.mutter attach-modal-dialogs false
 
     gsettings set org.gnome.desktop.interface gtk-theme "Nightfox-Dusk-BL-LB"
     gsettings set org.gnome.desktop.interface icon-theme "Tokyonight-Dark"
@@ -68,13 +79,18 @@ setGnomeConfig() {
 
     gsettings set org.gnome.shell.extensions.user-theme name "AlphaBlueNeon"
     
-    gsettings set org.gnome.shell favorite-apps "['firefox.desktop','org.gnome.Nautilus.desktop', 'org.gnome.Geary.desktop','org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'io.bassi.Amberol.desktop','kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extensions.desktop']"
+    gsettings set org.gnome.shell enabled-extensions "['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info', 'clipboard-indicator@tudmotu.com', 'extension-list@tu.berry', 'color-picker@tuberry', 'top-bar-organizer@julian.gse.jsts.xyz', 'Vitals@CoreCoding.com', 'mediacontrols@cliffniff.github.com', 'desk-changer@eric.gach.gmail.com']"
 
+    gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Geary.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Music.desktop', 'kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extensions.desktop']"
     # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height 
     echo "------------------ gnome config set ------------------"
 
 }
 
+cpMozilla() {
+    echo "------------------ cp mozilla ------------------"
+    sudo cp -r ~/.mozilla/firefox/ ~/Documents/mozilla/
+}
 
 askForReboot() {
     echo "Do you want to reboot? (y/n)"
@@ -88,6 +104,7 @@ askForReboot() {
 
 createAllSymlink
 setGnomeConfig
+cpMozilla
 gitinit
 
 

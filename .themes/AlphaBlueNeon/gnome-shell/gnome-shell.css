@@ -7,12 +7,20 @@
   background-color: rgba(0, 0, 0, 0);
   height: 1.86em;
   margin: 0.5em;
+  
+  transition-duration: 250ms;
+  margin: 5px 22px 0 22px;
 }
 .panel-button {
   color: #d7d7ff;
   border-radius: 0.5em;
   background-color: rgba(0, 0, 0, 1);
   transition-duration: 0.5s;
+
+  -natural-hpadding: 12px;
+  -minimum-hpadding: 6px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .panel-button:hover {
   box-shadow: none;
@@ -53,24 +61,11 @@
 }
 
 
-/* #panel .controls-manager { */
-/*   background-color: #ffffff; */
-/*   width: 1.0em; */
-/*   border-radius: 0.2em; */
-/*   color: red; */
-/* } */
-/* #panel .panel-button .appindicator-trayicons-box { */
-/*   color: #50FA7B; */
-/*   box-shadow: none; */
-/* } */
-
-
 /* ------- Panel Corner ------- */
 .quick-settings-grid > * {
   background-color: rgba(0, 0, 0, 1);
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
   spacing-rows: 0em;
   spacing-columns: 0em;
   padding: 0.0em;
@@ -82,65 +77,45 @@
   background-color: rgba(0, 0, 0, 1);
   border-radius: 0.5em;
   color: #e5e5e5;
-  box-shadow: none;
 }
 .quick-settings .icon-button:hover {
   background-color: #282a36;
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
 }
 .quick-settings .icon-button:active {
   background-color: #282a36;
   border-radius: 0.5em;
   color: #50FA7B;
-  box-shadow: none;
 }
 .quick-menu-toggle {
   background-color: rgba(0, 0, 0, 1);
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
 }
 .quick-toggle {
-  /* background-color: rgba(50, 0, 0, 1); */
   background-color: rgba(0, 0, 0, 1);
   border-radius: 0.5em;
   color: #e5e5e5;
-  box-shadow: none;
 }
 .quick-toggle:hover {
-  /* background-color: rgba(50, 0, 0, 1); */
   background-color: #282a36;
   border-radius: 0.5em;
   color: #e5e5e5;
-  box-shadow: none;
 }
 .quick-toggle:checked .quick-toggle-icon{
-  /* background-color: rgba(50, 0, 0, 1); */
-  /* background-color: #282a36; */
-  /* border-radius: 0.5em; */
   color: #50FA7B;
-  box-shadow: none;
 }
 .quick-toggle:checked {
   background-color: rgba(0, 0, 0, 1);
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
 }
 .quick-toggle:checked:hover {
   background-color: #282a36;
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
 }
-/* .quick-toggle > StBoxLayout { */
-/*   padding: 0.0em; */
-/*   margin: 0.0em; */
-/*   max-height: 1.0em; */
-/*   max-width: 1.0em; */
-/* } */
 .quick-menu-toggle {
   background-color: rgba(0, 0, 0, 1);
   border-radius: 0em;
@@ -148,15 +123,11 @@
   box-shadow: none;
   padding: 0.0em;
   margin: 0.0em;
-  box-shadow: none;
-  outline: none;
-  border: none;
 }
 .quick-menu-toggle .quick-toggle-arrow {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: transparent;
   border-radius: 0em;
   color: #c8a5ff;
-  box-shadow: none;
   padding: 0.0em;
   margin: 0.0em;
   outline: none;
@@ -165,21 +136,18 @@
 .quick-menu-toggle .quick-toggle-arrow:checked,
 .quick-menu-toggle .quick-toggle-arrow:hover,
 .quick-menu-toggle .quick-toggle-arrow:hover {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: transparent;
   border-radius: 0em;
-  color: #c8a5ff;
-  box-shadow: none;
+  color: #50FA7B;
   padding: 0.0em;
   margin: 0.0em;
   box-shadow: none;
   outline: none;
-  border: none;
 }
 .quick-toggle-menu {
   background-color: rgba(0, 0, 0, 1) !important;
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
   padding: 0.0em;
   margin: 0.0em;
 }
@@ -189,17 +157,11 @@
   background-color: rgba(0, 0, 0, 1) !important;
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
-  /* padding: 0.0em; */
-  /* margin: 0.0em; */
 }
 .quick-toggle-menu .header {
   background-color: rgba(0, 0, 0, 1) !important;
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
-  /* padding: 0.0em; */
-  /* margin: 0.0em; */
   font-family: "CaskaydiaCove Nerd Font";
   font-style: italic;
   font-feature-settings: "ss01";
@@ -209,32 +171,22 @@
   background-color: rgba(0, 0, 0, 1) !important;
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
-  /* padding: 0.0em; */
-  /* margin: 0.0em; */
 }
 .quick-toggle-menu .header .icon.active {
   background-color: rgba(0, 0, 0, 1) !important;
   border-radius: 0.5em;
   color: #50FA7B;
-  box-shadow: none;
-  /* padding: 0.0em; */
-  /* margin: 0.0em; */
 }
 #overview-controls {
   background-color: rgba(0, 0, 0, 1);
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
 }
 
 .quick-settings-system-item .power-item {
   background-color: rgba(0, 0, 0, 1) !important;
   border-radius: 0.5em;
   color: #c8a5ff;
-  box-shadow: none;
-  /* padding: 0.0em; */
-  /* margin: 0.0em; */
 }
 
 /*--------------------------  Test   ---------------------------*/
