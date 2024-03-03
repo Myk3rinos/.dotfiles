@@ -81,7 +81,7 @@ setGnomeConfig() {
     
     gsettings set org.gnome.shell enabled-extensions "['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info', 'clipboard-indicator@tudmotu.com', 'extension-list@tu.berry', 'color-picker@tuberry', 'top-bar-organizer@julian.gse.jsts.xyz', 'Vitals@CoreCoding.com', 'mediacontrols@cliffniff.github.com', 'desk-changer@eric.gach.gmail.com']"
 
-    gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Geary.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Music.desktop', 'kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extensions.desktop']"
+    gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Geary.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Music.desktop', 'kitty.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Extensions.desktop']"
     # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height 
     echo "------------------ gnome config set ------------------"
 
@@ -89,7 +89,7 @@ setGnomeConfig() {
 
 cpMozilla() {
     echo "------------------ cp mozilla ------------------"
-    sudo cp -r ~/.mozilla/firefox/ ~/Documents/mozilla/
+    cp -r ~~/.mozilla/firefox/ /Documents/firefox/
 }
 
 askForReboot() {

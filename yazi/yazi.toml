@@ -32,7 +32,10 @@ edit = [
 open = [
 	{ exec = 'xdg-open "$@"',                desc = "Open", for = "linux" },
 	{ exec = 'open "$@"',                    desc = "Open", for = "macos" },
-	{ exec = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" }
+	{ exec = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+  
+	{ exec = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
+	# { exec = 'cd $pwd', orphan = true, desc = "Go to directory", for = "linux" },
 ]
 reveal = [
 	{ exec = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
@@ -44,11 +47,14 @@ extract = [
 	{ exec = 'unar "%1"', desc = "Extract here", for = "windows" },
 ]
 play = [
-	{ exec = 'amberol "$@"', orphan = true, for = "unix" },
+	{ exec = 'rhythmbox "$@"', orphan = true, for = "unix" },
+	# { exec = 'amberol "$@"', orphan = true, for = "unix" },
   { exec = 'sushi "$@"', orphan = true, for = "unix", desc = "sushi"},
 	# { exec = 'mpv "$@"', orphan = true, for = "unix" },
 	{ exec = 'mpv "%1"', orphan = true, for = "windows" },
-	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+	# { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+	# { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+	{ exec = 'stat "$@"', block = true, desc = "Show media info", for = "unix" },
 ]
 
 [open]

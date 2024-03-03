@@ -16,7 +16,7 @@ alias gmerge="git merge"
 
 
 alias v="nvim"
-alias y="yazi"
+# alias y="yazi"
 alias n="neofetch"
 alias c="clear"
 
@@ -31,7 +31,15 @@ alias "ls -la"="lsd -la"
 
 alias nixrs="sudo nixos-rebuild switch"
 
-# eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship.toml
 
 # alias n="neofetch --ascii .config/neofetch/asciiNix.txt"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
