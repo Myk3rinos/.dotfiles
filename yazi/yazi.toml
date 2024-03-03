@@ -28,6 +28,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 edit = [
 	{ exec = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
 	{ exec = 'code "%*"',          orphan = true, for = "windows" },
+  { exec = 'bash "$@"', desc = "Execute", for = "unix" },
 ]
 open = [
 	{ exec = 'xdg-open "$@"',                desc = "Open", for = "linux" },
@@ -36,6 +37,7 @@ open = [
   
 	{ exec = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
 	# { exec = 'cd $pwd', orphan = true, desc = "Go to directory", for = "linux" },
+  { exec = 'bash "$@"', desc = "Execute", for = "unix" },
 ]
 reveal = [
 	{ exec = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
@@ -56,6 +58,9 @@ play = [
 	# { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 	{ exec = 'stat "$@"', block = true, desc = "Show media info", for = "unix" },
 ]
+# setwall = [
+#   { exec = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
+# ]
 
 [open]
 rules = [
@@ -79,7 +84,10 @@ rules = [
 	{ mime = "application/x-rar",           use = [ "extract", "reveal" ] },
 	{ mime = "application/xz",              use = [ "extract", "reveal" ] },
 
-	{ mime = "*", use = [ "open", "reveal" ] },
+	# { mime = "*", use = [ "open", "reveal" ] },
+	
+  # { mime = "*.sh", use = [ "open", "reveal" ] },
+  # { mime = "*.jpg", use = [ "open", "setwall" ] },
 ]
 
 [tasks]

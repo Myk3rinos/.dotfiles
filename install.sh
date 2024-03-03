@@ -49,7 +49,7 @@ createAllSymlink() {
 
 setGnomeConfig() {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    gsettings set org.gnome.desktop.background picture-uri-dark file:///home/"$USER"/Images/wallpaper/2.jpg
+    gsettings set org.gnome.desktop.background picture-uri-dark file:///home/"$USER"/Images/wallpapers/2.jpg
 
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
     gsettings set org.gnome.desktop.peripherals.touchpad click-method 'fingers'
@@ -89,7 +89,7 @@ setGnomeConfig() {
 
 cpMozilla() {
     echo "------------------ cp mozilla ------------------"
-    cp -r ~~/.mozilla/firefox/ /Documents/firefox/
+    cp -r ~/.mozilla/firefox/ ~/Documents/firefox/
 }
 
 askForReboot() {
