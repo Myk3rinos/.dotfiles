@@ -137,7 +137,6 @@
     gnomeExtensions.freon
     undervolt
     mangohud
-    gnomeExtensions.add-shutdown-button-2204-lts
     gnomeExtensions.app-menu-is-back
     gnomeExtensions.forge
     cron
