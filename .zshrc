@@ -1,10 +1,10 @@
 ## git aliases
-alias ginit="git init ."
-alias gadd="git add ."
+alias gi="git init ."
+alias ga="git add ."
 alias gc="git commit -m 'Initial Commit'"
 
-alias gpush="git push"
-alias gpull="git pull"
+alias gp="git push"
+alias gpl="git pull"
 alias gclone="git clone"
 
 alias gstatus="git status"
@@ -15,17 +15,17 @@ alias gbranch="git branch"
 alias gmerge="git merge"
 
 
-alias v="nvim"
-# alias y="yazi"
-alias n="neofetch"
+alias v="clear ; nvim"
+alias bt="clear ; btop"
+alias n="clear ; neofetch"
 alias c="clear"
 
-alias ".."="cd .."
-alias ls="lsd"
-alias "ls -a"="lsd -a"
-alias "ls -l"="lsd -l"
-alias "ls -la"="lsd -la"
-
+alias ".."="clear ; cd .. "
+alias ls="clear ; lsd"
+alias lsa="clear ; lsd -a"
+alias lsl="clear ; lsd -l"
+alias lsla="clear ; lsd -la"
+alias lst="clear ; ls --tree ."
 
 
 
@@ -33,9 +33,9 @@ alias nixrs="sudo nixos-rebuild switch"
 
 export STARSHIP_CONFIG=~/.config/starship.toml
 
-# alias n="neofetch --ascii .config/neofetch/asciiNix.txt"
-
+# yazi
 function y() {
+  clear
 	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
@@ -43,3 +43,10 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+function cd() {
+  clear
+  builtin cd "$@" #&& ls
+}
+
+# echo "Welcome to the terminal"

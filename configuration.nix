@@ -131,10 +131,15 @@
     gnomeExtensions.removable-drive-menu
     gnomeExtensions.vitals
     gnomeExtensions.caffeine
-    gnomeExtensions.tophat
     gnomeExtensions.top-bar-organizer
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.color-picker
+    gnomeExtensions.freon
+    undervolt
+    mangohud
+    gnomeExtensions.add-shutdown-button-2204-lts
+    gnomeExtensions.app-menu-is-back
+    gnomeExtensions.forge
  ];
 
 programs.zsh.syntaxHighlighting.enable = true;
@@ -146,6 +151,18 @@ users.defaultUserShell = pkgs.zsh;
 programs.neovim = {
 	enable = true;
 	defaultEditor = true;
+};
+systemd.user.services.startOnDesktop = {
+  enable = true;
+  description = "start nixos on desktop";
+  # serviceConfig.PassEnvironment = "DISPLAY";
+  script = ''
+    # /home/will/.dotfiles/lunch.sh
+    xdotool set_desktop 1
+    btop
+  '';
+  wantedBy = [ "multi-user.target" ]; # starts after login
+  partOf = [ "graphical-session.target" ];
 };
 # ------------------------------------------------------
 fonts.packages = with pkgs; [

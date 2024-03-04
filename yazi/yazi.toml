@@ -87,7 +87,8 @@ rules = [
 	# { mime = "*", use = [ "open", "reveal" ] },
 	
   # { mime = "*.sh", use = [ "open", "reveal" ] },
-  # { mime = "*.jpg", use = [ "open", "setwall" ] },
+  { name = "*.jpg", use = [ "open", "setwall" ] },
+  { name = "*.xz", use = [ "open", "extract" ] },
 ]
 
 [tasks]

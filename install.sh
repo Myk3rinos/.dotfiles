@@ -1,6 +1,6 @@
 
 filesToLinkInHome=(.zshrc .themes)
-filesToLinkInConfig=( yazi kitty btop nvim neofetch starship.toml)
+filesToLinkInConfig=( yazi kitty conky btop nvim neofetch starship.toml)
 
 echo "------------------ starting ------------------"
 
@@ -50,7 +50,7 @@ createAllSymlink() {
 
 cpMozilla() {
     echo "------------------ cp mozilla ------------------"
-    cp -r ~/.mozilla/firefox/ ~/Documents/firefox/
+    cp -r ~/Documents/firefox/ ~/.mozilla/firefox/
 }
 gitinit() { 
     echo "Do you want to connect to your github? (y/n)"

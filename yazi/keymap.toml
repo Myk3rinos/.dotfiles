@@ -1,12 +1,16 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+[[manager.prepend_keymap]]
+on   = [ "<C-s>" ]
+exec = 'shell "$SHELL" --block --confirm'
+desc = "Open shell here"
 
 [manager]
 
 keymap = [
   # Custom
-  # { on = [ "T" ], exec = "plugin --sync max-preview" },
+  { on = [ "T" ], exec = "plugin test --sync --args='hello'" },
   # { on = [ "T" ], exec = "plugin --sync hide-preview" },
   # { on = [ "<C-t>" ], exec = "plugin glow" },
   # { on = [ "W" ], exec = "shell --confirm 'gsettings org.gnome.desktop.background picture-uri-dark file:///home/will/Images/wallpaper/1.jpg'" },
