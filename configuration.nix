@@ -164,10 +164,10 @@ programs.neovim = {
 #   wantedBy = [ "multi-user.target" ]; # starts after login
 #   partOf = [ "graphical-session.target" ];
 # };
-programs.bash.loginShellInit = ‘’
+programs.bash.loginShellInit = ''
   # barrierc --debug INFO --name m5 --restart --log /tmp/barrier.log --no-tray --daemon [192.168.88.100]:24800
   xdotool set_desktop 1
-‘’;
+'';
 # ------------------------------------------------------
 fonts.packages = with pkgs; [
   cascadia-code
