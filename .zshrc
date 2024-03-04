@@ -50,3 +50,4 @@ function cd() {
 }
 
 # echo "Welcome to the terminal"
+# xdotool set_desktop 1
