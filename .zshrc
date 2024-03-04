@@ -50,4 +50,40 @@ function cd() {
 }
 
 # echo "Welcome to the terminal"
-# xdotool set_desktop 1
+
+if [ -e $HOME/.logon_script_done ]
+then
+ # echo "No actions to do"
+else
+ xdotool set_desktop 1
+ v
+fi
+if [ -e $HOME/.logon_script_done ]
+then
+ # echo "No actions to do"
+else
+ # echo "First run of the script. Performing some actions" >> $HOME/run-once.txt
+ xdotool set_desktop 1
+ touch $HOME/.logon_script_done
+fi
+
+function rb() {
+ if [ -e $HOME/.logon_script_done ]
+  then
+    rm $HOME/.logon_script_done
+    shutdown -r now
+   echo "Remove logon script done. Shutting down"
+  else
+    shutdown -r now
+  fi
+}
+function sd() {
+ if [ -e $HOME/.logon_script_done ]
+  then
+    rm $HOME/.logon_script_done
+    shutdown -h now
+   echo "Remove logon script done. Shutting down"
+  else
+    shutdown -h now
+  fi
+}

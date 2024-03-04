@@ -139,7 +139,6 @@
     mangohud
     gnomeExtensions.app-menu-is-back
     gnomeExtensions.forge
-    cron
  ];
 
 programs.zsh.syntaxHighlighting.enable = true;
