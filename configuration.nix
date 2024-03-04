@@ -139,6 +139,7 @@
     mangohud
     gnomeExtensions.app-menu-is-back
     gnomeExtensions.forge
+    keymapper
  ];
 
 programs.zsh.syntaxHighlighting.enable = true;
