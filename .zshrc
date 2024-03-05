@@ -51,13 +51,13 @@ function cd() {
 
 # echo "Welcome to the terminal"
 
-if [ -e $HOME/.logon_script_done ]
-then
- # echo "No actions to do"
-else
- xdotool set_desktop 1
- v
-fi
+# if [ -e $HOME/.logon_script_done ]
+# then
+#  # echo "No actions to do"
+# else
+#  xdotool set_desktop 1
+#  v
+# fi
 if [ -e $HOME/.logon_script_done ]
 then
  # echo "No actions to do"

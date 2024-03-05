@@ -139,8 +139,9 @@
     mangohud
     gnomeExtensions.app-menu-is-back
     gnomeExtensions.forge
-    keymapper
- ];
+    apfs-fuse
+];
+
 
 programs.zsh.syntaxHighlighting.enable = true;
 programs.zsh.autosuggestions.enable = true;
