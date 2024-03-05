@@ -27,7 +27,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 [opener]
 edit = [
 	{ exec = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-	{ exec = 'kitty ${EDITOR:=vi} "$@"', desc = 'new window ${EDITOR}', block = true, for = "unix" },
+	{ exec = 'kitty --config /home/will/.config/kitty/kitty_n.conf ${EDITOR:=vi} "$@"', desc = 'new window ${EDITOR}', block = true, for = "unix" },
 	{ exec = 'code "%*"',          orphan = true, for = "windows" },
   { exec = 'bash "$@"', desc = "Execute", for = "unix" },
 ]
