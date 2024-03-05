@@ -61,4 +61,4 @@ name='kitty big'
 [custom9]
 binding='<Alt><Super>Return'
 command='kitty --config /home/will/.config/kitty/kitty_n.conf'
-name='kittyEnter'
+name='kittyEnterr'

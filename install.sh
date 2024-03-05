@@ -52,6 +52,10 @@ cpMozilla() {
     echo "------------------ cp mozilla ------------------"
     cp -r ~/Documents/firefox/ ~/.mozilla/firefox/
 }
+cpKeybinding() {
+    echo "------------------ cp keybinding ------------------"
+    cat custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
+}
 gitinit() { 
     echo "Do you want to connect to your github? (y/n)"
     select yn in "Yes" "No"; do
@@ -76,6 +80,7 @@ askForReboot() {
 
 createAllSymlink
 cpMozilla
+cpKeybinding
 gitinit
 askForReboot
 
