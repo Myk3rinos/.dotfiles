@@ -23,8 +23,8 @@ return {
         {text = "󰌵", texthl = "DiagnosticSignHint"})
 
 
-
       require("neo-tree").setup({
+        
         window = {
           width = 30,
           mappings = {

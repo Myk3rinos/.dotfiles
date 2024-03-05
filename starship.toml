@@ -78,9 +78,9 @@ format = " [$path]($style)[$read_only]($read_only_style) "
 
 [directory.substitutions]
 "Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+"Téléchargements" = " "
+"Musique" = " "
+"Images" = " "
 
 # ------------ fill ------------
 [fill]

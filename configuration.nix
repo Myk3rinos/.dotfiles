@@ -139,7 +139,8 @@
     mangohud
     gnomeExtensions.app-menu-is-back
     gnomeExtensions.forge
-    apfs-fuse
+    vault
+    gocryptfs
 ];
 
 

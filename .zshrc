@@ -48,7 +48,10 @@ function cd() {
   clear
   builtin cd "$@" #&& ls
 }
-
+function cdh() {
+  clear
+  builtin cd ~ "$@" #&& ls
+}
 # echo "Welcome to the terminal"
 
 # if [ -e $HOME/.logon_script_done ]
