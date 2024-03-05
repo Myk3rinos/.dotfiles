@@ -27,6 +27,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 [opener]
 edit = [
 	{ exec = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	{ exec = 'kitty ${EDITOR:=vi} "$@"', desc = 'new window ${EDITOR}', block = true, for = "unix" },
 	{ exec = 'code "%*"',          orphan = true, for = "windows" },
   { exec = 'bash "$@"', desc = "Execute", for = "unix" },
 ]
@@ -42,7 +43,7 @@ open = [
 reveal = [
 	{ exec = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
 	{ exec = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
-	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
+	# { exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
 	{ exec = 'unar "$1"', desc = "Extract here", for = "unix" },
