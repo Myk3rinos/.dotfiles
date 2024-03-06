@@ -2,8 +2,6 @@
 
 # ----------------- Mounting and unmounting encrypted drives -----------------
 mountSecret () {
-#   mkdir /tmp/files
-#   gocryptfs user-secret-stuff /tmp/files
   echo " ----------------- Mounting encrypted drives -----------------"
   if [ -z "$1" ]
   then
@@ -26,8 +24,6 @@ mountSecret () {
 }
 
 unmountSecret () {
-#   fusermount -u /tmp/files
-#   rm -d /tmp/files
   echo " ----------------- Unmounting encrypted drives -----------------"
   if [ -z "$1" ]
   then
@@ -45,18 +41,11 @@ unmountSecret () {
 }
 
 createSecret () {
-  # mkdir user-secret-stuff
-  # gocryptfs -init user-secret-stuff
-  echo " ----------------- Create encrypted drives -----------------"
-  # if [ -z "$1" ]
-  # then
-    # echo "Argument directory missing"
-  # else
+  echo " ----------------- Create encrypted directory -----------------"
   printf "%s" "Enter directory name: "
   read dirname
   echo "Creating directory: $dirname"
   mkdir "${dirname}"
   gocryptfs -init $dirname
-  # fi
 }
 

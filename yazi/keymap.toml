@@ -15,7 +15,9 @@ keymap = [
   # { on = [ "<C-t>" ], exec = "plugin glow" },
   # { on = [ "W" ], exec = "shell --confirm 'gsettings org.gnome.desktop.background picture-uri-dark file:///home/will/Images/wallpaper/1.jpg'" },
   { on = [ "W" ], exec = "shell --confirm 'gsettings set org.gnome.desktop.background picture-uri-dark file://$@'" },
-	{ on = [ "<Space>" ], exec = "shell --confirm 'sushi $@'", desc = "Toggle sushi preview the current selection state" },
+	# { on = [ "<Space>" ], exec = "shell --confirm 'sushi $@'", desc = "Toggle sushi preview the current selection state" },
+	{ on = [ "<Space>" ], exec = "shell --confirm '~/.dotfiles/script/sushiInYazi.sh $@'", desc = "Toggle sushi preview the current selection state" },
+	# { on = [ "<Space>" ], exec = 'shell --confirm "s=${@// /\\ } ; sushi $s"', desc = "Toggle sushi preview the current selection state" },
 	{ on = [ "R" ], exec = "shell --confirm 'mv $@ $@'", desc = "Rename all for reading" },
 	{ on = [ "O" ], exec = "shell --confirm 'kitty --config /home/will/.config/kitty/kitty_n.conf ${EDITOR:=vi} $@'", desc = "Open files in new os window" },
 
