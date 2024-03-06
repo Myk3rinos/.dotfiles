@@ -48,11 +48,15 @@ createSecret () {
   # mkdir user-secret-stuff
   # gocryptfs -init user-secret-stuff
   echo " ----------------- Create encrypted drives -----------------"
-  if [ -z "$1" ]
-  then
-    echo "Argument directory missing"
-  else
-    gocryptfs -init "$(pwd)/$1"
-  fi
+  # if [ -z "$1" ]
+  # then
+    # echo "Argument directory missing"
+  # else
+  printf "%s" "Enter directory name: "
+  read dirname
+  echo "Creating directory: $dirname"
+  mkdir "${dirname}"
+  gocryptfs -init $dirname
+  # fi
 }
 
