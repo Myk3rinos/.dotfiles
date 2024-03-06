@@ -1,3 +1,4 @@
+source $HOME/.dotfiles/script/gocrypt.sh
 ## git aliases
 alias gi="git init ."
 alias ga="git add ."
@@ -61,6 +62,7 @@ function cdh() {
 #  xdotool set_desktop 1
 #  v
 # fi
+# ----------------- First run of the script. Performing some actions -----------------
 if [ -e $HOME/.logon_script_done ]
 then
  # echo "No actions to do"
@@ -70,6 +72,7 @@ else
  touch $HOME/.logon_script_done
 fi
 
+# ----------------- Shutdown and reboot -----------------
 function rb() {
  if [ -e $HOME/.logon_script_done ]
   then
@@ -89,4 +92,56 @@ function sd() {
   else
     shutdown -h now
   fi
+}
+
+# ----------------- Mounting and unmounting encrypted drives -----------------
+function ms() {
+  mountSecret "$1"
+  # echo " ----------------- Mounting encrypted drives -----------------"
+  # if [ -z "$1" ]
+  # then
+  #   echo "Argument directory missing"
+  # else
+  #   if [ -e tmp/"$1" ]
+  #     then
+  #       fusermount -u /tmp/"$1"
+  #       rm -d /tmp/"$1"
+  #       mkdir /tmp/"$1"
+  #       gocryptfs "$(pwd)/$1" /tmp/"$1"
+  #       echo "Remove and create mnt done"
+  #     else
+  #       mkdir /tmp/"$1"
+  #       gocryptfs "$(pwd)/$1" /tmp/"$1"
+  #       echo "-- Mount done --"
+  #       cd /tmp/"$1"
+  #   fi
+  # fi
+}
+function us() {
+  unmountSecret "$1"
+  # echo " ----------------- Unmounting encrypted drives -----------------"
+  # if [ -z "$1" ]
+  # then
+  #   echo "Argument directory missing"
+  # else
+  #   if [ -e /tmp/"$1" ]
+  #     then
+  #       fusermount -u /tmp/"$1"
+  #       rm -d /tmp/"$1"
+  #       echo " -- Unmount done --"
+  #     else
+  #       echo "No Directory to unmount"
+  #   fi
+  # fi
+}
+
+function cs() {
+  createSecret "$1"
+  # echo " ----------------- Create encrypted drives -----------------"
+  # if [ -z "$1" ]
+  # then
+  #   echo "Argument directory missing"
+  # else
+  #   gocryptfs -init "$(pwd)/$1"
+  # fi
 }

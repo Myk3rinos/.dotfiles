@@ -139,8 +139,17 @@
     mangohud
     gnomeExtensions.app-menu-is-back
     gnomeExtensions.forge
-    vault
+    # vault
     gocryptfs
+    # ---- for yazi ----
+    file # for file type
+    ffmpegthumbnailer # for thumbnails
+    unar # for archive
+    jq # for json
+    poppler # for pdf
+    fd # for find
+    rg # for search
+    zoxide # for cd
 ];
 
 

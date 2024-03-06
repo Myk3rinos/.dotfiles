@@ -69,7 +69,7 @@ mode_unset  = { fg = "black", bg = "#FF79C6", bold = true }
 
 # Progress
 progress_label  = { bold = true }
-progress_normal = { fg = "blue", bg = "black" }
+progress_normal = { fg = "#50FA7B", bg = "black", italic = true }
 progress_error  = { fg = "red", bg = "black" }
 
 # Permissions

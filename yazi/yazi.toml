@@ -2,6 +2,10 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
+# [[plugin.prepend_previewers]]
+# mime = "audio/*"
+# exec = "exifaudio"
+
 [manager]
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical"
@@ -43,7 +47,7 @@ open = [
 reveal = [
 	{ exec = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
 	{ exec = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
-	# { exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
+	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
 	{ exec = 'unar "$1"', desc = "Extract here", for = "unix" },
@@ -102,8 +106,10 @@ suppress_preload = false
 
 [plugin]
 prepend_previewers = [
-  { name = "*.md", exec = "glow" },
-  { name = "Musique/*", exec = "exifaudio" },
+  { mime = "*.md", exec = "glow" },
+  { name = "*.mp3", exec = "exifaudio" },
+  { mime = "audio/*", exec = "exifaudio" },
+  { mime = "Musique/*", exec = "exifaudio" },
 ]
   
 preloaders = [
@@ -121,7 +127,7 @@ previewers = [
 	# Code
 	{ mime = "text/*",                 exec = "code" },
 	{ mime = "*/xml",                  exec = "code" },
-	{ mime = "*/javascript",           exec = "code" },
+	{ mime = "*/javascript",           exec = "nvim" },
 	{ mime = "*/x-wine-extension-ini", exec = "code" },
 	# JSON
 	{ mime = "application/json", exec = "json" },

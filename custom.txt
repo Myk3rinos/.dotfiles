@@ -14,7 +14,7 @@ command='kitty --config /home/will/.config/kitty/kitty_small.conf --directory /h
 name='Musique'
 
 [custom11]
-binding='<Alt><Super>i'
+binding='<Alt><Super>w'
 command='kitty --config /home/will/.config/kitty/kitty_small.conf --directory /home/will/Images/wallpapers yazi'
 name='wallpapers'
 
@@ -61,4 +61,4 @@ name='kitty big'
 [custom9]
 binding='<Alt><Super>Return'
 command='kitty --config /home/will/.config/kitty/kitty_n.conf'
-name='kittyEnterr'
+name='kittyEnter'
