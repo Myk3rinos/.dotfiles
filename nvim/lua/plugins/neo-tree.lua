@@ -24,7 +24,10 @@ return {
 
 
       require("neo-tree").setup({
-        
+        popup_border_style = "rounded",
+        NeoTreeFloatBorder = "#ffffff",
+      -- NeoTreeFloatTitle = "File Explorer",
+      -- NeoTreeTitleBar = "",
         window = {
           width = 30,
           mappings = {
