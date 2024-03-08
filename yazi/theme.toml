@@ -63,7 +63,7 @@ separator_style = { fg = "#50FA7B", bg = "#000000" }
 
 # Mode
 # mode_normal = { fg = "black", bg = "#BD93F9", bold = true }
-mode_normal = { fg = "#BD93F9", bg = "#000000", bold = false }
+mode_normal = { fg = "#BD93F9", bg = "#444444", bold = false }
 mode_select = { fg = "black", bg = "#50FA7B", bold = true }
 mode_unset  = { fg = "black", bg = "#FF79C6", bold = true }
 

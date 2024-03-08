@@ -1,4 +1,23 @@
 source $HOME/.dotfiles/script/gocrypt.sh
+source $HOME/.dotfiles/script/mountDrive.sh
+
+# ------- Man color -------
+# function man() {
+#   /usr/bin/man $* | \
+#     col -b | \
+#     vim -R -c 'set ft=man nomod nolist' -
+# }
+# export LESS_TERMCAP_mb=$'\e[1;32m'
+# function man() {
+#    LESS_TERMCAP_mb=$'\e[1;32m'
+#    LESS_TERMCAP_md=$'\e[1;32m' \
+#    LESS_TERMCAP_me=$'\e[0m' \
+#    LESS_TERMCAP_se=$'\e[0m' \
+#    LESS_TERMCAP_so=$'\e[01;33m' \
+#    LESS_TERMCAP_ue=$'\e[0m' \
+#    LESS_TERMCAP_us=$'\e[1;4;31m' \
+#    command man "$@"
+# }
 ## git aliases
 alias gi="git init ."
 alias ga="git add ."
@@ -55,11 +74,12 @@ function cdh() {
 }
 # echo "Welcome to the terminal"
 
-# if [ -e $HOME/.logon_script_done ]
+# if [ -e $HOME/.logon_script_done_v ]
 # then
 #  # echo "No actions to do"
 # else
-#  xdotool set_desktop 1
+#  touch $HOME/.logon_script_done_v
+#  # xdotool set_desktop 1
 #  v
 # fi
 # ----------------- First run of the script. Performing some actions -----------------
@@ -67,9 +87,12 @@ if [ -e $HOME/.logon_script_done ]
 then
  # echo "No actions to do"
 else
+  # v
  # echo "First run of the script. Performing some actions" >> $HOME/run-once.txt
- xdotool set_desktop 1
  touch $HOME/.logon_script_done
+ # v
+ xdotool set_desktop 1
+ # firefox
 fi
 
 # ----------------- Shutdown and reboot -----------------
@@ -77,6 +100,7 @@ function rb() {
  if [ -e $HOME/.logon_script_done ]
   then
     rm $HOME/.logon_script_done
+    # rm $HOME/.logon_script_done_v
     shutdown -r now
    echo "Remove logon script done. Shutting down"
   else
@@ -87,6 +111,7 @@ function sd() {
  if [ -e $HOME/.logon_script_done ]
   then
     rm $HOME/.logon_script_done
+    # rm $HOME/.logon_script_done_v
     shutdown -h now
    echo "Remove logon script done. Shutting down"
   else
@@ -97,51 +122,18 @@ function sd() {
 # ----------------- Mounting and unmounting encrypted drives -----------------
 function ms() {
   mountSecret "$1"
-  # echo " ----------------- Mounting encrypted drives -----------------"
-  # if [ -z "$1" ]
-  # then
-  #   echo "Argument directory missing"
-  # else
-  #   if [ -e tmp/"$1" ]
-  #     then
-  #       fusermount -u /tmp/"$1"
-  #       rm -d /tmp/"$1"
-  #       mkdir /tmp/"$1"
-  #       gocryptfs "$(pwd)/$1" /tmp/"$1"
-  #       echo "Remove and create mnt done"
-  #     else
-  #       mkdir /tmp/"$1"
-  #       gocryptfs "$(pwd)/$1" /tmp/"$1"
-  #       echo "-- Mount done --"
-  #       cd /tmp/"$1"
-  #   fi
-  # fi
 }
 function us() {
   unmountSecret "$1"
-  # echo " ----------------- Unmounting encrypted drives -----------------"
-  # if [ -z "$1" ]
-  # then
-  #   echo "Argument directory missing"
-  # else
-  #   if [ -e /tmp/"$1" ]
-  #     then
-  #       fusermount -u /tmp/"$1"
-  #       rm -d /tmp/"$1"
-  #       echo " -- Unmount done --"
-  #     else
-  #       echo "No Directory to unmount"
-  #   fi
-  # fi
 }
-
 function cs() {
   createSecret "$1"
-  # echo " ----------------- Create encrypted drives -----------------"
-  # if [ -z "$1" ]
-  # then
-  #   echo "Argument directory missing"
-  # else
-  #   gocryptfs -init "$(pwd)/$1"
-  # fi
+}
+
+# ----------------- Mounting and unmounting drives -----------------
+function md() {
+  mountDrive
+}
+function ud() {
+  unmountDrive
 }

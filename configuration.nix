@@ -13,6 +13,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 1;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -149,8 +150,10 @@
     jq # for json
     poppler # for pdf
     fd # for find
-    rg # for search
+    # rg # for search
     zoxide # for cd
+    # ---- for zsh ----
+    most # for pager
 ];
 
 

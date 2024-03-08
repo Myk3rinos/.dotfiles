@@ -55,7 +55,7 @@ extract = [
 ]
 play = [
 	{ exec = 'rhythmbox "$@"', orphan = true, for = "unix" },
-	# { exec = 'amberol "$@"', orphan = true, for = "unix" },
+	{ exec = 'clapper "$@"', orphan = true, for = "unix", desc = "clapper" },
   # { exec = 'sushi "$@"', block = true, for = "unix", desc = "sushi"},
   { exec = 'sushi "${@// /_}"', block = true, for = "unix", desc = "sushi"},
 	# { exec = 'mpv "$@"', orphan = true, for = "unix" },
