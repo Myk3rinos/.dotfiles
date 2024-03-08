@@ -14,7 +14,14 @@ cpFirefoxUser() {
   cp -r ~/.mozilla/firefox/ ~/Documents/firefox/
 }
 
+cpDocument() {
+  echo "Copying Documents"
+  cp -r ~/Images/ run/media/will/dd3/
+  cp -r ~/Musique/ run/media/will/dd3/
+}
+
 cpKeybinding
 cpFirefoxUser
+cpDocument
 
 echo "------------- Update Done -------------"
