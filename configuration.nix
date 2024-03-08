@@ -154,6 +154,7 @@
     zoxide # for cd
     # ---- for zsh ----
     most # for pager
+    lm_sensors # for sensors
 ];
 
 
