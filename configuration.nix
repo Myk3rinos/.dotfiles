@@ -185,6 +185,8 @@ programs.neovim = {
 # ------------------------------------------------------
 fonts.packages = with pkgs; [
   cascadia-code
+  font-awesome
+  google-fonts
   fira-code
   (nerdfonts.override { fonts = [ "FiraCode" "CascadiaCode" ]; })
 ];
