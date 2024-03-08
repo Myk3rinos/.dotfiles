@@ -6,7 +6,8 @@ vim.g.mapleader = " "
 vim.cmd("set number relativenumber")
 vim.cmd("se cursorline")
 
-
+-- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+-- vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- vim.cmd(":Neotree filesystem reveal left")
 
 --:set number
