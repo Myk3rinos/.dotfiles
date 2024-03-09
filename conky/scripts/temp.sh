@@ -1,3 +1,1 @@
-#!/bin/bash
-sensors | grep "Tctl" | awk -F+ '{print $2}'
-#https://guialinux.uniriotec.br/awk/
+sensors | grep -A 2 '^coretemp-isa-0000' | cut -c16-20 | grep -A 2 '+' | cut -c2-3

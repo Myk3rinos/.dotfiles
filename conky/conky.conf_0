@@ -82,7 +82,7 @@ conky.config = {
 
 conky.text = [[
 ${execi 3600 ~/.dotfiles/conky/scripts/weather-v2.0.sh}\
-${alignc}${font Bebas Neue:size=75}${time %H:%M}${font}
+${offset 1600}${voffset -50}${font Bebas Neue:size=75}${time %H:%M}${font}
 ${alignc}${voffset 15}${color}${font Roboto:light:size=15}${time %A, %d %B}
 ${alignc}${voffset 15}${color}${font Roboto:light:size=15}-----------------------------------------------------
 ${alignc}${voffset 15}${color}${font weather icons:size=40}${execi 60 ~/.dotfiles/conky/scripts/weather-text-icon} ${font Bebas Neue:size=45}${color1}${execi 120 cat ~/.cache/weather.json | jq '.main.temp' | awk '{print int($1+0.5)}'}°C${font}
