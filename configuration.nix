@@ -156,9 +156,10 @@
     most # for pager
     lm_sensors # for sensors
     liquidctl # for cooler
-    python311Packages.gpustat
-    python3
-    python311Packages.pynvml
+    # python311Packages.gpustat
+    # python3
+    # python311Packages.pynvml
+    paperview
 ];
 
 

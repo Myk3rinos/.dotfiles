@@ -48,13 +48,24 @@ createAllSymlink() {
 
 
 
+cpDocuments() {
+    echo "------------------ cp mozilla ------------------"
+    cp -r /run/media/$USER/dd3/config/Documents ~/
+    cp -r /run/media/$USER/dd3/config/Musique ~/
+    cp -r /run/media/$USER/dd3/config/Vidéos ~/
+    cp -r /run/media/$USER/dd3/config/Images ~/
+    cp -r /run/media/$USER/dd3/config/gh ~/.config/
+    cp -r /run/media/$USER/dd3/config/gitcopilot ~/.config/
+    cp -r /run/media/$USER/dd3/config/gtk4.0 ~/.config/
+    cp -r /run/media/$USER/dd3/config/autostart ~/.config/
+}
 cpMozilla() {
     echo "------------------ cp mozilla ------------------"
-    cp -r ~/Documents/firefox/ ~/.mozilla/firefox/
+    cp -r /run/media/$USER/dd3/config/firefox/ ~/.mozilla/firefox/
 }
 cpKeybinding() {
     echo "------------------ cp keybinding ------------------"
-    cat custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
+    cat /run/media/$USER/dd3/config/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
 }
 gitinit() { 
     echo "Do you want to connect to your github? (y/n)"
@@ -80,6 +91,7 @@ askForReboot() {
 
 createAllSymlink
 cpMozilla
+cpDocuments
 cpKeybinding
 gitinit
 askForReboot
