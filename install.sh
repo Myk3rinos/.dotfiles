@@ -4,26 +4,7 @@ filesToLinkInConfig=( yazi kitty conky btop nvim neofetch starship.toml)
 
 echo "------------------ starting ------------------"
 
-copieNixosConfig() {
-    if [ -f $1 ]; then
-      # rm /etc/nixos/configuration.nix
-      sudo cp configuration.nix /etc/nixos/configuration.nix
-        echo "nixos config copied."
-    else
-        echo "WARNING: no $1 config found; can't copie for now."
-    fi
-    echo "------------------ nixos config copied ------------------"
-}
 
-
-if [ "$HOSTNAME"  = "nixos" ]
-then
-   copieNixosConfig
-   sudo nixos-rebuild switch --upgrade
-   echo "------------------ nixos rebuild done ------------------"
-else
-    echo "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
-fi
 
 createSymlinks() {
     if [ -f $1 ] || [ -r $1 ]; then # check if file exists
@@ -67,6 +48,22 @@ cpKeybinding() {
     echo "------------------ cp keybinding ------------------"
     cat /run/media/$USER/dd3/config/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
 }
+
+
+copieNixosConfig() {
+    if [ -f $1 ]; then
+      # rm /etc/nixos/configuration.nix
+      sudo cp configuration.nix /etc/nixos/configuration.nix
+        echo "nixos config copied."
+    else
+        echo "WARNING: no $1 config found; can't copie for now."
+    fi
+    echo "------------------ nixos config copied ------------------"
+}
+
+
+
+
 gitinit() { 
     echo "Do you want to connect to your github? (y/n)"
     select yn in "Yes" "No"; do
@@ -76,8 +73,6 @@ gitinit() {
         esac
     done
 }
-
-
 askForReboot() {
     echo "Do you want to reboot? (y/n)"
     select yn in "Yes" "No"; do
@@ -88,7 +83,14 @@ askForReboot() {
     done
 }
 
-
+if [ "$HOSTNAME"  = "nixos" ]
+then
+   copieNixosConfig
+   sudo nixos-rebuild switch --upgrade
+   echo "------------------ nixos rebuild done ------------------"
+else
+    echo "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
+fi
 createAllSymlink
 cpMozilla
 cpDocuments
