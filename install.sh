@@ -55,7 +55,7 @@ cpDocuments() {
     cp -r /run/media/$USER/dd3/config/Vidéos ~/
     cp -r /run/media/$USER/dd3/config/Images ~/
     cp -r /run/media/$USER/dd3/config/gh ~/.config/
-    cp -r /run/media/$USER/dd3/config/gitcopilot ~/.config/
+    cp -r /run/media/$USER/dd3/config/github-copilot ~/.config/
     cp -r /run/media/$USER/dd3/config/gtk4.0 ~/.config/
     cp -r /run/media/$USER/dd3/config/autostart ~/.config/
 }
