@@ -44,7 +44,7 @@ border_style  = { fg = "#282A36" }
 # Highlighting
 # syntect_theme = "~/.config/yazi/Dracula.tmTheme"
 # syntect_theme = "~/.config/yazi/Material.tmTheme"
-syntect_theme = "~/.config/yazi/CatppuccinMocha.tmTheme"
+syntect_theme = "~/.config/yazi/CatppuccinLatte.tmTheme"
 # syntect_theme = "~/.config/yazi/Carbonfox.tmTheme"
 
 # : }}}

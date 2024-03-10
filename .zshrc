@@ -8,16 +8,34 @@ source $HOME/.dotfiles/script/mountDrive.sh
 #     vim -R -c 'set ft=man nomod nolist' -
 # }
 # export LESS_TERMCAP_mb=$'\e[1;32m'
-# function man() {
-#    LESS_TERMCAP_mb=$'\e[1;32m'
-#    LESS_TERMCAP_md=$'\e[1;32m' \
-#    LESS_TERMCAP_me=$'\e[0m' \
-#    LESS_TERMCAP_se=$'\e[0m' \
-#    LESS_TERMCAP_so=$'\e[01;33m' \
-#    LESS_TERMCAP_ue=$'\e[0m' \
-#    LESS_TERMCAP_us=$'\e[1;4;31m' \
-#    command man "$@"
-# }
+function _colorman() {
+  env \
+    LESS_TERMCAP_mb=$'\e[1;35m' \
+    LESS_TERMCAP_md=$'\e[38;5;219m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[7;40m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[38;5;67m' \
+    LESS_TERMCAP_mr=$(tput rev) \
+    LESS_TERMCAP_mh=$(tput dim) \
+    LESS_TERMCAP_ZN=$(tput ssubm) \
+    LESS_TERMCAP_ZV=$(tput rsubm) \
+    LESS_TERMCAP_ZO=$(tput ssupm) \
+    LESS_TERMCAP_ZW=$(tput rsupm) \
+    GROFF_NO_SGR=1 \
+      "$@"
+}
+alias manc="LANG=C _colorman man"
+
+GREP_OPTS='--color=auto'      # for aliases since $GREP_OPTIONS is deprecated
+GREP_COLOR='1;32'             # (legacy) bright green rather than default red
+# (new) Matching text in Selected line = green, line numbers dark yellow
+GREP_COLORS="ms=${GREP_COLOR}:mc=${GREP_COLOR}:ln=33"
+alias grep='grep $GREP_OPTS'
+alias egrep='grep -E $GREP_OPTS'
+alias fgrep='LC_ALL=C grep -F $GREP_OPTS'
+
 ## git aliases
 alias gi="git init ."
 alias ga="git add ."
@@ -90,8 +108,8 @@ else
   # v
  # echo "First run of the script. Performing some actions" >> $HOME/run-once.txt
  touch $HOME/.logon_script_done
- # v
  xdotool set_desktop 1
+ v
  # firefox
 fi
 
