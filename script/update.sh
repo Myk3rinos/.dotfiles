@@ -17,6 +17,7 @@ cpFirefoxUser() {
 
 cpDocument() {
   echo "Copying Documents"
+  cp  ~/.gitconfig /run/media/$USER/dd3/config/
   cp -r ~/Documents /run/media/$USER/dd3/config/
   cp -r ~/Images /run/media/$USER/dd3/config/
   cp -r ~/Musique /run/media/$USER/dd3/config/

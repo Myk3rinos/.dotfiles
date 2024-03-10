@@ -31,6 +31,7 @@ createAllSymlink() {
 
 cpDocuments() {
     echo "------------------ cp mozilla ------------------"
+    cp -r /run/media/$USER/dd3/config/.gitconfig ~/
     cp -r /run/media/$USER/dd3/config/Documents ~/
     cp -r /run/media/$USER/dd3/config/Musique ~/
     cp -r /run/media/$USER/dd3/config/Vidéos ~/
