@@ -1,10 +1,5 @@
 
-filesToLinkInHome=(.zshrc .themes)
-filesToLinkInConfig=( yazi kitty nvim neofetch starship.toml)
-
 echo "------------------ starting ------------------"
-
-
 
 setGnomeConfig() {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'

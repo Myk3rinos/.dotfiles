@@ -7,7 +7,7 @@ echo "------------------ starting ------------------"
 
 
 createSymlinks() {
-    if [ -f $1 ] || [ -r $1 ]; then # check if file exists
+    if [ -f /home/$USER/.dotfiles/$1 ] || [ -r /home/$USER/.dotfiles/$1 ]; then # check if file exists
        rm ~/"$2""$1"
        ln -s /home/$USER/.dotfiles/$1 ~/"$2""$1"
         echo "$1 config linked."
@@ -105,6 +105,7 @@ cpMozilla
 cpKeybinding
 cpDocuments
 gitinit
+/home/$USER/.dotfiles/script/configure.sh
 askForReboot
 
 echo "------------------ finished ------------------"
