@@ -11,10 +11,10 @@ setGnomeConfig() {
     gsettings set org.gnome.desktop.peripherals.touchpad speed 0.238
     gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
 
-    gsettings set org.gnome.mutter dynamic-workspaces true
-    gsettings set org.gnome.mutter edge-tiling true
-    gsettings set org.gnome.mutter workspaces-only-on-primary false
-    gsettings set org.gnome.mutter attach-modal-dialogs false
+    # gsettings set org.gnome.mutter dynamic-workspaces true
+    # gsettings set org.gnome.mutter edge-tiling true
+    # gsettings set org.gnome.mutter workspaces-only-on-primary false
+    # gsettings set org.gnome.mutter attach-modal-dialogs false
 
     gsettings set org.gnome.desktop.interface gtk-theme "Tokyonight-Dark-BL-LB"
     gsettings set org.gnome.desktop.interface icon-theme "Tokyonight-Dark"

@@ -90,10 +90,6 @@
       firefox
     # thunderbird
       neofetch
-      gnome.gnome-tweaks
-      gnomeExtensions.dash-to-dock
-      amberol
-      neovim
     ];
   };
 
@@ -128,6 +124,10 @@
     gcc_multi
     tldr
     conky
+      gnome.gnome-tweaks
+      gnomeExtensions.dash-to-dock
+      # amberol
+      neovim
     gnomeExtensions.media-controls
     gnomeExtensions.extension-list
     gnomeExtensions.removable-drive-menu
