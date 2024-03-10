@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 echo "------------- Update Start -------------"
+sudo rm -r /run/media/$USER/dd3/config
+mkdir /run/media/$USER/dd3/config
+
 
 cpKeybinding() {
   echo "Copying custom keybindings to custom.txt"
@@ -10,7 +13,6 @@ cpKeybinding() {
 cpFirefoxUser() {
   echo "Copying Firefox user"
   cp -r ~/.mozilla/firefox /run/media/$USER/dd3/config/
-  cp ~/Documents/bookmarks.html /run/media/$USER/dd3/config/bookmarks.html
 }
 
 cpDocument() {
