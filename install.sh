@@ -9,7 +9,7 @@ echo "------------------ starting ------------------"
 createSymlinks() {
     if [ -f $1 ] || [ -r $1 ]; then # check if file exists
        rm ~/"$2""$1"
-       ln -s ~/.dotfiles/$1 ~/"$2""$1"
+       ln -s /home/$USER/.dotfiles/$1 ~/"$2""$1"
         echo "$1 config linked."
     else
         echo "WARNING: no $1 config found; can't link for now."
@@ -62,7 +62,7 @@ cpKeybinding() {
 
 copieNixosConfig() {
     if [ -f $1 ]; then
-      sudo cp ~/.dotfiles/configuration.nix /etc/nixos/configuration.nix
+      sudo cp /home/$USER/.dotfiles/configuration.nix /etc/nixos/configuration.nix
         echo "nixos config copied."
     else
         echo "WARNING: no $1 config found; can't copie for now."
