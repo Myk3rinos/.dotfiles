@@ -9,7 +9,7 @@ echo "------------------ starting ------------------"
 createSymlinks() {
     if [ -f $1 ] || [ -r $1 ]; then # check if file exists
        rm ~/"$2""$1"
-       ln -s $(pwd)/$1 ~/"$2""$1"
+       ln -s ~/.dotfiles/$1 ~/"$2""$1"
         echo "$1 config linked."
     else
         echo "WARNING: no $1 config found; can't link for now."
@@ -30,20 +30,29 @@ createAllSymlink() {
 
 
 cpDocuments() {
-    echo "------------------ cp mozilla ------------------"
+    echo "------------------ cp Documents ------------------"
     cp -r /run/media/$USER/dd3/config/.gitconfig ~/
+    echo "gitconfig copied."
     cp -r /run/media/$USER/dd3/config/Documents ~/
+    echo "Documents copied."
     cp -r /run/media/$USER/dd3/config/Musique ~/
+    echo "Musique copied."
     cp -r /run/media/$USER/dd3/config/Vidéos ~/
+    echo "Vidéos copied."
     cp -r /run/media/$USER/dd3/config/Images ~/
+    echo "Images copied."
     cp -r /run/media/$USER/dd3/config/gh ~/.config/
+    echo "gh copied."
     cp -r /run/media/$USER/dd3/config/github-copilot ~/.config/
-    cp -r /run/media/$USER/dd3/config/gtk4.0 ~/.config/
+    echo "github-copilot copied."
+    cp -r /run/media/$USER/dd3/config/gtk-4.0 ~/.config/
+    echo "gtk-4.0 copied."
     cp -r /run/media/$USER/dd3/config/autostart ~/.config/
+    echo "autostart copied."
 }
 cpMozilla() {
     echo "------------------ cp mozilla ------------------"
-    cp -r /run/media/$USER/dd3/config/firefox ~/.mozilla/
+    cp -r /run/media/$USER/dd3/config/firefox ~/.mozilla/firefox/
 }
 cpKeybinding() {
     echo "------------------ cp keybinding ------------------"
@@ -53,8 +62,7 @@ cpKeybinding() {
 
 copieNixosConfig() {
     if [ -f $1 ]; then
-      # rm /etc/nixos/configuration.nix
-      sudo cp configuration.nix /etc/nixos/configuration.nix
+      sudo cp ~/.dotfiles/configuration.nix /etc/nixos/configuration.nix
         echo "nixos config copied."
     else
         echo "WARNING: no $1 config found; can't copie for now."
@@ -94,8 +102,8 @@ else
 fi
 createAllSymlink
 cpMozilla
-cpDocuments
 cpKeybinding
+cpDocuments
 gitinit
 askForReboot
 

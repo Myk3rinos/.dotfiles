@@ -21,7 +21,7 @@ setGnomeConfig() {
     gsettings set org.gnome.mutter workspaces-only-on-primary false
     gsettings set org.gnome.mutter attach-modal-dialogs false
 
-    gsettings set org.gnome.desktop.interface gtk-theme 'Tokyonight-Dark-BL-LB"
+    gsettings set org.gnome.desktop.interface gtk-theme "Tokyonight-Dark-BL-LB"
     gsettings set org.gnome.desktop.interface icon-theme "Tokyonight-Dark"
     gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
     gsettings set org.gnome.desktop.interface monospace-font-name "Source Code Pro 10"
