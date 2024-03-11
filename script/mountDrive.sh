@@ -4,7 +4,7 @@ source ~/.dotfiles/script/colors.sh
 
 
 mountDrive () {
-  echo -e " -------------------${color2} ¤ ${colorEnd} ${color1}Mounting Drive ${colorEnd} -----------"
+  echo -e " -------------------${color2} ¤${colorEnd} ${color1}| Mounting Drive |${colorEnd}---"
   # sudo fdisk -l
   lsblk
   printf "%s" "Enter the drive to mount: "
@@ -15,7 +15,7 @@ mountDrive () {
 }
 
 unmountDrive () {
-  echo -e " -------------------${color2} ¤ ${colorEnd} ${color1}Unmounting Drive ${colorEnd} -----------"
+  echo -e " -------------------${color2} ¤${colorEnd} ${color1}| Unmounting Drive |${colorEnd}---"
   lsblk
   printf "%s" "Enter the drive to unmount: "
   read drive

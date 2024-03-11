@@ -3,7 +3,7 @@ source ~/.dotfiles/script/checkCopy.sh
 filesToLinkInHome=(.zshrc .themes)
 filesToLinkInConfig=( yazi kitty conky btop nvim neofetch starship.toml)
 
-echo -e "------------------ ${color2} ¤${colorEnd} ${color1}starting  ${colorEnd}-----------"
+echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${colorEnd}---"
 
 
 
@@ -18,7 +18,6 @@ createSymlinks() {
 }
 
 createAllSymlink() {
-    # echo -e "------------------ ${color2} ¤${colorEnd} ${color1} create symlinks${colorEnd}-----------"
     echo -e "${color4}- create symlink $1 ${colorEnd}"
     for file in "${filesToLinkInHome[@]}"; do
        createSymlinks $file ""
@@ -26,7 +25,6 @@ createAllSymlink() {
     for file in "${filesToLinkInConfig[@]}"; do
        createSymlinks $file ".config/"
     done
-    # echo "------------- creation off symlink done -------------" 
 }
 
 
@@ -92,15 +90,15 @@ askForReboot() {
 if [ "$HOSTNAME"  = "nixos" ]
 then
    copieNixosConfig
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} nixos rebuild ${colorEnd}-----------"
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild |${colorEnd}---"
    sudo nixos-rebuild switch --upgrade
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} nixos rebuild done   ${colorEnd}-----------"
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild done |${colorEnd}---"
 else
     echo "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
 fi
 
 createAllSymlink
-echo -e "------------------ ${color2} ¤${colorEnd} ${color1}cp Documents  ${colorEnd}-----------"
+echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Copy documents |${colorEnd}---"
 cpMozilla
 cpKeybinding
 cpDocuments
@@ -108,4 +106,4 @@ cpDocuments
 gitinit
 askForReboot
 
-echo -e "------------------ ${color2} ¤${colorEnd} ${color1}finished  ${colorEnd}-----------"
+echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Installation done |${colorEnd}---"

@@ -4,7 +4,7 @@ source ~/.dotfiles/script/colors.sh
 source ~/.dotfiles/script/checkCopy.sh
 
 
-echo -e "-------------${color2} ¤ ${colorEnd}   ${color1} Update Start ${colorEnd} ------"
+echo -e "-------------${color2} ¤${colorEnd} ${color1}| Update Start |${colorEnd}---"
 
 cpKeybinding() {
   echo -e "${color4}- Copying custom keybindings to custom.txt ${colorEnd}"
@@ -38,7 +38,7 @@ cpKeybinding
 cpFirefoxUser
 cpDocument
 
-echo -e "-------------${color2} ¤${colorEnd}   ${color1} Update Done ${colorEnd} ------"
+echo -e "-------------${color2} ¤${colorEnd} ${color1}| Update Done |${colorEnd}---"
 
 
 

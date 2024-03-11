@@ -1,38 +1,34 @@
 #!bin/bash
+source ~/.dotfiles/script/colors.sh
 
-# ----------------- Mounting and unmounting encrypted drives -----------------
 mountSecret () {
-  echo " ----------------- Mounting encrypted drives -----------------"
+  echo " -----------------${color2} ¤${colorEnd} ${color1}| Mounting encrypted drives |${colorEnd}---"
   runMountSecret () {
-    # str="$(basename $1)"
     str=$1
-    echo "Mounting directory: $str"
+    echo "${color2}- Mounting directory: $str ${colorEnd}"
     if [ -e tmp/mnt/"$str" ]
       then
         fusermount -u /tmp/mnt/"$str"
         rm -d /tmp/mnt/"$str"
         mkdir -p /tmp/mnt/"$str"
-    #     # gocryptfs "$(pwd)/$str" /tmp/mnt/"$str"
         gocryptfs /run/media/$USER/"$str" /tmp/mnt/"$str"
-        echo "Remove and create mnt done"
+        echo "${color2}- Remove and create mnt done${colorEnd}"
         cd /tmp/mnt/"$str"
       else
         mkdir -p /tmp/mnt/"$str"
         gocryptfs /run/media/$USER/"$str" /tmp/mnt/"$str"
-    #     # gocryptfs "$(pwd)/$str" /tmp/mnt/"$str"
-    #     gocryptfs "$1" /tmp/mnt/"$str"
-        echo "-- Mount done --"
+        echo "${color2}- Mount done ${colorEnd}"
         cd /tmp/mnt/"$str"
     fi
   }
 
-    echo "Argument directory missing"
+    echo "${colorB}- Argument directory missing${colorEnd}"
     ls -al /run/media/$USER/
     printf "%s" "Enter drive name: "
     read drivename
     if [ -e  /run/media/$USER/"$drivename" ]
     then
-      echo "Drive exists"
+      echo "${colorG}- Drive exists${colorEnd}"
       ls -al /run/media/$USER/"$drivename"
       printf "%s" "Enter directory name: "
       read subdirname
@@ -40,15 +36,15 @@ mountSecret () {
       then
         runMountSecret "${drivename}/${subdirname}"
       else
-        echo "Directory does not exist"
+        echo "${colorB}- Directory does not exist${colorEnd}"
       fi
     else
-      echo "Drive does not exist"
+      echo "${colorB}- Drive does not exist${colorEnd}"
     fi
 }
 
 unmountSecret () {
-  echo " ----------------- Unmounting encrypted drives -----------------"
+  echo " -----------------${color2} ¤${colorEnd} ${color1}| Unmounting encrypted drives |${colorEnd}---"
   ls -al /tmp/mnt
   printf "%s" "Enter drive name: "
   read drivename
@@ -56,23 +52,22 @@ unmountSecret () {
   printf "%s" "Enter directory name: "
   read dirname
 
-    
     if [ -e /tmp/mnt/"$drivename"/"$dirname" ]
       then
         cd ~
         fusermount -u /tmp/mnt/"$drivename"/"$dirname"
         rm -d /tmp/mnt/"$drivename"/"$dirname"
-        echo " -- Unmount done --"
+      echo "${colorG}- Unmount done${colorEnd}"
       else
-        echo "No Directory to unmount"
+        echo "${colorB}- No Directory to unmount${colorEnd}"
     fi
 }
 
 createSecret () {
-  echo " ----------------- Create encrypted directory -----------------"
+  echo " -----------------${color2} ¤${colorEnd} ${color1}| Create encrypted directory |${colorEnd}---"
   printf "%s" "Enter directory name: "
   read dirname
-  echo "Creating directory: $dirname"
+  echo "${color2}- Creating directory: $str ${colorEnd} $dirname"
   mkdir "${dirname}"
   gocryptfs -init $dirname
 }

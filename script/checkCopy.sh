@@ -1,5 +1,3 @@
-
-
 checkIfCopyOk() {
   destinationInfo=$(du -sb $1 | cut -f1 )
   originalInfo=$(du -sb $2 | cut -f1)
