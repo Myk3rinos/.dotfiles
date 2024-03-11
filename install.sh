@@ -32,7 +32,7 @@ createAllSymlink() {
 
 
 cpDocuments() {
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}cp Documents  ${colorEnd}-----------"
+    echo -e "${color4}- copy Documents ${colorEnd}"
     cp -r /run/media/$USER/dd3/config/Documents ~/
     checkIfCopyOk ~/Documents /run/media/$USER/dd3/config/Documents
     cp -r /run/media/$USER/dd3/config/Musique ~/
@@ -45,12 +45,12 @@ cpDocuments() {
     checkIfCopyOk ~/.config/autostart /run/media/$USER/dd3/config/autostart
 }
 cpMozilla() {
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} cp mozilla ${colorEnd}-----------"
+    echo -e "${color4}- copy firefox user ${colorEnd}"
     cp -r /run/media/$USER/dd3/config/firefox ~/.mozilla/
     checkIfCopyOk ~/.mozilla/firefox /run/media/$USER/dd3/config/firefox
 }
 cpKeybinding() {
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} cp keybinding ${colorEnd}-----------"
+    echo -e "${color4}- copy keybindings ${colorEnd}"
     cat /run/media/$USER/dd3/config/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
 }
 
@@ -102,8 +102,9 @@ createAllSymlink
 cpMozilla
 cpKeybinding
 cpDocuments
-gitinit
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}cp Documents  ${colorEnd}-----------"
 /home/$USER/.dotfiles/script/configure.sh
+gitinit
 askForReboot
 
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}finished  ${colorEnd}-----------"
