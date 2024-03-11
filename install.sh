@@ -8,7 +8,6 @@ echo -e "------------------ ${color2} ¤${colorEnd} ${color1}starting  ${colorEn
 
 
 createSymlinks() {
-    echo -e "${color4}- create symlink $1 ${colorEnd}"
     if [ -f /home/$USER/.dotfiles/$1 ] || [ -r /home/$USER/.dotfiles/$1 ]; then # check if file exists
        rm ~/"$2""$1"
        ln -s /home/$USER/.dotfiles/$1 ~/"$2""$1"
@@ -19,7 +18,8 @@ createSymlinks() {
 }
 
 createAllSymlink() {
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} create symlinks${colorEnd}-----------"
+    # echo -e "------------------ ${color2} ¤${colorEnd} ${color1} create symlinks${colorEnd}-----------"
+    echo -e "${color4}- create symlink $1 ${colorEnd}"
     for file in "${filesToLinkInHome[@]}"; do
        createSymlinks $file ""
     done
@@ -64,12 +64,12 @@ copieNixosConfig() {
     else
         echo -e " ${colorB} WARNING: no $1 config found; can't copie for now.${colorEnd}"
     fi
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} nixos config copied ${colorEnd}-----------"
 }
 
 
 
 gitinit() { 
+    echo -e "${color4}- git ${colorEnd}"
     echo "Do you want to connect to your github? (y/n)"
     select yn in "Yes" "No"; do
         case $yn in
@@ -79,6 +79,7 @@ gitinit() {
     done
 }
 askForReboot() {
+    echo -e "${color4}- reboot ${colorEnd}"
     echo "Do you want to reboot? (y/n)"
     select yn in "Yes" "No"; do
         case $yn in
@@ -91,6 +92,7 @@ askForReboot() {
 if [ "$HOSTNAME"  = "nixos" ]
 then
    copieNixosConfig
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} nixos rebuild ${colorEnd}-----------"
    sudo nixos-rebuild switch --upgrade
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1} nixos rebuild done   ${colorEnd}-----------"
 else
