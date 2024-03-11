@@ -98,11 +98,12 @@ then
 else
     echo "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
 fi
+
 createAllSymlink
+echo -e "------------------ ${color2} ¤${colorEnd} ${color1}cp Documents  ${colorEnd}-----------"
 cpMozilla
 cpKeybinding
 cpDocuments
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}cp Documents  ${colorEnd}-----------"
 /home/$USER/.dotfiles/script/configure.sh
 gitinit
 askForReboot
