@@ -118,22 +118,22 @@ askForReboot() {
     done
 }
 
-# if [ "$HOSTNAME"  = "nixos" ]
-# then
-#    copieNixosConfig
-#     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild |${colorEnd}---"
-#    sudo nixos-rebuild switch --upgrade
-#     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild done |${colorEnd}---"
-# else
-#     echo -e "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
-# fi
+if [ "$HOSTNAME"  = "nixos" ]
+then
+   copieNixosConfig
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild |${colorEnd}---"
+   sudo nixos-rebuild switch --upgrade
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild done |${colorEnd}---"
+else
+    echo -e "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
+fi
 
-# createAllSymlink
-# echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Copy documents |${colorEnd}---"
-# cpMozilla
-# cpKeybinding
-# cpDocuments
-# /home/$USER/.dotfiles/script/configure.sh
+createAllSymlink
+echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Copy documents |${colorEnd}---"
+cpMozilla
+cpKeybinding
+cpDocuments
+/home/$USER/.dotfiles/script/configure.sh
 gitinit
 askForReboot
 
