@@ -29,7 +29,6 @@ cpDocument() {
   cp -r ~/.config/autostart /run/media/$USER/dd3/config/
   echo "Copying .dotfiles"
   cp -r ~/.dotfiles /run/media/$USER/dd3/config/
-  echo "------- Done -------"
 }
 
 sudo rm -r /run/media/$USER/dd3/config
@@ -49,4 +48,4 @@ checkIfCopyOk /run/media/$USER/dd3/config/autostart ~/.config/autostart
 checkIfCopyOk /run/media/$USER/dd3/config/.dotfiles ~/.dotfiles
 
 
-echo -e "-------------${color2} ¤ ${colorEnd}   ${color1} Verification Done ${colorEnd} ------"
+echo -e "-------------${color2} ¤ ${colorEnd}  ${color1} Verification Done ${colorEnd} ------"

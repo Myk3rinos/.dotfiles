@@ -5,9 +5,9 @@ checkIfCopyOk() {
   originalInfo=$(du -sb $2 | cut -f1)
   if [[ $destinationInfo -eq $originalInfo ]];
   then
-    echo -e "$colorG $2: $originalInfo b $colorEnd"
+    echo -e "$2: $colorG $originalInfo b $colorEnd"
   else
-    echo -e "$colorB $2: $originalInfo b  is not the same ! $colorEnd"
+    echo -e "$2: $colorB $originalInfo b  is not the same ! $colorEnd"
   fi
 }
 
