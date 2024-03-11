@@ -52,7 +52,7 @@ cpDocuments() {
 }
 cpMozilla() {
     echo "------------------ cp mozilla ------------------"
-    cp -r /run/media/$USER/dd3/config/firefox ~/.mozilla/firefox/
+    cp -r /run/media/$USER/dd3/config/firefox ~/.mozilla/
 }
 cpKeybinding() {
     echo "------------------ cp keybinding ------------------"
