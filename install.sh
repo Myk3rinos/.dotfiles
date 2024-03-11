@@ -103,7 +103,7 @@ gitinit() {
         esac
       done
     else
-      echo -e "Your git name is ${color4}${gitName}${colorEnd}" 
+      gh auth status
     fi
 }
 
