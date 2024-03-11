@@ -31,8 +31,6 @@ createAllSymlink() {
 
 cpDocuments() {
     echo "------------------ cp Documents ------------------"
-    # cp -r /run/media/$USER/dd3/config/.gitconfig ~/
-    # echo "gitconfig copied."
     cp -r /run/media/$USER/dd3/config/Documents ~/
     echo "Documents copied."
     cp -r /run/media/$USER/dd3/config/Musique ~/
@@ -41,12 +39,6 @@ cpDocuments() {
     echo "Vidéos copied."
     cp -r /run/media/$USER/dd3/config/Images ~/
     echo "Images copied."
-    # cp -r /run/media/$USER/dd3/config/gh ~/.config/
-    # echo "gh copied."
-    # cp -r /run/media/$USER/dd3/config/github-copilot ~/.config/
-    # echo "github-copilot copied."
-    # cp -r /run/media/$USER/dd3/config/gtk-4.0 ~/.config/
-    # echo "gtk-4.0 copied."
     cp -r /run/media/$USER/dd3/config/autostart ~/.config/
     echo "autostart copied."
 }
