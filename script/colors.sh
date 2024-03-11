@@ -1,0 +1,6 @@
+
+color1="\e[38;5;147m"
+color2="\e[38;5;225m"
+colorG="\e[38;5;119m"
+colorB="\e[38;5;124m"
+colorEnd="\e[0m"

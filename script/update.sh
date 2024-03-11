@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-color1="\e[38;5;147m"
-color2="\e[38;5;225m"
-colorG="\e[38;5;119m"
-colorB="\e[38;5;124m"
-colorEnd="\e[0m"
+source ~/.dotfiles/script/colors.sh
+source ~/.dotfiles/script/checkCopy.sh
 
-echo -e "-------------${color2}  ${colorEnd}   ${color1} Update Start ${colorEnd} ------"
+
+echo -e "-------------${color2} ¤ ${colorEnd}   ${color1} Update Start ${colorEnd} ------"
 
 cpKeybinding() {
   echo "Copying custom keybindings to custom.txt"
@@ -27,7 +25,7 @@ cpDocument() {
   cp -r ~/Musique /run/media/$USER/dd3/config/
   echo "Copying Vidéos"
   cp -r ~/Vidéos /run/media/$USER/dd3/config/
-  echo "Copying .config"
+  echo "Copying autostart"
   cp -r ~/.config/autostart /run/media/$USER/dd3/config/
   echo "Copying .dotfiles"
   cp -r ~/.dotfiles /run/media/$USER/dd3/config/
@@ -40,23 +38,15 @@ cpKeybinding
 cpFirefoxUser
 cpDocument
 
+echo -e "-------------${color2} ¤${colorEnd}   ${color1} Update Done ${colorEnd} ------"
 
-echo -e "-------------${color2}  ${colorEnd}   ${color1} Update Done ${colorEnd} ------"
-
-checkIfOk() {
-  cI=$(du -hs /run/media/$USER/dd3/config/Images)
-  cIcut="${cI:0:2}"
-  oI=$(du -hs ~/Images)
-  oIcut="${oI:0:2}"
-
-  if [ "$((cIcut))" != "$((oIcut))" ]; then
-    echo -e "$colorB Images: Not the same $colorEnd"
-  else
-    echo -e "$colorG $cIcut $colorEnd" 
-  fi
-}
+checkIfCopyOk /run/media/$USER/dd3/config/firefox ~/.mozilla/firefox
+checkIfCopyOk /run/media/$USER/dd3/config/Documents ~/Documents
+checkIfCopyOk /run/media/$USER/dd3/config/Images ~/Images
+checkIfCopyOk /run/media/$USER/dd3/config/Musique ~/Musique
+checkIfCopyOk /run/media/$USER/dd3/config/Vidéos ~/Vidéos
+checkIfCopyOk /run/media/$USER/dd3/config/autostart ~/.config/autostart
+checkIfCopyOk /run/media/$USER/dd3/config/.dotfiles ~/.dotfiles
 
 
-checkIfOk
-
-echo -e "-------------${color2}  ${colorEnd}   ${color1} Verification Done ${colorEnd} ------"
+echo -e "-------------${color2} ¤ ${colorEnd}   ${color1} Verification Done ${colorEnd} ------"
