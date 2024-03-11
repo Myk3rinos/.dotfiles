@@ -67,15 +67,46 @@ copieNixosConfig() {
 
 
 gitinit() { 
+    setGitConfig() {
+        echo "Enter your git name"
+        read gitName
+        git config --global user.name "$gitName"
+        echo "Enter your git email"
+        read gitEmail
+        git config --global user.email "$gitEmail"
+        git config --list --global
+    }
+
     echo -e "${color4}- git ${colorEnd}"
-    echo "Do you want to connect to your github? (y/n)"
-    select yn in "Yes" "No"; do
+    gitNamee=$(git config --global user.name)
+    if [[ "$gitNamee" = "" ]]; then
+      echo "Do you want to set your git name and email? (y/n)"
+      select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) setGitConfig; break;;
+            No ) break;; #exit;;
+        esac
+      done
+    else
+      echo -e "Your git name is ${color3}${gitNamee}${colorEnd}" 
+    fi
+
+
+    echo -e "${color4}- github ${colorEnd}"
+    githubName=$(gh auth status)
+    if [[ "$githubName" = "" ]]; then
+      echo "Do you want to connect to your github? (y/n)"
+      select yn in "Yes" "No"; do
         case $yn in
             Yes ) gh auth login; break;;
             No ) break;; #exit;;
         esac
-    done
+      done
+    else
+      echo -e "Your git name is ${color4}${gitName}${colorEnd}" 
+    fi
 }
+
 askForReboot() {
     echo -e "${color4}- reboot ${colorEnd}"
     echo "Do you want to reboot? (y/n)"
@@ -87,22 +118,22 @@ askForReboot() {
     done
 }
 
-if [ "$HOSTNAME"  = "nixos" ]
-then
-   copieNixosConfig
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild |${colorEnd}---"
-   sudo nixos-rebuild switch --upgrade
-    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild done |${colorEnd}---"
-else
-    echo "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
-fi
+# if [ "$HOSTNAME"  = "nixos" ]
+# then
+#    copieNixosConfig
+#     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild |${colorEnd}---"
+#    sudo nixos-rebuild switch --upgrade
+#     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild done |${colorEnd}---"
+# else
+#     echo -e "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
+# fi
 
-createAllSymlink
-echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Copy documents |${colorEnd}---"
-cpMozilla
-cpKeybinding
-cpDocuments
-/home/$USER/.dotfiles/script/configure.sh
+# createAllSymlink
+# echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Copy documents |${colorEnd}---"
+# cpMozilla
+# cpKeybinding
+# cpDocuments
+# /home/$USER/.dotfiles/script/configure.sh
 gitinit
 askForReboot
 
