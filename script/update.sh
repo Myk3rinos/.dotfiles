@@ -17,15 +17,11 @@ cpFirefoxUser() {
 
 cpDocument() {
   echo "Copying Documents"
-  cp  ~/.gitconfig /run/media/$USER/dd3/config/
   cp -r ~/Documents /run/media/$USER/dd3/config/
   cp -r ~/Images /run/media/$USER/dd3/config/
   cp -r ~/Musique /run/media/$USER/dd3/config/
   cp -r ~/Vidéos /run/media/$USER/dd3/config/
   cp -r ~/.config/autostart /run/media/$USER/dd3/config/
-  cp -r ~/.config/gtk-4.0 /run/media/$USER/dd3/config/
-  cp -r ~/.config/gh /run/media/$USER/dd3/config/
-  cp -r ~/.config/github-copilot /run/media/$USER/dd3/config/
   cp -r ~/.dotfiles /run/media/$USER/dd3/config/
 }
 

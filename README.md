@@ -21,4 +21,6 @@ Includes:
 
 clone the repo to your home directory
 
-execute the `install.sh` script
+run 'install.sh` script
+
+run :Copilot setup in neovim to setup gitCopilot
