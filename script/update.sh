@@ -7,30 +7,31 @@ source ~/.dotfiles/script/checkCopy.sh
 echo -e "-------------${color2} ¤ ${colorEnd}   ${color1} Update Start ${colorEnd} ------"
 
 cpKeybinding() {
-  echo "Copying custom keybindings to custom.txt"
+  echo -e "${color4}- Copying custom keybindings to custom.txt ${colorEnd}"
   dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > /run/media/$USER/dd3/config/custom.txt
 }
 
 cpFirefoxUser() {
-  echo "Copying Firefox user"
+  echo -e "${color4}- Copying Firefox user ${colorEnd}"
   cp -r ~/.mozilla/firefox /run/media/$USER/dd3/config/
+  checkIfCopyOk /run/media/$USER/dd3/config/firefox ~/.mozilla/firefox
 }
 
 cpDocument() {
-  echo "Copying Documents..."
+  echo -e "${color4}- Copying Documents ${colorEnd}"
   cp -r ~/Documents /run/media/$USER/dd3/config/
-  echo "Copying Images..."
+  checkIfCopyOk /run/media/$USER/dd3/config/Documents ~/Documents
   cp -r ~/Images /run/media/$USER/dd3/config/
-  echo "Copying Musique"
+  checkIfCopyOk /run/media/$USER/dd3/config/Images ~/Images
   cp -r ~/Musique /run/media/$USER/dd3/config/
-  echo "Copying Vidéos"
+  checkIfCopyOk /run/media/$USER/dd3/config/Musique ~/Musique
   cp -r ~/Vidéos /run/media/$USER/dd3/config/
-  echo "Copying autostart"
+  checkIfCopyOk /run/media/$USER/dd3/config/Vidéos ~/Vidéos
   cp -r ~/.config/autostart /run/media/$USER/dd3/config/
-  echo "Copying .dotfiles"
+  checkIfCopyOk /run/media/$USER/dd3/config/autostart ~/.config/autostart
   cp -r ~/.dotfiles /run/media/$USER/dd3/config/
+  checkIfCopyOk /run/media/$USER/dd3/config/.dotfiles ~/.dotfiles
 }
-
 sudo rm -r /run/media/$USER/dd3/config
 mkdir /run/media/$USER/dd3/config
 cpKeybinding
@@ -39,13 +40,5 @@ cpDocument
 
 echo -e "-------------${color2} ¤${colorEnd}   ${color1} Update Done ${colorEnd} ------"
 
-checkIfCopyOk /run/media/$USER/dd3/config/firefox ~/.mozilla/firefox
-checkIfCopyOk /run/media/$USER/dd3/config/Documents ~/Documents
-checkIfCopyOk /run/media/$USER/dd3/config/Images ~/Images
-checkIfCopyOk /run/media/$USER/dd3/config/Musique ~/Musique
-checkIfCopyOk /run/media/$USER/dd3/config/Vidéos ~/Vidéos
-checkIfCopyOk /run/media/$USER/dd3/config/autostart ~/.config/autostart
-checkIfCopyOk /run/media/$USER/dd3/config/.dotfiles ~/.dotfiles
 
 
-echo -e "-------------${color2} ¤ ${colorEnd}  ${color1} Verification Done ${colorEnd} ------"

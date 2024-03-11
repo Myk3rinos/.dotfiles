@@ -1,5 +1,6 @@
+source ~/.dotfiles/script/colors.sh
 
-echo "------------------ starting ------------------"
+echo -e "------------------${color2} ¤ ${colorEnd} ${color3}starting ${colorEnd} ---------"
 
 setGnomeConfig() {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
@@ -24,11 +25,8 @@ setGnomeConfig() {
     gsettings set org.gnome.shell.extensions.auto-move-windows application-list "['firefox.desktop:2']"
     gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13/']"
 
-    echo "------------------ gnome config set ------------------"
+    echo -e "------------------${color2} ¤ ${colorEnd} ${color3}Gnome config done ${colorEnd} ---------"
 }
 
 
 setGnomeConfig
-
-
-echo "------------------ finished ------------------"

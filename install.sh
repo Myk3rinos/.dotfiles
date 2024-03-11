@@ -1,4 +1,5 @@
 source ~/.dotfiles/script/colors.sh
+source ~/.dotfiles/script/checkCopy.sh
 filesToLinkInHome=(.zshrc .themes)
 filesToLinkInConfig=( yazi kitty conky btop nvim neofetch starship.toml)
 
@@ -7,12 +8,13 @@ echo -e "------------------ ${color2} ¤${colorEnd} ${color1}starting  ${colorEn
 
 
 createSymlinks() {
+    echo -e "${color4}- create symlink $1 ${colorEnd}"
     if [ -f /home/$USER/.dotfiles/$1 ] || [ -r /home/$USER/.dotfiles/$1 ]; then # check if file exists
        rm ~/"$2""$1"
        ln -s /home/$USER/.dotfiles/$1 ~/"$2""$1"
-        echo "$1 config linked."
+        echo -e "${colorG}$1 config linked.${colorEnd}"
     else
-        echo "WARNING: no $1 config found; can't link for now."
+        echo -e "${colorB}WARNING: no $1 config found; can't link for now.${colorEnd}"
     fi
 }
 
@@ -32,19 +34,20 @@ createAllSymlink() {
 cpDocuments() {
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}cp Documents  ${colorEnd}-----------"
     cp -r /run/media/$USER/dd3/config/Documents ~/
-    echo "Documents copied."
+    checkIfCopyOk ~/Documents /run/media/$USER/dd3/config/Documents
     cp -r /run/media/$USER/dd3/config/Musique ~/
-    echo "Musique copied."
+    checkIfCopyOk ~/Musique /run/media/$USER/dd3/config/Musique
     cp -r /run/media/$USER/dd3/config/Vidéos ~/
-    echo "Vidéos copied."
+    checkIfCopyOk ~/Vidéos /run/media/$USER/dd3/config/Vidéos
     cp -r /run/media/$USER/dd3/config/Images ~/
-    echo "Images copied."
+    checkIfCopyOk ~/Images /run/media/$USER/dd3/config/Images
     cp -r /run/media/$USER/dd3/config/autostart ~/.config/
-    echo "autostart copied."
+    checkIfCopyOk ~/.config/autostart /run/media/$USER/dd3/config/autostart
 }
 cpMozilla() {
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1} cp mozilla ${colorEnd}-----------"
     cp -r /run/media/$USER/dd3/config/firefox ~/.mozilla/
+    checkIfCopyOk ~/.mozilla/firefox /run/media/$USER/dd3/config/firefox
 }
 cpKeybinding() {
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1} cp keybinding ${colorEnd}-----------"
@@ -55,13 +58,13 @@ cpKeybinding() {
 copieNixosConfig() {
     if [ -f $1 ]; then
       sudo cp /home/$USER/.dotfiles/configuration.nix /etc/nixos/configuration.nix
-        echo "nixos config copied."
+      checkIfCopyOk etc/nixos/configuration.nix /run/media/$USER/.dotfiles/configuration.nix
+        # echo "nixos config copied."
     else
-        echo "WARNING: no $1 config found; can't copie for now."
+        echo -e " ${colorB} WARNING: no $1 config found; can't copie for now.${colorEnd}"
     fi
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1} nixos config copied ${colorEnd}-----------"
 }
-
 
 
 
