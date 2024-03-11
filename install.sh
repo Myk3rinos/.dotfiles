@@ -56,9 +56,10 @@ cpKeybinding() {
 
 
 copieNixosConfig() {
+    echo -e "${color4}- copy configuration.nix ${colorEnd}"
     if [ -f $1 ]; then
       sudo cp /home/$USER/.dotfiles/configuration.nix /etc/nixos/configuration.nix
-      checkIfCopyOk etc/nixos/configuration.nix /run/media/$USER/.dotfiles/configuration.nix
+      checkIfCopyOk /etc/nixos/configuration.nix /home/$USER/.dotfiles/configuration.nix
         # echo "nixos config copied."
     else
         echo -e " ${colorB} WARNING: no $1 config found; can't copie for now.${colorEnd}"
