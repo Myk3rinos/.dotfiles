@@ -11,9 +11,9 @@ createSymlinks() {
     if [ -f /home/$USER/.dotfiles/$1 ] || [ -r /home/$USER/.dotfiles/$1 ]; then # check if file exists
        rm ~/"$2""$1"
        ln -s /home/$USER/.dotfiles/$1 ~/"$2""$1"
-        echo -e "${colorG}$1 config linked.${colorEnd}"
+       echo -e "${colorG}$1 config linked.${colorEnd}"
     else
-        echo -e "${colorB}WARNING: no $1 config found; can't link for now.${colorEnd}"
+       echo -e "${colorB}WARNING: no $1 config found; can't link for now.${colorEnd}"
     fi
 }
 
