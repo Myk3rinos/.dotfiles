@@ -1,8 +1,8 @@
-
+source ~/.dotfiles/script/colors.sh
 filesToLinkInHome=(.zshrc .themes)
 filesToLinkInConfig=( yazi kitty conky btop nvim neofetch starship.toml)
 
-echo "------------------ starting ------------------"
+echo -e "------------------ ${color2} ¤${colorEnd} ${color1}starting  ${colorEnd}-----------"
 
 
 
@@ -17,20 +17,20 @@ createSymlinks() {
 }
 
 createAllSymlink() {
-    echo "------------------ create symlinks ------------------" 
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} create symlinks${colorEnd}-----------"
     for file in "${filesToLinkInHome[@]}"; do
        createSymlinks $file ""
     done
     for file in "${filesToLinkInConfig[@]}"; do
        createSymlinks $file ".config/"
     done
-    echo "------------- creation off symlink done -------------" 
+    # echo "------------- creation off symlink done -------------" 
 }
 
 
 
 cpDocuments() {
-    echo "------------------ cp Documents ------------------"
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1}cp Documents  ${colorEnd}-----------"
     cp -r /run/media/$USER/dd3/config/Documents ~/
     echo "Documents copied."
     cp -r /run/media/$USER/dd3/config/Musique ~/
@@ -43,11 +43,11 @@ cpDocuments() {
     echo "autostart copied."
 }
 cpMozilla() {
-    echo "------------------ cp mozilla ------------------"
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} cp mozilla ${colorEnd}-----------"
     cp -r /run/media/$USER/dd3/config/firefox ~/.mozilla/
 }
 cpKeybinding() {
-    echo "------------------ cp keybinding ------------------"
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} cp keybinding ${colorEnd}-----------"
     cat /run/media/$USER/dd3/config/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
 }
 
@@ -59,7 +59,7 @@ copieNixosConfig() {
     else
         echo "WARNING: no $1 config found; can't copie for now."
     fi
-    echo "------------------ nixos config copied ------------------"
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} nixos config copied ${colorEnd}-----------"
 }
 
 
@@ -88,7 +88,7 @@ if [ "$HOSTNAME"  = "nixos" ]
 then
    copieNixosConfig
    sudo nixos-rebuild switch --upgrade
-   echo "------------------ nixos rebuild done ------------------"
+    echo -e "------------------ ${color2} ¤${colorEnd} ${color1} nixos rebuild done   ${colorEnd}-----------"
 else
     echo "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
 fi
@@ -100,4 +100,4 @@ gitinit
 /home/$USER/.dotfiles/script/configure.sh
 askForReboot
 
-echo "------------------ finished ------------------"
+echo -e "------------------ ${color2} ¤${colorEnd} ${color1}finished  ${colorEnd}-----------"
