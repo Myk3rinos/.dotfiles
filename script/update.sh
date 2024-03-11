@@ -18,11 +18,17 @@ cpFirefoxUser() {
 cpDocument() {
   echo "Copying Documents"
   cp -r ~/Documents /run/media/$USER/dd3/config/
+  echo "Copying Images"
   cp -r ~/Images /run/media/$USER/dd3/config/
+  echo "Copying Musique"
   cp -r ~/Musique /run/media/$USER/dd3/config/
+  echo "Copying Vidéos"
   cp -r ~/Vidéos /run/media/$USER/dd3/config/
+  echo "Copying .config"
   cp -r ~/.config/autostart /run/media/$USER/dd3/config/
+  echo "Copying .dotfiles"
   cp -r ~/.dotfiles /run/media/$USER/dd3/config/
+  echo "------- Done -------"
 }
 
 cpKeybinding
