@@ -55,10 +55,22 @@ cpKeybinding() {
 
 copieNixosConfig() {
     echo -e "${color4}- copy configuration.nix ${colorEnd}"
-    if [ -f $1 ]; then
-      sudo cp /home/$USER/.dotfiles/configuration.nix /etc/nixos/configuration.nix
-      checkIfCopyOk /etc/nixos/configuration.nix /home/$USER/.dotfiles/configuration.nix
+    oriPath="/home/$USER/.dotfiles/configuration.nix"
+    desPath="/etc/nixos/configuration.nix"
+    if [ -f /home/$USER/.dotfiles/configuration.nix ]; then
+      sudo cp $oriPath $desPath
+      # checkIfCopyOk /etc/nixos/configuration.nix /home/$USER/.dotfiles/configuration.nix
         # echo "nixos config copied."
+      destinationInfo=$(du -sb $desPath | cut -f1 )
+      originalInfo=$(du -sb $oriPath | cut -f1)
+      if [[ $destinationInfo -eq $originalInfo ]];
+      then
+        echo -e "$2: $colorG $originalInfo b $colorEnd"
+        sudo nixos-rebuild switch --upgrade
+      else
+        echo -e "$2: $colorB $originalInfo b  is not the same ! $colorEnd"
+      fi
+
     else
         echo -e " ${colorB} WARNING: no $1 config found; can't copie for now.${colorEnd}"
     fi
@@ -120,9 +132,8 @@ askForReboot() {
 
 if [ "$HOSTNAME"  = "nixos" ]
 then
-   copieNixosConfig
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild |${colorEnd}---"
-   sudo nixos-rebuild switch --upgrade
+    copieNixosConfig
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild done |${colorEnd}---"
 else
     echo -e "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
