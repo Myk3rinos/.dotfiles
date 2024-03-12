@@ -128,6 +128,9 @@
       gnomeExtensions.dash-to-dock
       # amberol
       neovim
+      delve # for neovim debug
+      vimPlugins.nvim-dap-go # for neovim debug
+
     gnomeExtensions.media-controls
     gnomeExtensions.extension-list
     gnomeExtensions.removable-drive-menu

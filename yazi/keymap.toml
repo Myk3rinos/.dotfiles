@@ -168,6 +168,7 @@ keymap = [
 	{ on = [ "g", "i" ],       exec = "cd ~/Images",   desc = "Go to the images directory" },
 	{ on = [ "g", "w" ],       exec = "cd ~/Images/wallpapers",   desc = "Go to the wallpaper directory" },
 	{ on = [ "g", "t" ],       exec = "cd ~/Téléchargements",          desc = "Go to the download directory" },
+	{ on = [ "g", "u" ],       exec = "cd /run/media/$USER",          desc = "Go to the drive" },
 	{ on = [ "g", "<Space>" ], exec = "cd --interactive", desc = "Go to a directory interactively" },
 
 	# Help

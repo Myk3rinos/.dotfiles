@@ -59,6 +59,12 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
+      -- lspconfig.ast_grep.setup({
+      --   capabilities = capabilities
+      -- })
+      lspconfig.tsserver.setup({
+        capabilities = capabilities
+      })
       -- lspconfig.editorconfig_checker.setup({
       --   capabilities = capabilities
       -- })

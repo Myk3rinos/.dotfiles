@@ -5,7 +5,7 @@ source $HOME/.dotfiles/script/mountDrive.sh
 # function man() {
 #   /usr/bin/man $* | \
 #     col -b | \
-#     vim -R -c 'set ft=man nomod nolist' -
+#     nvim -R -c 'set ft=man nomod nolist' -
 # }
 # export LESS_TERMCAP_mb=$'\e[1;32m'
 function _colorman() {
@@ -27,6 +27,7 @@ function _colorman() {
       "$@"
 }
 alias manc="LANG=C _colorman man"
+alias helpc="LANG=C _colorman --help"
 
 GREP_OPTS='--color=auto'      # for aliases since $GREP_OPTIONS is deprecated
 GREP_COLOR='1;32'             # (legacy) bright green rather than default red
