@@ -146,8 +146,8 @@ fi
 createAllSymlink
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Copy documents |${colorEnd}---"
 cpMozilla
-cpKeybinding
 cpDocuments
+cpKeybinding
 /home/$USER/.dotfiles/script/configure.sh
 gitinit
 askForReboot
