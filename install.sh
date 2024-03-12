@@ -30,6 +30,10 @@ createAllSymlink() {
 
 
 cpDocuments() {
+    if [ ! -d /run/media/$USER/dd3/config ]; then
+        echo -e "${colorB}WARNING: no config found; can't copy for now.${colorEnd}"
+        return
+    fi
     echo -e "${color4}- copy Documents ${colorEnd}"
     cp -r /run/media/$USER/dd3/config/Documents ~/
     checkIfCopyOk ~/Documents /run/media/$USER/dd3/config/Documents
@@ -65,7 +69,7 @@ copieNixosConfig() {
       originalInfo=$(du -sb $oriPath | cut -f1)
       if [[ $destinationInfo -eq $originalInfo ]];
       then
-        echo -e "$2: $colorG $originalInfo b $colorEnd"
+        echo -e "$2 $colorG $originalInfo b $colorEnd"
         sudo nixos-rebuild switch --upgrade
       else
         echo -e "$2: $colorB $originalInfo b  is not the same ! $colorEnd"
