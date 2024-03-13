@@ -134,6 +134,8 @@
       universal-ctags # for neovim tagbar
       ctags
       ttags # generate tags for treesitter
+      global
+      mdctags
 
     gnomeExtensions.media-controls
     gnomeExtensions.extension-list
