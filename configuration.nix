@@ -132,6 +132,8 @@
       vimPlugins.nvim-dap-go # for neovim debug
       wl-clipboard # for neovim copy
       universal-ctags # for neovim tagbar
+      ctags
+      ttags # generate tags for treesitter
 
     gnomeExtensions.media-controls
     gnomeExtensions.extension-list

@@ -59,9 +59,9 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
-      -- lspconfig.ast_grep.setup({
-      --   capabilities = capabilities
-      -- })
+      lspconfig.bashls.setup({
+        capabilities = capabilities
+      })
       lspconfig.tsserver.setup({
         capabilities = capabilities
       })

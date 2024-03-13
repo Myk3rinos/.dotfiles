@@ -29,7 +29,7 @@ vim.opt.fillchars = { eob = ' ' } -- hide tilde at the end of file
 
 
 hi_all = 0
-vim.api.nvim_set_keymap("n", "<C-w>", "", {
+vim.api.nvim_set_keymap("n", "<C-b>", "", {
     callback = function()
        if hi_all == 0 then
           vim.cmd("set laststatus=0")
