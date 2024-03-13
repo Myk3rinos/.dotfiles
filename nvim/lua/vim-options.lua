@@ -7,12 +7,10 @@ vim.cmd("set number relativenumber")
 -- vim.cmd("se cursorline")
 vim.cmd("set cursorline")
 vim.cmd("set clipboard+=unnamedplus")
--- vim.opt.clipboard:append('unnamedplus')
--- vim.cmd("vnoremap <C-c> y")
 
-
---vim.keymap.vnoremap("n", "<leader>y", [["*y]], {})
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>', {})
+vim.keymap.set('n', '<leader>nt', ':set relativenumber! number! showmode! showcmd! hidden! ruler!<CR>', {})
+vim.keymap.set('n', '<C-h>', ':Neotree filesystem toggle left<CR>', {})
 
 vim.wo.fillchars = "eob: " -- hide tilde at the end of file
 -- set fillchars=eob:\ 
