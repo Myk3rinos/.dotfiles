@@ -1,6 +1,8 @@
 return {
   "mfussenegger/nvim-dap",  -- Debug Adapter Protocol
+  event = 'VeryLazy',
   dependencies = {
+
     -- "theHamsta/nvim-dap-virtual-text",
     "rcarriga/nvim-dap-ui",
     -- "Pocco81/DAPInstall.nvim",

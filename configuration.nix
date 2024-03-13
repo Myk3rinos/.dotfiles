@@ -170,6 +170,9 @@
     # python311Packages.pynvml
     paperview
     gsettings-desktop-schemas
+
+
+    vimPlugins.nvim-treesitter-parsers.tsx
 ];
 
 
