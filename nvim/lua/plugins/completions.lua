@@ -6,6 +6,9 @@ return {
     'hrsh7th/cmp-nvim-lsp'
   },
   {
+    -- 'neovim/nvim-lspconfig'
+  },
+  {
    'L3MON4D3/LuaSnip',
     dependencies = {
       'saadparwaiz1/cmp_luasnip',
