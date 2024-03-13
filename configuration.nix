@@ -112,7 +112,7 @@
     zsh
     lsd
     fzf
-    ncdu
+    ncdu # for disk usage
     kitty
     catppuccin-gtk
     nightfox-gtk-theme
@@ -130,7 +130,8 @@
       neovim
       delve # for neovim debug
       vimPlugins.nvim-dap-go # for neovim debug
-      wl-clipboard
+      wl-clipboard # for neovim copy
+      universal-ctags # for neovim tagbar
 
     gnomeExtensions.media-controls
     gnomeExtensions.extension-list
@@ -147,7 +148,7 @@
     gnomeExtensions.forge
     # vault
     gocryptfs
-    # ---- for yazi ----
+    # INFO: ---- for yazi ----
     file # for file type
     ffmpegthumbnailer # for thumbnails
     unar # for archive
