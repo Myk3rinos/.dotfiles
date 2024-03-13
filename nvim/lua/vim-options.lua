@@ -7,15 +7,16 @@ vim.cmd("set number relativenumber")
 -- vim.cmd("se cursorline")
 vim.cmd("set cursorline")
 vim.cmd("set clipboard+=unnamedplus")
+-- vim.opt.clipboard:append('unnamedplus')
+-- vim.cmd("vnoremap <C-c> y")
 
-vim.cmd("vnoremap <C-C> :w !xsel -b<CR><CR>")
 
-
+--vim.keymap.vnoremap("n", "<leader>y", [["*y]], {})
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>', {})
 
 vim.wo.fillchars = "eob: " -- hide tilde at the end of file
 -- set fillchars=eob:\ 
-vim.keymap.set({ "n", "v" }, "<leader>y", [["*y]])
+-- vim.keymap.set({ "n", "v" }, "<leader>y", [["*y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- vim.cmd(":Neotree filesystem reveal left")
 
@@ -27,10 +28,6 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["*y]])
 --:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 ----:augroup END
 --
-
-
-
-
 --------------- highlight line number
 --se cursorline
 --

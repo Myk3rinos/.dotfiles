@@ -130,6 +130,7 @@
       neovim
       delve # for neovim debug
       vimPlugins.nvim-dap-go # for neovim debug
+      wl-clipboard
 
     gnomeExtensions.media-controls
     gnomeExtensions.extension-list
