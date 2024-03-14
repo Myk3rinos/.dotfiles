@@ -2,10 +2,17 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
-vim.g.mapleader = " "
 vim.cmd("set number relativenumber")
 vim.cmd("set cursorline")
 vim.cmd("set clipboard+=unnamedplus")
+--vim.cmd(":loadview")
+vim.g.mapleader = " "
+-- vim.opt.expandtab = true
+-- vim.opt.shiftwidth = 2
+-- vim.opt.tabstop = 2
+-- vim.opt.number = true
+-- vim.opt.relativenumber = true
+
 
 vim.keymap.set('n', '<leader>ht', ':TagbarToggle<CR>', {})
 
@@ -27,7 +34,6 @@ vim.opt.fillchars = { eob = ' ' } -- hide tilde at the end of file
 --     end,
 -- })
 
-vim.cmd("set showtabline=0")
 hi_tab = 0
 vim.api.nvim_set_keymap("n", "<leader>hb", "", {
     callback = function()
@@ -74,4 +80,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+-- vim.api.nvim_create_autocmd('BufEnter', {
+--   desc = 'Start loadview on buffer enter',
+--   -- group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+--   callback = function()
+--     vim.cmd("set loadview")
+--   end,
+-- })
+-- vim.api.nvim_create_autocmd('BufEnter',  { command = ":loadview" }) 
+-- vim.api.nvim_create_autocmd('BufEnter',  { command = "set showtabline=0" }) 
+
+vim.keymap.set('n', '<leader>vm', ':set foldmethod=marker<CR>', {})
+vim.keymap.set('n', '<leader>vl', ':loadview<CR>', {})
+
+-- {{{
+  --test
+  --vim.api.nvim_set_keymap("n", "<leader>mv", ":set foldmethod=marker<CR>", {})
+-- }}}
 
