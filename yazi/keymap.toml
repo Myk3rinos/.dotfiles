@@ -12,7 +12,7 @@ keymap = [
   # Custom
   { on = [ "T" ], exec = "plugin test --sync --args='hello'" },
   # { on = [ "T" ], exec = "plugin --sync hide-preview" },
-  # { on = [ "<C-t>" ], exec = "plugin glow" },
+  { on = [ "<C-m>" ], exec = "plugin max-preview" },
   # { on = [ "W" ], exec = "shell --confirm 'gsettings org.gnome.desktop.background picture-uri-dark file:///home/will/Images/wallpaper/1.jpg'" },
   { on = [ "W" ], exec = "shell --confirm 'gsettings set org.gnome.desktop.background picture-uri-dark file://$@'" },
 	# { on = [ "<Space>" ], exec = "shell --confirm 'sushi $@'", desc = "Toggle sushi preview the current selection state" },
