@@ -1,31 +1,31 @@
 # ------------ promt ------------
 
 format = """
-  (238)\
+[┌─](238)\
 
 ${custom.app_prec}\
 $directory\
 ${custom.app}\
 $fill\
 $cmd_duration\
-$git_status\
-$git_state\
 ${custom.git_branch_m}\
 ${custom.git_branch}\
+${custom.github}\
 $git_branch\
+$git_state\
+$git_status\
 $git_metrics\
-${custom.github2}\
 ${custom.js}\
 ${custom.rb}\
+${custom.jsx}\
 ${custom.ts}\
-${custom.sh}\
-${custom.lua}\
+${custom.css}\
 $jobs\
 $time
-[](238)$fill\
+[|](238)$fill\
 ${custom.github}\
 $line_break\
-$character\
+[└─](238)$character\
 """
 # ------------ move ------------
 # [┌─](238)\
@@ -68,8 +68,8 @@ disabled = false
 
 [directory]
 # style = "purple"
-style = "075" # bleu
-# style = "141" # dracula
+# style = "068" # bleu
+style = "141" # dracula
 truncation_symbol = "\uf07c  "
 home_symbol = "\uf015 "
 read_only_style = "197"
@@ -128,7 +128,7 @@ style = "060"
 [custom.github]
 when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
 # when = "[[ $(git branch -a) == *'remotes/origin/${git branch --show-current}'* ]]"
-command = "git remote -v | head -c 6"
+command = "git remote -v | head -c 1"
 style = "237"
 # format = "[$output  ]($style)"
 # format = "[$output 󰌗 ]($style)"
@@ -136,20 +136,14 @@ style = "237"
 #  format = "[$output ]($style)"
 #  format = "[$output ]($style)"
  # format = "[$output ]($style)"
-format = "[$output ┘            ]($style)"
+ format = "[$output 󰑁 ]($style)"
 
-[custom.github2]
-when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
-# command = "git remote -v | head -c 6"
-style = "238"
-format = "[ ┐]($style)"
 
 [git_status]
 format = '([$all_status$ahead_behind]($style))'
 style = "white"
 conflicted = " 🏳"
-# up_to_date = " [${count}](104)"
-up_to_date = " [󰃁${count}](238)"
+up_to_date = " [${count}](104)"
 untracked = ' [ ${count}](035)'
 ahead = " ⇡${count}"
 diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
@@ -188,51 +182,39 @@ format = "[$symbol]($style) "
 
 [custom.app]
 detect_folders = ['app', 'src']
-symbol = " "
+symbol = ""
 format = "[$symbol ]($style)"
 style = "060"
 
 [custom.js]
 detect_extensions = ['js']
-symbol = " "
+symbol = ""
 format = " [$symbol]($style)"
 style = "bright-yellow"
 
 [custom.rb]
 detect_extensions = ['rb', 'ru']
-symbol = " "
+symbol = ""
 format = " [$symbol]($style)"
 style = "198"
 
 [custom.jsx]
 detect_extensions = ['jsx', 'tsx']
-symbol = " "
+symbol = ""
 format = " [$symbol]($style)"
 style = "051"
 
 [custom.ts]
 detect_extensions = ['ts', 'tsx']
-symbol = " "
+symbol = ""
 format = " [$symbol]($style)"
 style = "032"
 
 [custom.css]
 detect_extensions = ['css', 'scss']
-symbol = " "
+symbol = ""
 format = " [$symbol]($style)"
 style = "128"
-
-[custom.sh]
-detect_extensions = ['sh']
-symbol = " "
-format = " [$symbol]($style)"
-style = "035"
-
-[custom.lua]
-detect_extensions = ['lua']
-symbol = " "
-format = " [$symbol]($style)"
-style = "063"
 
 # [custom.stunnel]
 # when = "ps aux | grep stunnel | grep -v grep"
