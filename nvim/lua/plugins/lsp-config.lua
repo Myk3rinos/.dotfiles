@@ -52,7 +52,8 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
+    lazy = true,
+    event = "VeryLazy",
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require("lspconfig")

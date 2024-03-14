@@ -7,10 +7,10 @@ vim.cmd("set number relativenumber")
 vim.cmd("set cursorline")
 vim.cmd("set clipboard+=unnamedplus")
 
-vim.keymap.set('n', '<C-g>', ':TagbarToggle<CR>', {})
+vim.keymap.set('n', '<leader>ht', ':TagbarToggle<CR>', {})
 
-vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>', {})
-vim.keymap.set('n', '<C-h>', ':set relativenumber! number! showmode! showcmd! hidden! ruler!<CR>', {})
+vim.keymap.set('n', '<leader>hn', ':Neotree filesystem toggle left<CR>', {})
+vim.keymap.set('n', '<leader>hh', ':set relativenumber! number! showmode! showcmd! hidden! ruler!<CR>', {})
 
 
 vim.opt.fillchars = { eob = ' ' } -- hide tilde at the end of file
@@ -27,9 +27,21 @@ vim.opt.fillchars = { eob = ' ' } -- hide tilde at the end of file
 --     end,
 -- })
 
-
+vim.cmd("set showtabline=0")
+hi_tab = 0
+vim.api.nvim_set_keymap("n", "<leader>hb", "", {
+    callback = function()
+       if hi_tab == 0 then
+          vim.cmd("set showtabline=0")
+          hi_tab = 1
+       else
+          vim.cmd("set showtabline=2")
+          hi_tab = 0
+       end 
+    end,
+})
 hi_all = 0
-vim.api.nvim_set_keymap("n", "<C-b>", "", {
+vim.api.nvim_set_keymap("n", "<leader>ha", "", {
     callback = function()
        if hi_all == 0 then
           vim.cmd("set laststatus=0")
@@ -39,6 +51,7 @@ vim.api.nvim_set_keymap("n", "<C-b>", "", {
           vim.cmd("set noshowcmd")
           vim.cmd("set nohidden")
           vim.cmd("set noruler")
+          vim.cmd("set showtabline=0")
           hi_all = 1
        else
           vim.cmd("set laststatus=2")
@@ -48,6 +61,7 @@ vim.api.nvim_set_keymap("n", "<C-b>", "", {
           vim.cmd("set showcmd")
           vim.cmd("set hidden")
           vim.cmd("set ruler")
+          vim.cmd("set showtabline=2")
           hi_all = 0
        end 
     end,

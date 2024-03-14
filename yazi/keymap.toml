@@ -10,9 +10,9 @@ desc = "Open shell here"
 
 keymap = [
   # Custom
-  { on = [ "T" ], exec = "plugin test --sync --args='hello'" },
+  { on = [ "<M>" ], exec = "plugin test --sync --args='hello world'" },
   # { on = [ "T" ], exec = "plugin --sync hide-preview" },
-  { on = [ "<C-m>" ], exec = "plugin max-preview" },
+  # { on = [ "<M>" ], exec = "plugin max-preview --sync" },
   # { on = [ "W" ], exec = "shell --confirm 'gsettings org.gnome.desktop.background picture-uri-dark file:///home/will/Images/wallpaper/1.jpg'" },
   { on = [ "W" ], exec = "shell --confirm 'gsettings set org.gnome.desktop.background picture-uri-dark file://$@'" },
 	# { on = [ "<Space>" ], exec = "shell --confirm 'sushi $@'", desc = "Toggle sushi preview the current selection state" },
