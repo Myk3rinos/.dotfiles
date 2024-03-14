@@ -112,7 +112,8 @@ inactive = {}
 
 # Icons
 icon_file    = ""
-icon_folder  = ""
+# icon_folder  = ""
+icon_folder  = " "
 icon_command = ""
 
 # : }}}
@@ -184,7 +185,7 @@ rules = [
 
 	# Fallback
 	{ name = ".*", fg = "gray" },
-	{ name = "*", fg = "#f2f4f8" },
+	# { name = "*", fg = "#f2f4f8" },
 	{ name = ".config/", fg = "green" },
 	{ name = ".*/", fg = "blue" },
 	{ name = "*/", fg = "#78a9ff" }
@@ -327,20 +328,22 @@ rules = [
 	# Directories
 	{ name = ".config/"    , text = "", fg = "#cbcb41" },
 	{ name = ".git/"       , text = "" },
-	{ name = "Desktop/"    , text = "" },
+	{ name = "Bureau/"    , text = "" },
 	{ name = "Development/", text = "" },
 	{ name = "Documents/"  , text = "" },
-	{ name = "Downloads/"  , text = "" },
+	{ name = "Téléchargements/"  , text = "" },
 	{ name = "Library/"    , text = "" },
 	{ name = "Movies/"     , text = "" },
-	{ name = "Music/"      , text = "" },
-	{ name = "Pictures/"   , text = "" },
+	{ name = "Musique/"      , text = "" },
+	{ name = "Images/"   , text = "" },
 	{ name = "Public/"     , text = "" },
 	{ name = "Videos/"     , text = "" },
+	{ name = "Websites/"  , text = "󰜫", fg = "#fc8ae5" },
 	
 	# Default
 	# { name = "*" , text = "" },
 	# { name = "*/", text = "" },
+	{ name = "*/", text = " ", fg = "#fc8ae5" },
 ]
 
 # : }}}
