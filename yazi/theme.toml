@@ -185,20 +185,21 @@ rules = [
 	{ mime = "application/vnd.*", fg = "green" },
 
 	# Fallback
+	{ name = "Websites/", fg = "#e458ff" },
+	{ name = ".dotfiles/", fg = "#fbb040" },
 	{ name = ".*", fg = "gray" },
 	# { name = "*", fg = "#f2f4f8" },
-	{ name = ".config/", fg = "green" },
+	# { name = ".config/", fg = "#f624f3" },
 	{ name = ".*/", fg = "blue" },
   
-	{ name = "Websites/", fg = "#fc8ae5" },
 	{ name = "*/", fg = "#78a9ff" },
 ]
 
 [icon]
 
 rules = [
-    { name = "*/", text = " ", fg = "#fc8ae5" },
-	{ name = "Vidéos/"     , text = "" },
+        { name = "*/", text = " ", fg = "#fc8ae5" },
+	# { name = "Vidéos/"     , text = "" },
 
 	# Programming
 	{ name = "*.c"    , text = "", fg = "#599eff" },
@@ -349,7 +350,7 @@ rules = [
 	# Default
 	# { name = "*" , text = "" },
 	# { name = "*/", text = "" },
-	# { name = "*/", text = " ", fg = "#fc8ae5" },
+	{ name = "*/", text = " ", fg = "#fc8ae5" },
 ]
 
 # : }}}
