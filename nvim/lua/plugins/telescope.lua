@@ -22,6 +22,8 @@ return {
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config'}
     end, { desc = '[S]earch [N]vim config' })
+
+    -- vim.keymap.set('n', '<leader>st', { cwd = TodoTelescope keywords=TODO,FIX}, { desc = '[S]earch [T]odo tags' })
   end,
   },
   {

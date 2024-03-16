@@ -100,3 +100,12 @@ vim.keymap.set("n", "]t", function()
 end, { desc = "Next error/warning todo comment" })
 
 -- }}}
+
+
+-- vim.keymap.set("n", "<leader>nl", function()
+--   require("noice").cmd("last")
+-- end)
+--
+-- vim.keymap.set("n", "<leader>nh", function()
+--   require("noice").cmd("history")
+-- end)
