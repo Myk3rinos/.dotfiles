@@ -1,39 +1,44 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set number relativenumber")
-vim.cmd("set cursorline")
-vim.cmd("set clipboard+=unnamedplus")
---vim.cmd(":loadview")
+-- INFO: OPTIONS
+-- Options for nvim
 vim.g.mapleader = " "
--- vim.opt.expandtab = true
--- vim.opt.shiftwidth = 2
--- vim.opt.tabstop = 2
--- vim.opt.number = true
--- vim.opt.relativenumber = true
 
-
-vim.keymap.set('n', '<leader>ht', ':TagbarToggle<CR>', {})
-
-vim.keymap.set('n', '<leader>hn', ':Neotree filesystem toggle left<CR>', {})
-vim.keymap.set('n', '<leader>hh', ':set relativenumber! number! showmode! showcmd! hidden! ruler!<CR>', {})
-
-
+vim.opt.conceallevel = 3
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.termguicolors = true
 vim.opt.fillchars = { eob = ' ' } -- hide tilde at the end of file
 
 
--- vim.api.nvim_set_keymap("n", "<C-x>", "", {
---     callback = function()
---         local statusline = vim.o.statusline
---
---         require("lualine").hide({
---             place = { "statusline" },
---             unhide = statusline == "" or statusline == "%#Normal#",
---         })
---     end,
--- })
+-- INFO: FUNCTIONS
+-- Highlight yanked text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 
+
+-- INFO: KEYMAPS
+-- Fold Keymaps
+vim.keymap.set('n', '<leader>vm', ':set foldmethod=marker<CR>', {})
+vim.keymap.set('n', '<leader>vs', ':mkview<CR>', {})
+vim.keymap.set('n', '<leader>vl', ':loadview<CR>', {})
+-- vim.api.nvim_create_autocmd('BufEnter',  { command = ":loadview" }) 
+-- vim.api.nvim_create_autocmd('BufEnter',  { command = "set showtabline=0" }) 
+
+-- hide keymaps
+vim.keymap.set('n', '<leader>ht', ':TagbarToggle<CR>', {})
+vim.keymap.set('n', '<leader>hn', ':Neotree filesystem toggle left<CR>', {})
+vim.keymap.set('n', '<leader>hh', ':set relativenumber! number! showmode! showcmd! hidden! ruler!<CR>', {})
+
+-- {{{ :Hide tabline function
 hi_tab = 0
 vim.api.nvim_set_keymap("n", "<leader>hb", "", {
     callback = function()
@@ -46,6 +51,9 @@ vim.api.nvim_set_keymap("n", "<leader>hb", "", {
        end 
     end,
 })
+-- }}}
+
+-- {{{ :Hide all info function
 hi_all = 0
 vim.api.nvim_set_keymap("n", "<leader>ha", "", {
     callback = function()
@@ -72,31 +80,10 @@ vim.api.nvim_set_keymap("n", "<leader>ha", "", {
        end 
     end,
 })
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
--- vim.api.nvim_create_autocmd('BufEnter', {
---   desc = 'Start loadview on buffer enter',
---   -- group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
---   callback = function()
---     vim.cmd("set loadview")
---   end,
--- })
--- vim.api.nvim_create_autocmd('BufEnter',  { command = ":loadview" }) 
--- vim.api.nvim_create_autocmd('BufEnter',  { command = "set showtabline=0" }) 
-
-vim.keymap.set('n', '<leader>vm', ':set foldmethod=marker<CR>', {})
-vim.keymap.set('n', '<leader>vl', ':loadview<CR>', {})
-
--- {{{
-  --test
-  --vim.api.nvim_set_keymap("n", "<leader>mv", ":set foldmethod=marker<CR>", {})
 -- }}}
+
+-- Todo keymaps
+-- {{{
 
 vim.keymap.set("n", "]t", function()
   require("todo-comments").jump_next()
@@ -111,3 +98,5 @@ end, { desc = "Previous todo comment" })
 vim.keymap.set("n", "]t", function()
   require("todo-comments").jump_next({keywords = { "ERROR", "WARNING" }})
 end, { desc = "Next error/warning todo comment" })
+
+-- }}}
