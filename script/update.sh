@@ -13,8 +13,8 @@ cpKeybinding() {
 
 cpFirefoxUser() {
   echo -e "${color4}- Copying Firefox user ${colorEnd}"
-  cp -r ~/.mozilla/firefox /run/media/$USER/dd3/config/
-  checkIfCopyOk /run/media/$USER/dd3/config/firefox ~/.mozilla/firefox
+  cp -r ~/.mozilla /run/media/$USER/dd3/config/
+  checkIfCopyOk /run/media/$USER/dd3/config/.mozilla ~/.mozilla
 }
 
 cpDocument() {

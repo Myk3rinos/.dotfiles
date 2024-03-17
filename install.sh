@@ -48,8 +48,8 @@ cpDocuments() {
 }
 cpMozilla() {
     echo -e "${color4}- copy firefox user ${colorEnd}"
-    cp -r /run/media/$USER/dd3/config/firefox ~/.mozilla/
-    checkIfCopyOk ~/.mozilla/firefox /run/media/$USER/dd3/config/firefox
+    cp -r /run/media/$USER/dd3/config/.mozilla ~/
+    checkIfCopyOk ~/.mozilla /run/media/$USER/dd3/config/.mozilla
 }
 cpKeybinding() {
     echo -e "${color4}- copy keybindings ${colorEnd}"
