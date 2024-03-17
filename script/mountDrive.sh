@@ -6,7 +6,7 @@ source ~/.dotfiles/script/colors.sh
 mountDrive () {
   echo -e " -------------------${color2} ¤${colorEnd} ${color1}| Mounting Drive |${colorEnd}---"
   # sudo fdisk -l
-  lsblk
+  lsblk | grep -E '^└─' 
   printf "%s" "Enter the drive to mount: "
   read drive
   sudo cryptsetup luksOpen /dev/"${drive}" "${drive}"
@@ -16,7 +16,7 @@ mountDrive () {
 
 unmountDrive () {
   echo -e " -------------------${color2} ¤${colorEnd} ${color1}| Unmounting Drive |${colorEnd}---"
-  lsblk
+  lsblk | grep -E '^└─' 
   printf "%s" "Enter the drive to unmount: "
   read drive
   sudo umount /run/media/"$USER"/"${drive}"

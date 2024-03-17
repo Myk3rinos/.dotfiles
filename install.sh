@@ -5,10 +5,10 @@ filesToLinkInConfig=( yazi kitty conky btop nvim neofetch starship.toml)
 
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${colorEnd}---"
 
-lsblk
+lsblk | grep -E '^└─' 
 printf "%s" "Enter the drive mountpoints destination for install: "
 read drive
-ls /run/media/$USER/$drive
+ls -la /run/media/$USER/$drive 
 printf "%s" "Enter the config directory name for install: "
 read directory
 
