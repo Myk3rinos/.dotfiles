@@ -5,13 +5,18 @@ filesToLinkInConfig=( yazi kitty conky btop nvim neofetch starship.toml)
 
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${colorEnd}---"
 
-
+lsblk
+printf "%s" "Enter the drive mountpoints destination for install: "
+read drive
+ls /run/media/$USER/$drive
+printf "%s" "Enter the config directory name for install: "
+read directory
 
 createSymlinks() {
     if [ -f /home/$USER/.dotfiles/$1 ] || [ -r /home/$USER/.dotfiles/$1 ]; then # check if file exists
        rm ~/"$2""$1"
        ln -s /home/$USER/.dotfiles/$1 ~/"$2""$1"
-       echo -e "${colorG}$1 config linked.${colorEnd}"
+       echo -e "${colorG}$1 configuration linked.${colorEnd}"
     else
        echo -e "${colorB}WARNING: no $1 config found; can't link for now.${colorEnd}"
     fi
@@ -30,30 +35,30 @@ createAllSymlink() {
 
 
 cpDocuments() {
-    if [ ! -d /run/media/$USER/dd3/config ]; then
-        echo -e "${colorB}WARNING: no config found; can't copy for now.${colorEnd}"
+    if [ ! -d /run/media/$USER/${drive}/${directory} ]; then
+        echo -e "${colorB}WARNING: no configuration found; can't copy for now.${colorEnd}"
         return
     fi
     echo -e "${color4}- copy Documents ${colorEnd}"
-    cp -r /run/media/$USER/dd3/config/Documents ~/
-    checkIfCopyOk ~/Documents /run/media/$USER/dd3/config/Documents
-    cp -r /run/media/$USER/dd3/config/Musique ~/
-    checkIfCopyOk ~/Musique /run/media/$USER/dd3/config/Musique
-    cp -r /run/media/$USER/dd3/config/Vidéos ~/
-    checkIfCopyOk ~/Vidéos /run/media/$USER/dd3/config/Vidéos
-    cp -r /run/media/$USER/dd3/config/Images ~/
-    checkIfCopyOk ~/Images /run/media/$USER/dd3/config/Images
-    cp -r /run/media/$USER/dd3/config/autostart ~/.config/
-    checkIfCopyOk ~/.config/autostart /run/media/$USER/dd3/config/autostart
+    cp -r /run/media/$USER/${drive}/${directory}/Documents ~/
+    checkIfCopyOk ~/Documents /run/media/$USER/${drive}/${directory}/Documents
+    cp -r /run/media/$USER/${drive}/${directory}/Musique ~/
+    checkIfCopyOk ~/Musique /run/media/$USER/${drive}/${directory}/Musique
+    cp -r /run/media/$USER/${drive}/${directory}/Vidéos ~/
+    checkIfCopyOk ~/Vidéos /run/media/$USER/${drive}/${directory}/Vidéos
+    cp -r /run/media/$USER/${drive}/${directory}/Images ~/
+    checkIfCopyOk ~/Images /run/media/$USER/${drive}/${directory}/Images
+    cp -r /run/media/$USER/${drive}/${directory}/autostart ~/.config/
+    checkIfCopyOk ~/.config/autostart /run/media/$USER/${drive}/${directory}/autostart
 }
 cpMozilla() {
     echo -e "${color4}- copy firefox user ${colorEnd}"
-    cp -r /run/media/$USER/dd3/config/.mozilla ~/
-    checkIfCopyOk ~/.mozilla /run/media/$USER/dd3/config/.mozilla
+    cp -r /run/media/$USER/${drive}/${directory}/.mozilla ~/
+    checkIfCopyOk ~/.mozilla /run/media/$USER/${drive}/${directory}/.mozilla
 }
 cpKeybinding() {
     echo -e "${color4}- copy keybindings ${colorEnd}"
-    cat /run/media/$USER/dd3/config/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
+    cat /run/media/$USER/${drive}/${directory}/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
 }
 
 
