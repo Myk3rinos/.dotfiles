@@ -9,6 +9,7 @@ return {
       options = {
         -- theme = 'dracula'
         theme = 'carbonfox'
+        -- theme = 'oxocarbon'
       }
     })
   end

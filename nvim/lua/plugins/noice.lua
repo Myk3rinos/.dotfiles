@@ -14,7 +14,14 @@ return {
         "rcarriga/nvim-notify",
       },
         config = function() 
+              require("notify").setup({
+                background_colour = "#000000",
+              })
+            vim.keymap.set("n", "<leader>sn", ":TodoTelescope keywords=TODO,FIX<CR>", {})
+
             require("noice").setup({
+
+                
                   lsp = {
                     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
                 override = {
