@@ -6,7 +6,7 @@ source ~/.dotfiles/script/checkCopy.sh
 
 echo -e "-------------${color2} ¤${colorEnd} ${color1}| Update Start |${colorEnd}---"
 
-nameConfigDir="config_${HOSTNAME}_${USER}_$(date +%Y-%m-%d)"
+nameConfigDir="config_${HOSTNAME}_${USER}_$(date +%Y-%m-%d_%H%M%S)"
 lsblk
 printf "%s" "Enter the drive mountpoints destination to save: "
 read drive
