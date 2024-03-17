@@ -111,6 +111,7 @@
 	  starship
     zsh
     lsd
+    bat
     fzf
     ncdu # for disk usage
     kitty
