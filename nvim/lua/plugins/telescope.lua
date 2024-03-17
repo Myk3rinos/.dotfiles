@@ -1,8 +1,8 @@
 return {
   {
   'nvim-telescope/telescope.nvim', tag = '0.1.5',
-  event = 'VeryLazy',
-    lazy = true,
+  -- event = 'VeryLazy',
+    lazy = false,
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local builtin = require("telescope.builtin")

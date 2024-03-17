@@ -26,7 +26,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 
 -- INFO: KEYMAPS
--- Fold Keymaps
+-- move keymaps
+vim.keymap.set('x', '<leader>p', "\"_dP", {})
+
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", {})
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {})
+-- vim.keymap.set('v', '<leader><Down>', ":m '>+1<CR>gv=gv", {})
+-- vim.keymap.set('v', '<leader><Up>', ":m '<-2<cr>gv=gv", {})
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+--Fold Keymaps
 vim.keymap.set('n', '<leader>vm', ':set foldmethod=marker<CR>', {})
 vim.keymap.set('n', '<leader>vs', ':mkview<CR>', {})
 vim.keymap.set('n', '<leader>vl', ':loadview<CR>', {})
