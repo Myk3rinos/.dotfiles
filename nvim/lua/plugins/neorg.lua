@@ -28,8 +28,8 @@ return {
             config = {
               workspaces = {
                 -- demo = "~/notes",
-                dotfiles = "~/Org/dotfiles",
-                notes = "~/Org/notes",
+                dotfiles = "~/Documents/Org/dotfiles",
+                notes = "~/Documents/Org/notes",
               },
               default_workspace = "notes",
             },
