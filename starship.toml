@@ -15,7 +15,6 @@ ${custom.git_branch}\
 $git_branch\
 $git_metrics\
 ${custom.github2}\
-${custom.js}\
 ${custom.rb}\
 ${custom.ts}\
 ${custom.sh}\
@@ -24,11 +23,7 @@ $jobs\
 $time
 [](238)$fill\
 ${custom.github}\
-${custom.js_}\
-${custom.rb_}\
-${custom.ts_}\
-${custom.sh_}\
-${custom.lua_}\
+${custom.extension_icon_space}\
 $line_break\
 $character\
 """
@@ -197,15 +192,15 @@ symbol = " "
 format = "[$symbol ]($style)"
 style = "060"
 
-[custom.js]
-detect_extensions = ['js']
-symbol = " "
+[custom.extension_icon_space]
+detect_extensions = ['js', 'jsx', 'ts', 'tsx', 'rb', 'ru', 'sh', 'lua']
+symbol = "  "
 format = " [$symbol]($style)"
 style = "bright-yellow"
 
-[custom.js_]
+[custom.js]
 detect_extensions = ['js']
-symbol = "  "
+symbol = " "
 format = " [$symbol]($style)"
 style = "bright-yellow"
 
@@ -215,19 +210,7 @@ symbol = " "
 format = " [$symbol]($style)"
 style = "198"
 
-[custom.rb_]
-detect_extensions = ['rb', 'ru']
-symbol = "  "
-format = " [$symbol]($style)"
-style = "198"
-
 [custom.jsx]
-detect_extensions = ['jsx', 'tsx']
-symbol = " "
-format = " [$symbol]($style)"
-style = "051"
-
-[custom.jsx_]
 detect_extensions = ['jsx', 'tsx']
 symbol = " "
 format = " [$symbol]($style)"
@@ -236,12 +219,6 @@ style = "051"
 [custom.ts]
 detect_extensions = ['ts', 'tsx']
 symbol = " "
-format = " [$symbol]($style)"
-style = "032"
-
-[custom.ts_]
-detect_extensions = ['ts', 'tsx']
-symbol = "  "
 format = " [$symbol]($style)"
 style = "032"
 
@@ -257,21 +234,9 @@ symbol = " "
 format = " [$symbol]($style)"
 style = "035"
 
-[custom.sh_]
-detect_extensions = ['sh']
-symbol = "  "
-format = " [$symbol]($style)"
-style = "035"
-
 [custom.lua]
 detect_extensions = ['lua']
 symbol = " "
-format = " [$symbol]($style)"
-style = "063"
-
-[custom.lua_]
-detect_extensions = ['lua']
-symbol = "  "
 format = " [$symbol]($style)"
 style = "063"
 

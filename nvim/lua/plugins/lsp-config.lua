@@ -26,7 +26,7 @@ return {
           "unocss",
           "taplo",
           "yamlls",
-          -- "nil_ls",
+          "nil_ls",
           -- "rnix",
           -- -- "tailwindcss",
           -- "vtsls",
@@ -118,6 +118,7 @@ return {
       lspconfig.unocss.setup({})
 
       lspconfig.bashls.setup({})
+      -- lspconfig.bashls.setup({})
       lspconfig.taplo.setup({})
       lspconfig.yamlls.setup({})
 

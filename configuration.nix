@@ -120,16 +120,15 @@
     nightfox-gtk-theme
     tokyo-night-gtk
     orchis-theme
-    lazygit
     htop
     btop
     gcc_multi
     tldr
     conky
-      gnome.gnome-tweaks
-      gnomeExtensions.dash-to-dock
+
       # amberol
       neovim
+      cargo # for rust nvim nul_ls
       delve # for neovim debug
       vimPlugins.nvim-dap-go # for neovim debug
       wl-clipboard # for neovim copy
@@ -139,6 +138,8 @@
       global
       mdctags
 
+    gnome.gnome-tweaks
+    gnomeExtensions.dash-to-dock
     gnomeExtensions.media-controls
     gnomeExtensions.extension-list
     gnomeExtensions.removable-drive-menu
@@ -171,7 +172,7 @@
     # python3
     # python311Packages.pynvml
     paperview
-    gsettings-desktop-schemas
+    # gsettings-desktop-schemas
 
 
     vimPlugins.nvim-treesitter-parsers.tsx

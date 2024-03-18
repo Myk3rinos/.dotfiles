@@ -67,6 +67,7 @@ alias lsla="clear ; lsd -la"
 alias lst="clear ; ls --tree ."
 
 
+alias lg="lazygit"
 
 alias nixrs="sudo nixos-rebuild switch"
 
