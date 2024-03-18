@@ -128,9 +128,11 @@
 
       # amberol
       neovim
+      rustup
+    google-chrome
       cargo # for rust nvim nul_ls
-      delve # for neovim debug
-      vimPlugins.nvim-dap-go # for neovim debug
+      # delve # for neovim debug
+      # vimPlugins.nvim-dap-go # for neovim debug
       wl-clipboard # for neovim copy
       universal-ctags # for neovim tagbar
       ctags
