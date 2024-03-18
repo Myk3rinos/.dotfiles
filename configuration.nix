@@ -108,6 +108,7 @@
 	  nodejs
 	  git
     gitAndTools.gh
+    lazygit
 	  starship
     zsh
     lsd

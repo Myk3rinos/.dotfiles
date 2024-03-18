@@ -13,6 +13,14 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
 vim.opt.fillchars = { eob = ' ' } -- hide tilde at the end of file
 
+-- require colorscheme
+-- vim.cmd.colorscheme 'catppuccin-frappe'
+-- vim.cmd('colorscheme catppuccin-frappe'
+-- vim.cmd([[autocmd ColorScheme * highlight CursorLineNr cterm=bold term=bold gui=bold]])
+
+-- vim.cmd.colorscheme 'catppuccin-frappe'
+-- vim.cmd [[silent! colorscheme carbonfox]]
+-- vim.cmd [[silent! colorscheme catppuccin-frappe]]
 
 -- INFO: FUNCTIONS
 -- Highlight yanked text
