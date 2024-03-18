@@ -1,8 +1,7 @@
 # ------------ promt ------------
 
 format = """
-  (238)\
-
+ (238)\
 ${custom.app_prec}\
 $directory\
 ${custom.app}\
@@ -14,18 +13,19 @@ ${custom.git_branch_m}\
 ${custom.git_branch}\
 $git_branch\
 $git_metrics\
-${custom.github2}\
+${custom.github_corner}\
 ${custom.rb}\
 ${custom.ts}\
 ${custom.sh}\
 ${custom.lua}\
 $jobs\
-$time
-[](238)$fill\
-${custom.github}\
-${custom.extension_icon_space}\
+$time\
 $line_break\
 $character\
+"""
+right_format = """
+${custom.github}\
+${custom.extension_icon_space}\
 """
 # ------------ move ------------
 # [┌─](238)\
@@ -44,13 +44,13 @@ format = " [$symbol]($style)"
 command = "echo ${USER:0:1}"
 when = "true"
 format = "[$output](238)"
-# style = "bright-yellow"
+style = "bright-yellow"
 
 [custom.hostname]
 command = "echo ${HOST:0:1}"
 when = "true"
 format = "[$output](238)"
-# style = "bright-yellow"
+style = "bright-yellow"
 
 [username]
 show_always = true
@@ -68,8 +68,9 @@ disabled = false
 
 [directory]
 # style = "purple"
-style = "075" # bleu
+# style = "075" # bleu
 # style = "141" # dracula
+style = "039" # bleu
 truncation_symbol = "\uf07c  "
 home_symbol = "\uf015 "
 read_only_style = "197"
@@ -86,8 +87,8 @@ format = " [$path]($style)[$read_only]($read_only_style) "
 
 # ------------ fill ------------
 [fill]
-symbol = " "
 # symbol = "─"
+symbol = " "
 style = "236"
 # ------------ fill ------------
 
@@ -114,33 +115,25 @@ style = "060"
 
 [custom.git_branch_m]
 command = "git branch --show-current"
-when =  "git branch --show-current && [[ $(git branch --show-current) != *'master'* ]]"
+when =  "git branch --show-current && [[ $(git branch --show-current) != *'master'* && $(git branch --show-current) != *'main'* ]]"
 symbol = "  "
 format = "[$symbol]($style)"
 style = "048"
 
 [custom.git_branch]
-when =  "[[ $(git branch --show-current) == *'master'* ]]"
+when =  "[[ $(git branch --show-current) == *'master'* || $(git branch --show-current) == *'main'* ]]"
 symbol = "  "
 format = "[$symbol]($style)"
 style = "060"
 
 [custom.github]
 when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
-# when = "[[ $(git branch -a) == *'remotes/origin/${git branch --show-current}'* ]]"
 command = "git remote -v | head -c 6"
 style = "237 italic"
-# format = "[$output  ]($style)"
-# format = "[$output 󰌗 ]($style)"
-# format = "[$output 󰽜 ]($style)"
-#  format = "[$output ]($style)"
-#  format = "[$output ]($style)"
- # format = "[$output ]($style)"
-format = "[$output ┘         ]($style)"
+format = "[$output ┘        ]($style)"
 
-[custom.github2]
+[custom.github_corner]
 when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
-# command = "git remote -v | head -c 6"
 style = "238"
 format = "[ ┐]($style)"
 
@@ -148,7 +141,6 @@ format = "[ ┐]($style)"
 format = '([$all_status$ahead_behind]($style))'
 style = "white"
 conflicted = " 🏳"
-# up_to_date = " [${count}](104)"
 up_to_date = " [󰃁${count}](238)"
 untracked = ' [ ${count}](035)'
 ahead = " ⇡${count}"

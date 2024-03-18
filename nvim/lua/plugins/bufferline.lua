@@ -5,6 +5,7 @@ return {
   config = function()
       diagnostics = "nvim_lspconfig",
     require("bufferline").setup({
+                  highlights = require("catppuccin.groups.integrations.bufferline").get()
     })
   end
 }
