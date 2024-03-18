@@ -20,7 +20,6 @@ return {
             vim.keymap.set("n", "<leader>sn", ":TodoTelescope keywords=TODO,FIX<CR>", {})
 
             require("noice").setup({
-
                 
                   lsp = {
                     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**

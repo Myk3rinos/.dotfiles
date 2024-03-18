@@ -1,7 +1,7 @@
 source ~/.dotfiles/script/colors.sh
 source ~/.dotfiles/script/checkCopy.sh
 filesToLinkInHome=(.zshrc .themes)
-filesToLinkInConfig=( yazi kitty conky btop nvim neofetch starship.toml)
+filesToLinkInConfig=( yazi kitty lazygit conky btop nvim neofetch starship.toml)
 
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${colorEnd}---"
 
