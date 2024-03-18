@@ -24,6 +24,11 @@ $jobs\
 $time
 [](238)$fill\
 ${custom.github}\
+${custom.js_}\
+${custom.rb_}\
+${custom.ts_}\
+${custom.sh_}\
+${custom.lua_}\
 $line_break\
 $character\
 """
@@ -136,7 +141,7 @@ style = "237 italic"
 #  format = "[$output ]($style)"
 #  format = "[$output ]($style)"
  # format = "[$output ]($style)"
-format = "[$output ┘            ]($style)"
+format = "[$output ┘         ]($style)"
 
 [custom.github2]
 when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
@@ -198,9 +203,21 @@ symbol = " "
 format = " [$symbol]($style)"
 style = "bright-yellow"
 
+[custom.js_]
+detect_extensions = ['js']
+symbol = "  "
+format = " [$symbol]($style)"
+style = "bright-yellow"
+
 [custom.rb]
 detect_extensions = ['rb', 'ru']
 symbol = " "
+format = " [$symbol]($style)"
+style = "198"
+
+[custom.rb_]
+detect_extensions = ['rb', 'ru']
+symbol = "  "
 format = " [$symbol]($style)"
 style = "198"
 
@@ -210,9 +227,21 @@ symbol = " "
 format = " [$symbol]($style)"
 style = "051"
 
+[custom.jsx_]
+detect_extensions = ['jsx', 'tsx']
+symbol = " "
+format = " [$symbol]($style)"
+style = "051"
+
 [custom.ts]
 detect_extensions = ['ts', 'tsx']
 symbol = " "
+format = " [$symbol]($style)"
+style = "032"
+
+[custom.ts_]
+detect_extensions = ['ts', 'tsx']
+symbol = "  "
 format = " [$symbol]($style)"
 style = "032"
 
@@ -228,9 +257,21 @@ symbol = " "
 format = " [$symbol]($style)"
 style = "035"
 
+[custom.sh_]
+detect_extensions = ['sh']
+symbol = "  "
+format = " [$symbol]($style)"
+style = "035"
+
 [custom.lua]
 detect_extensions = ['lua']
 symbol = " "
+format = " [$symbol]($style)"
+style = "063"
+
+[custom.lua_]
+detect_extensions = ['lua']
+symbol = "  "
 format = " [$symbol]($style)"
 style = "063"
 

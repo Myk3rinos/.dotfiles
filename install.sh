@@ -14,7 +14,7 @@ read directory
 
 createSymlinks() {
     if [ -f /home/$USER/.dotfiles/$1 ] || [ -r /home/$USER/.dotfiles/$1 ]; then # check if file exists
-       rm ~/"$2""$1"
+       rm -r ~/"$2""$1"
        ln -s /home/$USER/.dotfiles/$1 ~/"$2""$1"
        echo -e "${colorG}$1 configuration linked.${colorEnd}"
     else
