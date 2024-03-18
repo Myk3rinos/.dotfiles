@@ -1,6 +1,6 @@
 return { 
-  "folke/tokyonight.nvim", 
-  name = "tokyonight", 
+  "EdenEast/nightfox.nvim", 
+  name = "carbonfox", 
     -- event = "VeryLazy",
   priority = 1000, 
   config = function()

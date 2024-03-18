@@ -1,7 +1,7 @@
 return { 
-  "nyoom-engineering/oxocarbon.nvim", 
+  "folke/tokyonight.nvim", 
   -- event = 'VeryLazy',
-  name = "oxocarbon", 
+  name = "tokyonight", 
   priority = 100, 
   config = function()
     -- vim.cmd.colorscheme "oxocarbon"
