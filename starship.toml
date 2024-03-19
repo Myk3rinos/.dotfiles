@@ -5,6 +5,7 @@ format = """
 ${custom.app_prec}\
 $directory\
 ${custom.app}\
+$jobs\
 $fill\
 $cmd_duration\
 $git_status\
@@ -18,7 +19,6 @@ ${custom.rb}\
 ${custom.ts}\
 ${custom.sh}\
 ${custom.lua}\
-$jobs\
 $time\
 $line_break\
 $character\
