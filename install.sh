@@ -34,7 +34,7 @@ cpFiles() {
         list_all_drive+=($(ls -d *))
         choose_from_menu "Select drive:" selected_drive "${list_all_drive[@]}"
     else
-        echo "no external drive found" ; exit
+        echo "no external drive found" ; return
     fi
     popd
     
@@ -43,7 +43,7 @@ cpFiles() {
         list_all_directory+=($(ls -d *))
         choose_from_menu "Select configguration directory:" selected_directory "${list_all_directory[@]}"
     else
-        echo "no directory found" ; exit
+        echo "no directory found" ; return 
     fi
     popd
 
