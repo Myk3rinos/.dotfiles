@@ -30,13 +30,21 @@ createAllSymlink() {
 
 cpFiles() {
     pushd /run/media/$USER/
-    list_all_drive+=($(ls -d *))
-    choose_from_menu "Select drive mountpoints destination to save configuration files:" selected_drive "${list_all_drive[@]}"
+    if [[ $(ls -A) ]]; then
+        list_all_drive+=($(ls -d *))
+        choose_from_menu "Select drive:" selected_drive "${list_all_drive[@]}"
+    else
+        echo "no external drive found" ; exit
+    fi
     popd
     
     pushd /run/media/$USER/${selected_drive}/
-    list_all_directory+=($(ls -d *))
-    choose_from_menu "Select drive mountpoints destination to save configuration files:" selected_directory "${list_all_directory[@]}"
+    if [[ $(ls -A) ]]; then
+        list_all_directory+=($(ls -d *))
+        choose_from_menu "Select configguration directory:" selected_directory "${list_all_directory[@]}"
+    else
+        echo "no directory found" ; exit
+    fi
     popd
 
     cpDocuments() {
@@ -73,20 +81,19 @@ cpFiles() {
 
 copieNixosConfig() {
     echo -e "${color4}- copy configuration.nix ${colorEnd}"
-    oriPath="/home/$USER/.dotfiles/configuration.nix"
-    desPath="/etc/nixos/configuration.nix"
+    originPath="/home/$USER/.dotfiles/configuration.nix"
+    destinationPath="/etc/nixos/configuration.nix"
     if [ -f /home/$USER/.dotfiles/configuration.nix ]; then
-      sudo cp $oriPath $desPath
-      # checkIfCopyOk /etc/nixos/configuration.nix /home/$USER/.dotfiles/configuration.nix
-        # echo "nixos config copied."
-      destinationInfo=$(du -sb $desPath | cut -f1 )
-      originalInfo=$(du -sb $oriPath | cut -f1)
-      if [[ $destinationInfo -eq $originalInfo ]];
+      sudo cp $originPath $destinationPath
+      # checkIfCopyOk function 
+      cpFileInfo=$(du -sb $destinationPath | cut -f1 )
+      originalFileInfo=$(du -sb $originPath | cut -f1)
+      if [[ $cpFileInfo -eq $originalFileInfo ]];
       then
-        echo -e "$2 $colorG $originalInfo b $colorEnd"
+        echo -e "copy of nix configuration ok: $2 $colorG $originalFileInfo b $colorEnd copied"
         sudo nixos-rebuild switch --upgrade
       else
-        echo -e "$2: $colorB $originalInfo b  is not the same ! $colorEnd"
+        echo -e "copy fail! $2: $colorB $originalFileInfo b  is not the same ! $colorEnd"
       fi
 
     else
@@ -124,7 +131,7 @@ gitinit() {
     echo -e "${color4}- github ${colorEnd}"
     githubName=$(gh auth status)
     if [[ "$githubName" = "" ]]; then
-        selections=( "Yes" "No" )
+        selections=( "No" "Yes" )
         choose_from_menu "Do you want to connect to your github? " selected_choice "${selections[@]}"
         case $selected_choice in
             Yes ) gh auth login; break;;
@@ -145,7 +152,7 @@ askForCopy() {
 }
 askForReboot() {
     echo -e "${color4}- reboot ${colorEnd}"
-    selections=( "Yes" "No" )
+    selections=( "No" "Yes" )
     choose_from_menu "Do you want to reboot? " selected_choice "${selections[@]}"
     case $selected_choice in
         Yes ) sudo reboot; break;;

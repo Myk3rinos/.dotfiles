@@ -8,9 +8,14 @@ echo -e "-------------${color2} ¤${colorEnd} ${color1}| Update Start |${colorEn
 
 nameConfigDir="config_${HOSTNAME}_${USER}_$(date +%Y-%m-%d_%H%M%S)"
 pushd /run/media/$USER/
-list_all_drive+=($(ls -d *))
-choose_from_menu "Select drive mountpoints destination to save configuration files:" selected_drive "${list_all_drive[@]}"
-echo "You selected: $selected_drive"
+
+if [[ $(ls -A) ]]; then
+    list_all_drive+=($(ls -d *))
+    choose_from_menu "Select destination drive to save configuration:" selected_drive "${list_all_drive[@]}"
+    
+else
+    echo "no drive found" ; exit 
+fi
 popd
 
 
