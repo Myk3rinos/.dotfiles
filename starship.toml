@@ -27,6 +27,8 @@ right_format = """
 ${custom.github}\
 ${custom.extension_icon_space}\
 """
+
+continuation_prompt = '▶▶ '
 # ------------ move ------------
 # [┌─](238)\
 # [└─](238)

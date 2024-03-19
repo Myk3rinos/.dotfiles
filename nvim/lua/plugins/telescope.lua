@@ -1,7 +1,7 @@
 return {
   {
   'nvim-telescope/telescope.nvim', tag = '0.1.5',
-  -- event = 'VeryLazy',
+  event = 'VeryLazy',
     lazy = false,
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
@@ -24,6 +24,9 @@ return {
     end, { desc = '[S]earch [N]vim config' })
 
     -- vim.keymap.set('n', '<leader>st', { cwd = TodoTelescope keywords=TODO,FIX}, { desc = '[S]earch [T]odo tags' })
+    
+    vim.keymap.set("n", "<leader>sn", ":TodoTelescope keywords=TODO,FIX<CR>", {})
+
   end,
   },
   {
