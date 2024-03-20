@@ -1,5 +1,5 @@
-source $HOME/.dotfiles/script/gocrypt.sh
-source $HOME/.dotfiles/script/mountDrive.sh
+# source $HOME/.dotfiles/script/gocrypt.sh
+# source $HOME/.dotfiles/script/mountDrive.sh
 
 # ------- Man color -------
 # function man() {
@@ -141,19 +141,24 @@ function sd() {
 
 # ----------------- Mounting and unmounting encrypted drives -----------------
 function ms() {
-  mountSecret "$1"
+  # mountSecret "$1"
+  ~/.dotfiles/script/mountUncryptDir.sh
 }
 function us() {
-  unmountSecret "$1"
+  # unmountSecret "$1"
+  ~/.dotfiles/script/unmountUncryptDir.sh
 }
 function cs() {
-  createSecret "$1"
+  # createSecret "$1"
+  ~/.dotfiles/script/createUncryptDir.sh
 }
 
 # ----------------- Mounting and unmounting drives -----------------
 function md() {
-  mountDrive
+  # mountDrive
+  ~/.dotfiles/script/mountDrive.sh
 }
 function ud() {
-  unmountDrive
+  # unmountDrive
+  ~/.dotfiles/script/unmountDrive.sh
 }

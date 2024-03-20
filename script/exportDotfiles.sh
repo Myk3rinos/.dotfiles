@@ -7,16 +7,15 @@ source ~/.dotfiles/script/choiseFunction.sh
 echo -e "-------------${color2} ¤${colorEnd} ${color1}| Update Start |${colorEnd}---"
 
 nameConfigDir="config_${HOSTNAME}_${USER}_$(date +%Y-%m-%d_%H%M%S)"
-pushd /run/media/$USER/
 
+pushd /run/media/$USER/ > /dev/null
 if [[ $(ls -A) ]]; then
     list_all_drive+=($(ls -d *))
     choose_from_menu "Select destination drive to save configuration:" selected_drive "${list_all_drive[@]}"
-    
 else
     echo "no drive found" ; exit 
 fi
-popd
+popd > /dev/null
 
 
 cpKeybinding() {

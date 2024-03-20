@@ -1,24 +1,20 @@
+#!/usr/bin/env bash
 
 source ~/.dotfiles/script/colors.sh
-
-
+source ~/.dotfiles/script/choiseFunction.sh
 
 mountDrive () {
-  echo -e " -------------------${color2} ¤${colorEnd} ${color1}| Mounting Drive |${colorEnd}---"
-  # sudo fdisk -l
-  lsblk | grep -E '^└─' 
-  printf "%s" "Enter the drive to mount: "
-  read drive
-  sudo cryptsetup luksOpen /dev/"${drive}" "${drive}"
-  sudo mkdir -p /run/media/"$USER"/"${drive}"
-  sudo mount /dev/mapper/"${drive}" /run/media/"$USER"/"${drive}"
+    echo -e " -------------------${color2} ¤${colorEnd} ${color1}| Mounting Drive |${colorEnd}---"
+    if [[ $(lsblk -d ) ]]; then
+        list_all_drive+=($(lsblk -o NAME | grep -E '^└─' | cut -c7-))
+        choose_from_menu "Select selected_drive:" selected_drive "${list_all_drive[@]}"
+    else
+        echo "no selected_drive found" ; exit 
+    fi
+
+    sudo cryptsetup luksOpen /dev/"${selected_drive}" "${selected_drive}"
+    sudo mkdir -p /run/media/"$USER"/"${selected_drive}"
+    sudo mount /dev/mapper/"${selected_drive}" /run/media/"$USER"/"${selected_drive}"
 }
 
-unmountDrive () {
-  echo -e " -------------------${color2} ¤${colorEnd} ${color1}| Unmounting Drive |${colorEnd}---"
-  lsblk | grep -E '^└─' 
-  printf "%s" "Enter the drive to unmount: "
-  read drive
-  sudo umount /run/media/"$USER"/"${drive}"
-  sudo cryptsetup luksClose "${drive}"
-}
+mountDrive
