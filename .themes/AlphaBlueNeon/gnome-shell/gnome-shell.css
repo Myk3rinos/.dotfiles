@@ -24,11 +24,11 @@
 }
 .panel-button:hover {
   box-shadow: none;
-  color: #ee5396;
+  color: #bd93f9;
 }
 .panel-button:active {
   box-shadow: none;
-  color: #ee5396;
+  color: #bd93f9;
 }
 
 
@@ -283,7 +283,7 @@
   box-shadow: none;
 }
 .panel-button.clock-display:active {
-  border: 1px solid #ee5396;
+  border: 1px solid #bd93f9;
 }
 
 .datemenu-today-button {

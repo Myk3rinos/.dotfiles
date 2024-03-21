@@ -104,12 +104,13 @@
     rhythmbox # for music
     clapper # for video
   	xdotool
-	  yazi
-	  nodejs
-	  git
+	yazi
+	nodejs
+    corepack_21
+	git
     gitAndTools.gh
     lazygit
-	  starship
+	starship
     zsh
     lsd
     bat
@@ -125,21 +126,19 @@
     gcc_multi
     tldr
     conky
-
-      # amberol
-      neovim
-      rustup
+    # amberol
+    neovim
+    rustup
     google-chrome
-      cargo # for rust nvim nul_ls
-      # delve # for neovim debug
-      # vimPlugins.nvim-dap-go # for neovim debug
-      wl-clipboard # for neovim copy
-      universal-ctags # for neovim tagbar
-      ctags
-      ttags # generate tags for treesitter
-      global
-      mdctags
-
+    cargo # for rust nvim nul_ls
+    # delve # for neovim debug
+    # vimPlugins.nvim-dap-go # for neovim debug
+    wl-clipboard # for neovim copy
+    universal-ctags # for neovim tagbar
+    ctags
+    ttags # generate tags for treesitter
+    global
+    mdctags
     gnome.gnome-tweaks
     gnomeExtensions.dash-to-dock
     gnomeExtensions.media-controls
@@ -175,7 +174,6 @@
     # python311Packages.pynvml
     paperview
     # gsettings-desktop-schemas
-
 
     vimPlugins.nvim-treesitter-parsers.tsx
 ];
