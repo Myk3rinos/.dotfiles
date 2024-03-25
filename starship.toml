@@ -16,7 +16,10 @@ $git_branch\
 $git_metrics\
 ${custom.github_corner}\
 ${custom.rb}\
+${custom.js}\
 ${custom.ts}\
+${custom.jsx}\
+${custom.tsx}\
 ${custom.sh}\
 ${custom.lua}\
 $time\
@@ -193,10 +196,10 @@ format = " [$symbol]($style)"
 style = "bright-yellow"
 
 [custom.js]
-detect_extensions = ['js']
+detect_extensions = ['js', '!ts']
 symbol = " "
 format = " [$symbol]($style)"
-style = "bright-yellow"
+style = "yellow"
 
 [custom.rb]
 detect_extensions = ['rb', 'ru']
@@ -205,13 +208,19 @@ format = " [$symbol]($style)"
 style = "198"
 
 [custom.jsx]
-detect_extensions = ['jsx', 'tsx']
+detect_extensions = ['jsx']
+symbol = " "
+format = " [$symbol]($style)"
+style = "yellow"
+
+[custom.tsx]
+detect_extensions = ['tsx']
 symbol = " "
 format = " [$symbol]($style)"
 style = "051"
 
 [custom.ts]
-detect_extensions = ['ts', 'tsx']
+detect_extensions = ['ts']
 symbol = " "
 format = " [$symbol]($style)"
 style = "032"

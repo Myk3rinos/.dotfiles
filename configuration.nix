@@ -107,6 +107,9 @@
 	yazi
 	nodejs
     corepack_21
+    openssl
+    prisma-engines
+    nodePackages_latest.prisma
 	git
     gitAndTools.gh
     lazygit

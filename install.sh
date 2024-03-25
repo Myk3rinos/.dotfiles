@@ -1,11 +1,11 @@
 source ~/.dotfiles/script/colors.sh
 source ~/.dotfiles/script/checkCopy.sh
 source ~/.dotfiles/script/choiseFunction.sh
-filesToLinkInHome=(.zshrc .themes)
-filesToLinkInConfig=( yazi kitty lazygit conky btop nvim neofetch starship.toml)
 
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${colorEnd}---"
 
+filesToLinkInHome=(.zshrc .themes)
+filesToLinkInConfig=( yazi kitty lazygit conky btop nvim neofetch starship.toml)
 
 createSymlinks() {
     if [ -f /home/$USER/.dotfiles/$1 ] || [ -r /home/$USER/.dotfiles/$1 ]; then # check if file exists
@@ -26,7 +26,6 @@ createAllSymlink() {
        createSymlinks $file ".config/"
     done
 }
-
 
 cpFiles() {
     pushd /run/media/$USER/
@@ -78,7 +77,6 @@ cpFiles() {
     cpKeybinding
 }
 
-
 copieNixosConfig() {
     echo -e "${color4}- copy configuration.nix ${colorEnd}"
     originPath="/home/$USER/.dotfiles/configuration.nix"
@@ -100,8 +98,6 @@ copieNixosConfig() {
         echo -e " ${colorB} WARNING: no $1 config found; can't copie for now.${colorEnd}"
     fi
 }
-
-
 
 gitinit() { 
     setGitConfig() {

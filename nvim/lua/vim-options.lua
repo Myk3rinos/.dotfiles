@@ -56,8 +56,30 @@ vim.keymap.set('n', '<leader>ht', ':TagbarToggle<CR>', {})
 vim.keymap.set('n', '<leader>hn', ':Neotree filesystem toggle left<CR>', {})
 vim.keymap.set('n', '<leader>hh', ':set relativenumber! number! showmode! showcmd! hidden! ruler!<CR>', {})
 
+hideOnOpen = function()
+          vim.cmd("set laststatus=0")
+          vim.cmd("set norelativenumber")
+          vim.cmd("set nonumber")
+          vim.cmd("set noshowmode")
+          vim.cmd("set noshowcmd")
+          vim.cmd("set nohidden")
+          vim.cmd("set noruler")
+          vim.cmd("set showtabline=0")
+end
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {       
+   pattern = "*.norg",       
+   -- command = [[ hideOnOpen() ]]
+   -- command = [[ :Neorg workspace dashboard  ]]
+    callback = function()
+        hideOnOpen()
+        -- vim.api.nvim_exec([[Neorg workspace dashboard ]], false)
+        -- vim.cmd("Neorg workspace dashboard<CR>")
+    end,
+}) 
+
+
 -- {{{ :Hide tabline function
-hi_tab = 0
+hi_tab = 1
 vim.api.nvim_set_keymap("n", "<leader>hb", "", {
     callback = function()
        if hi_tab == 0 then
@@ -85,6 +107,7 @@ vim.api.nvim_set_keymap("n", "<leader>ha", "", {
           vim.cmd("set noruler")
           vim.cmd("set showtabline=0")
           hi_all = 1
+          hi_tab = 1
        else
           vim.cmd("set laststatus=2")
           vim.cmd("set relativenumber")
@@ -95,6 +118,7 @@ vim.api.nvim_set_keymap("n", "<leader>ha", "", {
           vim.cmd("set ruler")
           vim.cmd("set showtabline=2")
           hi_all = 0
+          hi_tab = 0
        end 
     end,
 })

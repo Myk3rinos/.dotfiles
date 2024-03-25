@@ -5,9 +5,13 @@ return {
     build = ":Neorg sync-parsers",
     -- lazy = false, -- specify lazy = false because some lazy.nvim distributions set lazy = true by default
     -- tag = "*",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+        {"nvim-lua/plenary.nvim"},
+        -- { "folke/tokyonight.nvim", config=function(_,_) vim.cmd.colorscheme "tokyonight-storm" end,},
+    },
     config = function()
       vim.keymap.set( "n", "<leader>go", ":Neorg workspace notes<CR>", {} )
+      vim.keymap.set( "n", "<leader>gd", ":Neorg workspace dashboard<CR>", {} )
       vim.keymap.set( "n", "<leader>g;", ":Neorg workspace dotfiles<CR>", {} )
       vim.keymap.set( "n", "<leader>gb", ":Neorg return<CR>", {} )
       vim.keymap.set( "n", "<leader>ws", ":Neorg generate-workspace-summary<CR>", {} )
@@ -17,8 +21,46 @@ return {
           -- ["core.export.markdown"] = {
           --       extension = "md",
           --   },
+          -- ["external.context"] = {},
           ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.concealer"] = {
+            config = {
+                icon_preset = "diamond",
+                icons = {
+                    code_block = {
+                        conceal = true,
+                        content_only = true,
+                        width = "content",
+                      },
+                --     heading = {
+                --         level_1 = {
+                --             icon = "◉",
+                --         },
+                --         level_2 = {
+                --             icon = "○",
+                --         },
+                --         level_3 = {
+                --             icon = "✸",
+                --         },
+                --         level_4 = {
+                --             icon = "✿",
+                --         },
+                --     },
+                },
+             },
+          }, -- Adds pretty icons to your documents
+          ["core.highlights"] = {
+            config = {
+              hlstyle = "italic",
+              highlights = {
+                tags = {
+                    ranged_verbatim = {
+                        begin = "+@comment",
+                    },
+                }
+              },
+            },
+          },
           ["core.completion"] = {
             config = {
               engine = "nvim-cmp",
@@ -30,6 +72,7 @@ return {
                 -- demo = "~/notes",
                 dotfiles = "~/Documents/Org/dotfiles",
                 notes = "~/Documents/Org/notes",
+                dashboard = "~/Documents/Org/Dashboard",
               },
               default_workspace = "notes",
             },

@@ -5,7 +5,43 @@ return {
   config = function()
       diagnostics = "nvim_lspconfig",
     require("bufferline").setup({
-        highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        highlights = {
+            -- fill = {
+            --     guibg = {
+            --         attribute = "bg",
+            --         highlight = "BufferlineFill"
+            --     },
+            -- },
+            background = {
+                guibg = {
+                    attribute = "bg",
+                    highlight = "BufferlineBg"
+                }
+            },
+            -- Buffers
+            -- buffer_selected = {
+            --     guibg = {
+            --         attribute = "bg",
+            --         highlight = "BufferlineBufferSelected"
+            --     },
+            --     guifg = {
+            --         attribute = "fg",
+            --         highlight = "BufferlineBufferSelected"
+            --     },
+            --     gui = "bold"
+            -- },
+            -- buffer_visible = {
+            --     guibg = {
+            --         attribute = "bg",
+            --         highlight = "BufferlineBufferVisible"
+            --     },
+            --     guifg = {
+            --         attribute = "fg",
+            --         highlight = "BufferlineBufferVisible"
+            --     }
+            -- }
+    },
         options = {
             -- get_element_icon = function(element)
             --     local custom_map = {toml: {icon = "[T]", hl}}
