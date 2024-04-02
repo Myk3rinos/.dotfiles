@@ -5,6 +5,8 @@ return {
     lazy = false,
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
+    require('transparent').clear_prefix('telescope')
+
     local builtin = require("telescope.builtin")
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })

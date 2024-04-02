@@ -10,7 +10,7 @@ return {
    
  -- auto close
     config = function()
-      vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>', {})
+      -- vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>', {})
 
 
     -- If you want icons for diagnostic errors, you'll need to define them somewhere:
@@ -23,6 +23,7 @@ return {
       vim.fn.sign_define("DiagnosticSignHint",
         {text = "󰌵", texthl = "DiagnosticSignHint"})
 
+require('transparent').clear_prefix('NeoTree')
 
       require("neo-tree").setup({
         popup_border_style = "rounded",

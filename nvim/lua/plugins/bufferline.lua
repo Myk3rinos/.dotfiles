@@ -4,6 +4,7 @@ return {
   event = "VeryLazy",
   config = function()
       diagnostics = "nvim_lspconfig",
+        require('transparent').clear_prefix('BufferLine'),
     require("bufferline").setup({
         -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
         highlights = {

@@ -1,0 +1,37 @@
+return {
+    "valsorym/scrooloose-nerdtree",
+    -- "preservim/nerdtree",
+    -- "Xuyuanp/yanil",
+    lazy = false,
+    dependencies = {
+        -- "Xuyuanp/nerdtree-git-plugin",
+        -- "ryanoasis/vim-devicons",
+        -- "tiagofumo/vim-nerdtree-syntax-highlight",
+        "ryanoasis/vim-webdevicons",
+        -- "PhilRunninger/nerdtree-visual-selection",
+        -- "PhilRunninger/nerdtree-buffer-ops",
+    },
+    config = function()
+        vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>', {})
+
+        -- vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {       
+        --     callback = function()
+        --         if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv()[0]) and not vim.fn.exists('s:std_in') then
+        --             vim.cmd('NERDTree ' .. vim.fn.argv()[0])
+        --             vim.cmd('wincmd p')
+        --             vim.cmd('enew')
+        --             vim.cmd('execute "cd " .. argv()[0]')
+        --         end
+        --     end
+        -- })
+
+        -- vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {       
+        --     callback = function()
+        --         if vim.fn.tabpagenr('$') == 1 and vim.fn.winnr('$') == 1 and vim.fn.exists('b:NERDTree') and vim.fn.b:NerdTree.isTabTree() then
+        --             -- vim.cmd('NERDTreeToggle')
+        --           vim.cmd('quit')
+        --         end
+        --     end
+        -- }) 
+    end
+}
