@@ -178,7 +178,9 @@
     paperview
     # gsettings-desktop-schemas
 
-    vimPlugins.nvim-treesitter-parsers.tsx
+    # vimPlugins.nvim-treesitter-parsers.tsx
+    # ntfs3g
+    nfs-utils
 ];
 
 
