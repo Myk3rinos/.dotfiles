@@ -1,7 +1,7 @@
 # ------------ promt ------------
 
 format = """
-[┌─](207)\
+ (207)\
 ${custom.app_prec}\
 $directory\
 ${custom.app}\
@@ -24,7 +24,6 @@ ${custom.sh}\
 ${custom.lua}\
 $time\
 $line_break\
-[└─](207)\
 $character\
 """
 right_format = """
@@ -99,8 +98,8 @@ style = "236"
 # ------------ fill ------------
 
 [character]
-# success_symbol = "[ ❯](207)"
-success_symbol = "[](207)"
+success_symbol = "[ ❯](207)"
+# success_symbol = "[](207)"
 error_symbol = "[ ](red)"
 vicmd_symbol = "[ ❮](green)"
 
