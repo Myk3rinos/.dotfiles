@@ -184,6 +184,8 @@
     gparted
     foremost
     testdisk
+
+    discord
 ];
 
 
