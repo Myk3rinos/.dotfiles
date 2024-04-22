@@ -162,3 +162,4 @@ function ud() {
   # unmountDrive
   ~/.dotfiles/script/unmountDrive.sh
 }
+eval "$(starship init zsh)"

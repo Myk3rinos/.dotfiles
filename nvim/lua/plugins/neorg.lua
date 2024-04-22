@@ -7,7 +7,9 @@ return {
     -- tag = "*",
     dependencies = {
         {"nvim-lua/plenary.nvim"},
+        {"vhyrro/luarocks.nvim"},
         -- { "folke/tokyonight.nvim", config=function(_,_) vim.cmd.colorscheme "tokyonight-storm" end,},
+        -- {"nvim-neorg/lua-utils.nvim"},
     },
     config = function()
       vim.keymap.set( "n", "<leader>go", ":Neorg workspace notes<CR>", {} )

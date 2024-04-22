@@ -14,6 +14,7 @@ return {
 
     -- "theHamsta/nvim-dap-virtual-text",
     "rcarriga/nvim-dap-ui",
+    "nvim-neotest/nvim-nio",
     -- "Pocco81/DAPInstall.nvim",
     "leoluz/nvim-dap-go",
     "mxsdev/nvim-dap-vscode-js",

@@ -19,7 +19,7 @@ return {
           "bashls",
 
           "tsserver",
-          "biome",
+          -- "biome",
           "html",
           "cssls",
           "cssmodules_ls",
@@ -104,9 +104,9 @@ return {
     --  lspconfig.tsserver.setup({
     --    capabilities = capabilities
     --  })
-      lspconfig.biome.setup({
-        capabilities = capabilities
-      })
+      -- lspconfig.biome.setup({
+      --   capabilities = capabilities
+      -- })
     --  lspconfig.vtsls.setup({
     --    capabilities = capabilities
     --  })

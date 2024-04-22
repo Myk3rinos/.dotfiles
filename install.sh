@@ -1,6 +1,9 @@
+#!/bin/bash
+
 source ~/.dotfiles/script/colors.sh
 source ~/.dotfiles/script/checkCopy.sh
 source ~/.dotfiles/script/choiseFunction.sh
+source ~/.dotfiles/installDeb.sh
 
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${colorEnd}---"
 
@@ -28,7 +31,7 @@ createAllSymlink() {
 }
 
 cpFiles() {
-    pushd /run/media/$USER/
+    pushd "$1"/$USER/
     if [[ $(ls -A) ]]; then
         list_all_drive+=($(ls -d *))
         choose_from_menu "Select drive:" selected_drive "${list_all_drive[@]}"
@@ -37,7 +40,7 @@ cpFiles() {
     fi
     popd
     
-    pushd /run/media/$USER/${selected_drive}/
+    pushd "$1"/$USER/${selected_drive}/
     if [[ $(ls -A) ]]; then
         list_all_directory+=($(ls -d *))
         choose_from_menu "Select configguration directory:" selected_directory "${list_all_directory[@]}"
@@ -47,34 +50,34 @@ cpFiles() {
     popd
 
     cpDocuments() {
-        if [ ! -d /run/media/$USER/${selected_drive}/${selected_directory} ]; then
+        if [ ! -d "$1"/$USER/${selected_drive}/${selected_directory} ]; then
             echo -e "${colorB}WARNING: no configuration found; can't copy for now.${colorEnd}"
             return
         fi
         echo -e "${color4}- copy Documents ${colorEnd}"
-        cp -r /run/media/$USER/${selected_drive}/${selected_directory}/Documents ~/
-        checkIfCopyOk ~/Documents /run/media/$USER/${selected_drive}/${selected_directory}/Documents
-        cp -r /run/media/$USER/${selected_drive}/${selected_directory}/Musique ~/
-        checkIfCopyOk ~/Musique /run/media/$USER/${selected_drive}/${selected_directory}/Musique
-        cp -r /run/media/$USER/${selected_drive}/${selected_directory}/Vidéos ~/
-        checkIfCopyOk ~/Vidéos /run/media/$USER/${selected_drive}/${selected_directory}/Vidéos
-        cp -r /run/media/$USER/${selected_drive}/${selected_directory}/Images ~/
-        checkIfCopyOk ~/Images /run/media/$USER/${selected_drive}/${selected_directory}/Images
-        cp -r /run/media/$USER/${selected_drive}/${selected_directory}/autostart ~/.config/
-        checkIfCopyOk ~/.config/autostart /run/media/$USER/${selected_drive}/${selected_directory}/autostart
+        cp -r "$1"/$USER/${selected_drive}/${selected_directory}/Documents ~/
+        checkIfCopyOk ~/Documents "$1"/$USER/${selected_drive}/${selected_directory}/Documents
+        cp -r "$1"/$USER/${selected_drive}/${selected_directory}/Musique ~/
+        checkIfCopyOk ~/Musique "$1"/$USER/${selected_drive}/${selected_directory}/Musique
+        cp -r "$1"/$USER/${selected_drive}/${selected_directory}/Vidéos ~/
+        checkIfCopyOk ~/Vidéos "$1"/$USER/${selected_drive}/${selected_directory}/Vidéos
+        cp -r "$1"/$USER/${selected_drive}/${selected_directory}/Images ~/
+        checkIfCopyOk ~/Images "$1"/$USER/${selected_drive}/${selected_directory}/Images
+        cp -r "$1"/$USER/${selected_drive}/${selected_directory}/autostart ~/.config/
+        checkIfCopyOk ~/.config/autostart "$1"/$USER/${selected_drive}/${selected_directory}/autostart
     }
     cpMozilla() {
         echo -e "${color4}- copy firefox user ${colorEnd}"
-        cp -r /run/media/$USER/${selected_drive}/${selected_directory}/.mozilla ~/
-        checkIfCopyOk ~/.mozilla /run/media/$USER/${selected_drive}/${selected_directory}/.mozilla
+        cp -r "$1"/$USER/${selected_drive}/${selected_directory}/.mozilla ~/
+        checkIfCopyOk ~/.mozilla "$1"/$USER/${selected_drive}/${selected_directory}/.mozilla
     }
     cpKeybinding() {
         echo -e "${color4}- copy keybindings ${colorEnd}"
-        cat /run/media/$USER/${selected_drive}/${selected_directory}/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
+        cat "$1"/$USER/${selected_drive}/${selected_directory}/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
     }
-    cpMozilla
-    cpDocuments
-    cpKeybinding
+    # cpMozilla $1
+    cpDocuments $1
+    cpKeybinding $1
 }
 
 copieNixosConfig() {
@@ -142,7 +145,7 @@ askForCopy() {
     selections=( "Yes" "No" )
     choose_from_menu "Do you want to import configuration from external drive? " selected_choice "${selections[@]}"
     case $selected_choice in
-        Yes ) cpFiles; break;;
+        Yes ) cpFiles $1; break;;
         No ) break;;
     esac
 }
@@ -155,19 +158,23 @@ askForReboot() {
         No ) break;;
     esac
 }
-
-if [ "$HOSTNAME"  = "nixos" ]
+DISTRO=$(hostnamectl | grep "Operating System" | cut -c19-)
+echo "$DISTRO"
+if [ "$DISTRO" != "Ubuntu 22.04.4 LTS" ]
 then
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild |${colorEnd}---"
     copieNixosConfig
+    askForCopy "/run/media"
+
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild done |${colorEnd}---"
 else
+    installDeb
+    askForCopy "/media"
     echo -e "you have to install ${filesToLinkInConfig[@]} and ${filesToLinkInHome[@]} manually." 
 fi
 
 createAllSymlink
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Copy documents |${colorEnd}---"
-askForCopy
 /home/$USER/.dotfiles/script/configure.sh
 gitinit
 askForReboot

@@ -16,7 +16,7 @@ return {
         config = function() 
             require('transparent').clear_prefix('notify')
             require("notify").setup({
-                -- background_colour = "#000000",
+                background_colour = "#000000",
             })
             require("noice").setup({
                 lsp = {

@@ -4,6 +4,7 @@
 
 # [[plugin.prepend_previewers]]
 # mime = "audio/*"
+# exec = "exifaudio"
 
 [manager]
 ratio          = [ 1, 4, 3 ]
@@ -29,35 +30,43 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = '${EDITOR:=nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-	{ run = 'kitty --config /home/will/.config/kitty/kitty_n.conf ${EDITOR:=vi} "$@"', desc = 'new window ${EDITOR}', block = true, for = "unix" },
-	{ run = 'code "%*"',          orphan = true, for = "windows" },
-	{ run = 'bash "$@"', desc = "Execute", for = "unix" },
+	{ exec = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	{ exec = 'kitty --config /home/will/.config/kitty/kitty_n.conf ${EDITOR:=vi} "$@"', desc = 'new window ${EDITOR}', block = true, for = "unix" },
+	{ exec = 'code "%*"',          orphan = true, for = "windows" },
+  { exec = 'bash "$@"', desc = "Execute", for = "unix" },
 ]
 open = [
-	{ run = 'xdg-open "$@"',                desc = "Open", for = "linux" },
-	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
-	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+	{ exec = 'xdg-open "$@"',                desc = "Open", for = "linux" },
+	{ exec = 'open "$@"',                    desc = "Open", for = "macos" },
+	{ exec = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
   
-	{ run = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
-  { run = 'bash "$@"', desc = "Execute", for = "unix" },
+	{ exec = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
+	# { exec = 'cd $pwd', orphan = true, desc = "Go to directory", for = "linux" },
+  { exec = 'bash "$@"', desc = "Execute", for = "unix" },
 ]
 reveal = [
-	{ run = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
-	{ run = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
-	{ run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
+	{ exec = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
+	{ exec = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
+	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
-	{ run = 'unar "$1"', desc = "Extract here", for = "unix" },
-	{ run = 'unar "%1"', desc = "Extract here", for = "windows" },
+	{ exec = 'unar "$1"', desc = "Extract here", for = "unix" },
+	{ exec = 'unar "%1"', desc = "Extract here", for = "windows" },
 ]
 play = [
-	{ run = 'rhythmbox "$@"', orphan = true, for = "unix" },
-	{ run = 'clapper "$@"', orphan = true, for = "unix", desc = "clapper" },
-  { run = 'sushi "${@// /_}"', block = true, for = "unix", desc = "sushi"},
-	{ run = 'mpv "%1"', orphan = true, for = "windows" },
-	{ run = 'stat "$@"', block = true, desc = "Show media info", for = "unix" },
+	{ exec = 'rhythmbox "$@"', orphan = true, for = "unix" },
+	{ exec = 'clapper "$@"', orphan = true, for = "unix", desc = "clapper" },
+  # { exec = 'sushi "$@"', block = true, for = "unix", desc = "sushi"},
+  { exec = 'sushi "${@// /_}"', block = true, for = "unix", desc = "sushi"},
+	# { exec = 'mpv "$@"', orphan = true, for = "unix" },
+	{ exec = 'mpv "%1"', orphan = true, for = "windows" },
+	# { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+	# { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+	{ exec = 'stat "$@"', block = true, desc = "Show media info", for = "unix" },
 ]
+# setwall = [
+#   { exec = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
+# ]
 
 [open]
 rules = [
@@ -101,49 +110,49 @@ preload = [
     "~/.config/yazi/plugins/max-preview.lua"
 ]
 prepend_previewers = [
-  { mime = "*.md", run = "glow" },
-  { name = "*.mp3", run = "exifaudio" },
-  { mime = "audio/*", run = "exifaudio" },
-  { mime = "Musique/*", run = "exifaudio" },
+  { mime = "*.md", exec = "glow" },
+  { name = "*.mp3", exec = "exifaudio" },
+  { mime = "audio/*", exec = "exifaudio" },
+  { mime = "Musique/*", exec = "exifaudio" },
 ]
   
 preloaders = [
-	{ name = "*", cond = "!mime", run = "mime", multi = true, prio = "high" },
+	{ name = "*", cond = "!mime", exec = "mime", multi = true, prio = "high" },
 	# Image
-	{ mime = "image/vnd.djvu", run = "noop" },
-	{ mime = "image/*",        run = "image" },
+	{ mime = "image/vnd.djvu", exec = "noop" },
+	{ mime = "image/*",        exec = "image" },
 	# Video
-	{ mime = "video/*", run = "video" },
+	{ mime = "video/*", exec = "video" },
 	# PDF
-	{ mime = "application/pdf", run = "pdf" },
+	{ mime = "application/pdf", exec = "pdf" },
 ]
 previewers = [
-	{ name = "*/", run = "folder", sync = true },
+	{ name = "*/", exec = "folder", sync = true },
 	# Code
-	{ mime = "text/*",                 run = "code" },
-	{ mime = "*/xml",                  run = "code" },
-	{ mime = "*/javascript",           run = "nvim" },
-	{ mime = "*/x-wine-extension-ini", run = "code" },
+	{ mime = "text/*",                 exec = "code" },
+	{ mime = "*/xml",                  exec = "code" },
+	{ mime = "*/javascript",           exec = "nvim" },
+	{ mime = "*/x-wine-extension-ini", exec = "code" },
 	# JSON
-	{ mime = "application/json", run = "json" },
+	{ mime = "application/json", exec = "json" },
 	# Image
-	{ mime = "image/vnd.djvu", run = "noop" },
-	{ mime = "image/*",        run = "image" },
+	{ mime = "image/vnd.djvu", exec = "noop" },
+	{ mime = "image/*",        exec = "image" },
 	# Video
-	{ mime = "video/*", run = "video" },
+	{ mime = "video/*", exec = "video" },
 	# PDF
-	{ mime = "application/pdf", run = "pdf" },
+	{ mime = "application/pdf", exec = "pdf" },
 	# Archive
-	{ mime = "application/zip",             run = "archive" },
-	{ mime = "application/gzip",            run = "archive" },
-	{ mime = "application/x-tar",           run = "archive" },
-	{ mime = "application/x-bzip",          run = "archive" },
-	{ mime = "application/x-bzip2",         run = "archive" },
-	{ mime = "application/x-7z-compressed", run = "archive" },
-	{ mime = "application/x-rar",           run = "archive" },
-	{ mime = "application/xz",              run = "archive" },
+	{ mime = "application/zip",             exec = "archive" },
+	{ mime = "application/gzip",            exec = "archive" },
+	{ mime = "application/x-tar",           exec = "archive" },
+	{ mime = "application/x-bzip",          exec = "archive" },
+	{ mime = "application/x-bzip2",         exec = "archive" },
+	{ mime = "application/x-7z-compressed", exec = "archive" },
+	{ mime = "application/x-rar",           exec = "archive" },
+	{ mime = "application/xz",              exec = "archive" },
 	# Fallback
-	{ name = "*", run = "file" },
+	{ name = "*", exec = "file" },
 ]
 
 # [plugins]
