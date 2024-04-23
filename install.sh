@@ -75,9 +75,28 @@ cpFiles() {
         echo -e "${color4}- copy keybindings ${colorEnd}"
         cat "$1"/$USER/${selected_drive}/${selected_directory}/custom.txt | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
     }
+    cpGnomeExtensions() {
+        echo -e "${color4}- copy gnome extensions ${colorEnd}"
+        cp -r "$1"/$USER/${selected_drive}/${selected_directory}/gnomeExtensions/* ~/.local/share/gnome-shell/extensions/
+        pushd ~/.local/share/gnome-shell/extensions/
+        unzip \*.zip
+        rm *.zip
+        pkill -TERM gnome-shell
+        gnome-extensions enable caffeine@patapon.info 
+        gnome-extensions enable clipboard-indicator@tudmotu.com 
+        gnome-extensions enable color-picker@tuberry 
+        gnome-extensions enable extension-list@tu.berry 
+        gnome-extensions enable mediacontrols@cliffniff.github.com 
+        gnome-extensions enable top-bar-organizer@julian.gse.jsts.xyz 
+        gnome-extensions enable x11gestures@joseexposito.github.io
+        popd
+        # checkIfCopyOk ~/.mozilla "$1"/$USER/${selected_drive}/${selected_directory}/.mozilla
+
+    }
     # cpMozilla $1
     cpDocuments $1
     cpKeybinding $1
+    cpGnomeExtensions $1
 }
 
 copieNixosConfig() {
@@ -160,7 +179,8 @@ askForReboot() {
 }
 DISTRO=$(hostnamectl | grep "Operating System" | cut -c19-)
 echo "$DISTRO"
-if [ "$DISTRO" != "Ubuntu 22.04.4 LTS" ]
+# if [ "$DISTRO" != "Ubuntu 22.04.4 LTS" || "$DISTRO" != "Ubuntu 23.10.1" ]
+if [ "$DISTRO" = "Nixos" ]
 then
     echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Nixos rebuild |${colorEnd}---"
     copieNixosConfig
