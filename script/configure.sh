@@ -23,7 +23,15 @@ setGnomeConfig() {
     gsettings set org.gnome.shell.extensions.auto-move-windows application-list "['firefox.desktop:2']"
     gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13/']"
 
-    # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height 
+    gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+    gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 38
+    nmcli radio wifi offnmcli radio wifi off
+    rfkill block bluetooth
+    gsettings set org.gnome.shell.extensions.user-theme name AlphaBlueNeon
+    gsettings set org.gnome.desktop.interface gtk-theme Yaru-magenta-dark
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+    gsettings set org.gnome.desktop.notifications show-banners false
 }
 
 setGnomeConfig

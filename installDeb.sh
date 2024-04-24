@@ -15,7 +15,7 @@ installDebian() {
     installNeovim
 	sudo apt install -y nala
 	sudo add-apt-repository ppa:touchegg/stable
-	sudo nala install -y gnupg curl git-all touchegg gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions neovim kitty cargo gocryptfs zsh ffmpegthumbnailer fzf jq zoxide ripgrep bat conky gh btop htop wl-clipboard unar gparted foremost testdisk nodejs npm rhythmbox lm-sensors zsh-autosuggestions zsh-syntax-highlighting xdotool
+	sudo nala install -y make gnupg curl git-all touchegg gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions neovim kitty cargo gocryptfs zsh ffmpegthumbnailer fzf jq zoxide ripgrep bat gh btop htop wl-clipboard unar gparted foremost testdisk nodejs npm rhythmbox lm-sensors zsh-autosuggestions zsh-syntax-highlighting xdotool conky-all conky
 	
 	sudo nala update
 	sudo nala upgrade

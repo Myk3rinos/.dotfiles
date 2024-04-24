@@ -82,7 +82,7 @@ cpFiles() {
         pushd ~/.local/share/gnome-shell/extensions/
         unzip \*.zip
         rm *.zip
-        pkill -TERM gnome-shell
+        # pkill -TERM gnome-shell
         gnome-extensions enable caffeine@patapon.info 
         gnome-extensions enable clipboard-indicator@tudmotu.com 
         gnome-extensions enable color-picker@tuberry 

@@ -15,6 +15,7 @@ local opts = {}
 --require("lazy").setup(plugins, opts)
 require("vim-options")
 require("lazy").setup("plugins")
+--require("lazy").setup()
 
 -- NOTE: This is a temporary fix for the issue with the lazy.nvim plugin
 --{{{
