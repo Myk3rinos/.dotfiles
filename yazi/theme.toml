@@ -193,6 +193,7 @@ rules = [
 	{ name = ".*/", fg = "blue" },
   
 	{ name = "*/", fg = "#78a9ff" },
+	{ name = "Websites/", fg = "#e458ff" },
 ]
 
 [icon]

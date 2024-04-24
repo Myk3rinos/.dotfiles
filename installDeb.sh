@@ -9,13 +9,13 @@ installDebian() {
         sudo apt autoremove neovim
         sudo apt remove vim-common
         sudo apt install -y ./nvim-linux64.deb
-        rm nvim-linux64.deb
+        sudo rm nvim-linux64.deb
         popd
     }
     installNeovim
 	sudo apt install -y nala
 	sudo add-apt-repository ppa:touchegg/stable
-	sudo nala install -y gnupg curl git-all touchegg gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions neovim kitty cargo gocryptfs zsh ffmpegthumbnailer fzf jq zoxide ripgrep bat conky gh btop htop wl-clipboard unar gparted foremost testdisk nodejs npm rhythmbox lm-sensors
+	sudo nala install -y gnupg curl git-all touchegg gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions neovim kitty cargo gocryptfs zsh ffmpegthumbnailer fzf jq zoxide ripgrep bat conky gh btop htop wl-clipboard unar gparted foremost testdisk nodejs npm rhythmbox lm-sensors zsh-autosuggestions zsh-syntax-highlighting xdotool
 	
 	sudo nala update
 	sudo nala upgrade
