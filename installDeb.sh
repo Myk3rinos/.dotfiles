@@ -1,7 +1,18 @@
 #!/bin/bash
+source ~/.dotfiles/script/colors.sh
+echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Ubuntu Install |${colorEnd}---"
 installDebian() {
-    echo "--------------- install packages ----------------" 
-	sudo apt install -y neovim
+    echo -e "${color4}- install packages $1 ${colorEnd}"
+    installNeovim() {
+        pushd ~/Téléchargements
+        wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
+        sudo apt autoremove neovim
+        sudo apt remove vim-common
+        sudo apt install -y ./nvim-linux64.deb
+        rm nvim-linux64.deb
+        popd
+    }
+    installNeovim
 	sudo apt install -y nala
 	sudo add-apt-repository ppa:touchegg/stable
 	sudo nala install -y gnupg curl git-all touchegg gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions neovim kitty cargo gocryptfs zsh ffmpegthumbnailer fzf jq zoxide ripgrep bat conky gh btop htop wl-clipboard unar gparted foremost testdisk nodejs npm rhythmbox lm-sensors
@@ -31,9 +42,10 @@ installDebian() {
 
 
 installFont() {
-    echo "--------------- install Fonts ----------------" 
+    echo -e "${color4}- install Fonts $1 ${colorEnd}"
     # NerdFonts
     # pushd /home/will/Téléchargemenets/
+    mkdir -p ~/.local/share/fonts 
     pushd ~/.local/share/fonts
     wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip
     unzip CascadiaCode.zip
@@ -44,15 +56,15 @@ installFont() {
     # GoogleFonts
     sudo mkdir -p /usr/share/fonts/googlefonts
     pushd /usr/share/fonts/googlefonts
-    wget https://font.download/dl/font/raleway-5.zip
-    sudo unzip -d . raleway-5.zip
+    sudo wget https://font.download/dl/font/raleway-5.zip
+    sudo unzip raleway-5.zip
     sudo fc-cache -fv
-    rm raleway-5.zip
+    sudo rm raleway-5.zip
     popd
 }
 
 installMongodb() {
-    echo "---------------- install mongodb--------------- "
+    echo -e "${color4}- install mongodb $1 ${colorEnd}"
     curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
    sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
    --dearmor

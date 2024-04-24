@@ -77,6 +77,7 @@ cpFiles() {
     }
     cpGnomeExtensions() {
         echo -e "${color4}- copy gnome extensions ${colorEnd}"
+        mkdir -p ~/.local/share/gnome-shell/extensions/
         cp -r "$1"/$USER/${selected_drive}/${selected_directory}/gnomeExtensions/* ~/.local/share/gnome-shell/extensions/
         pushd ~/.local/share/gnome-shell/extensions/
         unzip \*.zip
