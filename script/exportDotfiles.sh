@@ -6,7 +6,8 @@ source ~/.dotfiles/script/choiseFunction.sh
 
 echo -e "-------------${color2} ¤${colorEnd} ${color1}| Update Start |${colorEnd}---"
 
-nameConfigDir="config_${HOSTNAME}_${USER}_$(date +%Y-%m-%d_%H%M%S)"
+configName="config_${HOSTNAME}_${USER}_$(date +%Y-%m-%d_%H%M%S)"
+DISTRO=$(hostnamectl | grep "Operating System" | cut -c19-)
 
 pushd /run/media/$USER/ > /dev/null
 if [[ $(ls -A) ]]; then
@@ -20,34 +21,34 @@ popd > /dev/null
 
 cpKeybinding() {
   echo -e "${color4}- Copying custom keybindings to custom.txt ${colorEnd}"
-  dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > /run/media/$USER/${selected_drive}/${nameConfigDir}/custom.txt
+  dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > /run/media/$USER/${selected_drive}/${DISTRO}/custom.txt
 }
 
 cpFirefoxUser() {
   echo -e "${color4}- Copying Firefox user ${colorEnd}"
-  cp -r ~/.mozilla /run/media/$USER/${selected_drive}/${nameConfigDir}/
-  checkIfCopyOk /run/media/$USER/${selected_drive}/${nameConfigDir}/.mozilla ~/.mozilla
+  cp -r ~/.mozilla /run/media/$USER/${selected_drive}/${DISTRO}/
+  checkIfCopyOk /run/media/$USER/${selected_drive}/${DISTRO}/.mozilla ~/.mozilla
 }
 
 cpDocument() {
   echo -e "${color4}- Copying Documents ${colorEnd}"
-  cp -r ~/Documents /run/media/$USER/${selected_drive}/${nameConfigDir}/
-  checkIfCopyOk /run/media/$USER/${selected_drive}/${nameConfigDir}/Documents ~/Documents
-  cp -r ~/Images /run/media/$USER/${selected_drive}/${nameConfigDir}/
-  checkIfCopyOk /run/media/$USER/${selected_drive}/${nameConfigDir}/Images ~/Images
-  cp -r ~/Musique /run/media/$USER/${selected_drive}/${nameConfigDir}/
-  checkIfCopyOk /run/media/$USER/${selected_drive}/${nameConfigDir}/Musique ~/Musique
-  cp -r ~/Vidéos /run/media/$USER/${selected_drive}/${nameConfigDir}/
-  checkIfCopyOk /run/media/$USER/${selected_drive}/${nameConfigDir}/Vidéos ~/Vidéos
-  cp -r ~/.config/autostart /run/media/$USER/${selected_drive}/${nameConfigDir}/
-  checkIfCopyOk /run/media/$USER/${selected_drive}/${nameConfigDir}/autostart ~/.config/autostart
-  cp -r ~/.dotfiles /run/media/$USER/${selected_drive}/${nameConfigDir}/
-  checkIfCopyOk /run/media/$USER/${selected_drive}/${nameConfigDir}/.dotfiles ~/.dotfiles
+  cp -r ~/Documents /run/media/$USER/${selected_drive}/${DISTRO}/
+  checkIfCopyOk /run/media/$USER/${selected_drive}/${DISTRO}/Documents ~/Documents
+  cp -r ~/Images /run/media/$USER/${selected_drive}/${DISTRO}/
+  checkIfCopyOk /run/media/$USER/${selected_drive}/${DISTRO}/Images ~/Images
+  cp -r ~/Musique /run/media/$USER/${selected_drive}/${DISTRO}/
+  checkIfCopyOk /run/media/$USER/${selected_drive}/${DISTRO}/Musique ~/Musique
+  cp -r ~/Vidéos /run/media/$USER/${selected_drive}/${DISTRO}/
+  checkIfCopyOk /run/media/$USER/${selected_drive}/${DISTRO}/Vidéos ~/Vidéos
+  cp -r ~/.config/autostart /run/media/$USER/${selected_drive}/${DISTRO}/
+  checkIfCopyOk /run/media/$USER/${selected_drive}/${DISTRO}/autostart ~/.config/autostart
+  cp -r ~/.dotfiles /run/media/$USER/${selected_drive}/
+  checkIfCopyOk /run/media/$USER/${selected_drive}/.dotfiles ~/.dotfiles
 }
 
-mkdir /run/media/$USER/${selected_drive}/${nameConfigDir}
+mkdir /run/media/$USER/${selected_drive}/${DISTRO}
 cpKeybinding
-cpFirefoxUser
+# cpFirefoxUser
 cpDocument
 
 echo -e "-------------${color2} ¤${colorEnd} ${color1}| Update Done |${colorEnd}---"
