@@ -12,7 +12,8 @@ unmountDrive () {
         echo "no drive found" ; exit 
     fi
 
-    sudo umount /run/media/"$USER"/"${selected_drive}"
+    # sudo umount /run/media/"$USER"/"${selected_drive}"
+    sudo umount /media/"$USER"/"${selected_drive}"
     sudo cryptsetup luksClose "${selected_drive}"
 }
 

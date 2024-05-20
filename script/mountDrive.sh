@@ -13,8 +13,10 @@ mountDrive () {
     fi
 
     sudo cryptsetup luksOpen /dev/"${selected_drive}" "${selected_drive}"
-    sudo mkdir -p /run/media/"$USER"/"${selected_drive}"
-    sudo mount /dev/mapper/"${selected_drive}" /run/media/"$USER"/"${selected_drive}"
+    # sudo mkdir -p /run/media/"$USER"/"${selected_drive}"
+    sudo mkdir -p /media/"$USER"/"${selected_drive}"
+    # sudo mount /dev/mapper/"${selected_drive}" /run/media/"$USER"/"${selected_drive}"
+    sudo mount /dev/mapper/"${selected_drive}" /media/"$USER"/"${selected_drive}"
 }
 
 mountDrive

@@ -165,8 +165,8 @@ rules = [
 	{ mime = "image/*", fg = "cyan" },
 
 	# Videos
-	{ mime = "video/*", fg = "yellow" },
-	{ mime = "audio/*", fg = "yellow" },
+	{ mime = "video/*", fg = "#9dafff" },
+	{ mime = "audio/*", fg = "#9dffe1" },
 
 	# Archives
 	{ mime = "application/zip",             fg = "magenta" },

@@ -37,6 +37,8 @@ end,
 -- move keymaps
 vim.keymap.set('x', '<leader>p', "\"_dP", {})
 
+vim.keymap.set('n', '<leader>zz', ":set foldmethod=indent<CR>", {})
+
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", {})
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {})
 -- vim.keymap.set('v', '<leader><Down>', ":m '>+1<CR>gv=gv", {})
