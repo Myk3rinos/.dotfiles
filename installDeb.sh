@@ -80,5 +80,32 @@ installDeb() {
     installMongodb
 }
 
+backup_to_dd3() {
+    echo -e "${color4}- Sauvegarde des dossiers personnels vers dd3 ${colorEnd}"
+    DEST_DIR="/media/extern/dd3"
+    SOURCE_DIRS=("$HOME/Documents" "$HOME/Images" "$HOME/Musique" "$HOME/Vidéos")
+
+    # Vérifier si le disque externe est monté
+    if [ ! -d "$DEST_DIR" ]; then
+        echo "Erreur : Le disque externe n'est pas monté à l'emplacement $DEST_DIR"
+        echo "Veuillez brancher le disque et réessayer."
+        return 1
+    fi
+
+    for dir in "${SOURCE_DIRS[@]}"; do
+        if [ -d "$dir" ]; then
+            echo "Copie de $(basename "$dir")..."
+            # Créer le dossier de destination s'il n'existe pas
+            mkdir -p "$DEST_DIR/$(basename "$dir")"
+            # Utiliser rsync pour copier les fichiers sans écraser ceux qui existent déjà
+            rsync -av --ignore-existing "$dir/" "$DEST_DIR/$(basename "$dir")/"
+        else
+            echo "Le dossier $(basename "$dir") n'existe pas, il est ignoré."
+        fi
+    done
+
+    echo "Sauvegarde terminée."
+}
+
 
 

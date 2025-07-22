@@ -6,7 +6,7 @@
 
 # : Manager {{{
 
-[mgr]
+[manager]
 # cwd = { fg = "#50FA7B", italic = true }
 cwd = { fg = "#fc8ae5", italic = true }
 # cwd = { fg = "#FF79C6" }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 source ~/.dotfiles/script/colors.sh
-source ~/.dotfiles/script/choiseFunction.sh
+source ~/.dotfiles/script/chooseFunction.sh
 
 mountSecret () {
     echo -e "-----------------${color2} ¤${colorEnd} ${color1}| Mounting encrypted drives |${colorEnd}---"

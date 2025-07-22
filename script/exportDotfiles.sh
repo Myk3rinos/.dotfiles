@@ -2,7 +2,7 @@
 
 source ~/.dotfiles/script/colors.sh
 source ~/.dotfiles/script/checkCopy.sh
-source ~/.dotfiles/script/choiseFunction.sh
+source ~/.dotfiles/script/chooseFunction.sh
 
 echo -e "-------------${color2} ¤${colorEnd} ${color1}| Update Start |${colorEnd}---"
 

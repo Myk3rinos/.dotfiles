@@ -7,7 +7,10 @@ function choose_from_menu() {
     local prompt="$1" outvar="$2"
     shift
     shift
-    local options=("$@") cur=0 count=${#options[@]} index=0
+    local options=("$@")
+    # Add "Quitter" option at the end
+    options+=("exit")
+    local cur=0 count=${#options[@]} index=0
     local esc=$(echo -en "\e") # cache ESC as test doesn't allow esc codes
     printf "$prompt\n"
     while true
@@ -34,6 +37,11 @@ function choose_from_menu() {
         fi
         echo -en "\e[${count}A" # go up to the beginning to re-render
     done
+    # Check if user selected "exit" option
+    if [ "${options[$cur]}" == "exit" ]; then
+        # echo "Au revoir!"
+        exit 0
+    fi
     # export the selection to the requested output variable
     printf -v $outvar "${options[$cur]}"
 }

@@ -2,7 +2,7 @@
 
 source ~/.dotfiles/script/colors.sh
 source ~/.dotfiles/script/checkCopy.sh
-source ~/.dotfiles/script/choiseFunction.sh
+source ~/.dotfiles/script/chooseFunction.sh
 source ~/.dotfiles/installDeb.sh
 
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${colorEnd}---"
@@ -169,6 +169,16 @@ askForCopy() {
         No ) break;;
     esac
 }
+askForBackup() {
+    echo -e "${color4}- Sauvegarde des dossiers personnels ${colorEnd}"
+    selections=( "Oui" "Non" )
+    choose_from_menu "Voulez-vous sauvegarder vos dossiers (Documents, Images, etc.) sur dd3 ?" selected_choice "${selections[@]}"
+    case $selected_choice in
+        Oui ) backup_to_dd3; break;;
+        Non ) break;;
+    esac
+}
+
 askForReboot() {
     echo -e "${color4}- reboot ${colorEnd}"
     selections=( "No" "Yes" )
@@ -198,6 +208,7 @@ createAllSymlink
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Copy documents |${colorEnd}---"
 /home/$USER/.dotfiles/script/configure.sh
 gitinit
+askForBackup
 askForReboot
 
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Installation done |${colorEnd}---"

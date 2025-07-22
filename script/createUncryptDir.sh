@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 source ~/.dotfiles/script/colors.sh
-source ~/.dotfiles/script/choiseFunction.sh
+source ~/.dotfiles/script/chooseFunction.sh
 
 
 createSecret () {

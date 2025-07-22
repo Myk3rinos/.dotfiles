@@ -148,7 +148,7 @@ separator_style = { fg = "darkgray" }
 
 [help]
 on      = { fg = "magenta" }
-run    = { fg = "cyan" }
+exec    = { fg = "cyan" }
 desc    = { fg = "gray" }
 hovered = { bg = "darkgray", bold = true }
 footer  = { fg = "black", bg = "white" }
@@ -165,8 +165,8 @@ rules = [
 	{ mime = "image/*", fg = "cyan" },
 
 	# Videos
-	{ mime = "video/*", fg = "#9dafff" },
-	{ mime = "audio/*", fg = "#9dffe1" },
+	{ mime = "video/*", fg = "yellow" },
+	{ mime = "audio/*", fg = "yellow" },
 
 	# Archives
 	{ mime = "application/zip",             fg = "magenta" },
@@ -193,7 +193,6 @@ rules = [
 	{ name = ".*/", fg = "blue" },
   
 	{ name = "*/", fg = "#78a9ff" },
-	{ name = "Websites/", fg = "#e458ff" },
 ]
 
 [icon]

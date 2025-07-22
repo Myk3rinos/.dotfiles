@@ -60,10 +60,10 @@ alias n="clear ; neofetch"
 alias c="clear"
 
 alias ".."="clear ; cd .. "
-alias ls="clear ; lsd"
-alias lsa="clear ; lsd -a"
-alias lsl="clear ; lsd -l"
-alias lsla="clear ; lsd -la"
+# alias ls="clear ; lsd"
+# alias lsa="clear ; lsd -a"
+# alias lsl="clear ; lsd -l"
+# alias lsla="clear ; lsd -la"
 alias lst="clear ; ls --tree ."
 
 
@@ -164,3 +164,7 @@ function ud() {
 }
 eval "$(starship init zsh)"
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
