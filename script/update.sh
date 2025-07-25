@@ -45,6 +45,10 @@ backup_to_media() {
       # rsync -av --ignore-existing ~/.config/dconf/user /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ "$DEST_DIR/config/keybindings/"
       dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > "/home/$USER/Documents/custom.txt"
       dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > "$DEST_DIR/config/keybindings/custom.txt"
+
+      if [ $? -eq 0 ]; then
+          echo -e "${colorG}- Custom keybindings copied ${colorEnd}"
+      fi
     }
 
 
@@ -52,6 +56,10 @@ backup_to_media() {
       echo -e "${color4}- Copying autostart ${colorEnd}"
       mkdir -p "$DEST_DIR/config/autostart"
       rsync -av --ignore-existing ~/.config/autostart/ "$DEST_DIR/config/autostart/"
+
+      if [ $? -eq 0 ]; then
+          echo -e "${colorG}- Autostart copied ${colorEnd}"
+      fi
     }
 
     cpFirefoxBookmarks() {
@@ -77,6 +85,10 @@ backup_to_media() {
         rm -rf "$DEST_DIR/.dotfiles"
         # Copier le dossier .dotfiles
         sudo rsync -av ~/.dotfiles/ "$DEST_DIR/.dotfiles/"
+
+        if [ $? -eq 0 ]; then
+            echo -e "${colorG}- Dotfiles copied ${colorEnd}"
+        fi
     }
 
     cpDocument() {
@@ -93,6 +105,10 @@ backup_to_media() {
                 echo "Le dossier $(basename "$dir") n'existe pas, il est ignoré."
             fi
         done
+
+        if [ $? -eq 0 ]; then
+            echo -e "${colorG}- Documents copied ${colorEnd}"
+        fi
     }
     cpKeybinding
     cpAutostart

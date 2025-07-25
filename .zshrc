@@ -61,11 +61,14 @@ alias c="clear"
 
 alias ".."="clear ; cd .. "
 # alias ls="clear ; lsd"
+alias ls="lsd"
 # alias lsa="clear ; lsd -a"
 # alias lsl="clear ; lsd -l"
 # alias lsla="clear ; lsd -la"
 alias lst="clear ; ls --tree ."
 
+
+alias g="gemini"
 
 alias lg="lazygit"
 

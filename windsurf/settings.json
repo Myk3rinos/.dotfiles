@@ -1,0 +1,11 @@
+{
+    "workbench.colorTheme": "Tokyo Night",
+    "editor.fontFamily": "\"CaskaydiaCove Nerd Font\"",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily"
+    ],
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "normal",
+    "editor.indentSize": 4,
+    "editor.tabSize": 4
+}

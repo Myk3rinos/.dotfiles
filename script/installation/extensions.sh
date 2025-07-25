@@ -107,7 +107,7 @@ install_vitals() {
 
 
 # Ensuite, vous pouvez appeler chaque fonction par son nom:
-installUbuntuExtensions() {
+installExtensions() {
     echo -e "------------------${color2} ¤${colorEnd} ${color3}| Install extensions |${colorEnd}---"
     install_x11_gestures
     install_clipboard_indicator

@@ -3,12 +3,14 @@
 source ~/.dotfiles/script/colors.sh
 source ~/.dotfiles/script/checkCopy.sh
 source ~/.dotfiles/script/chooseFunction.sh
-source ~/.dotfiles/script/installation/installUbuntuConfig.sh
-source ~/.dotfiles/script/installation/installExtensions.sh
+source ~/.dotfiles/script/installation/extensions.sh
+source ~/.dotfiles/script/installation/packages.sh
 source ~/.dotfiles/script/installation/configure.sh
 
 
+echo -e "------------------------------------------------------"
 echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${colorEnd}---"
+echo -e "------------------------------------------------------"
 
 filesToLinkInHome=(.zshrc .themes)
 filesToLinkInConfig=( yazi kitty lazygit conky btop nvim neofetch starship.toml)
@@ -31,6 +33,10 @@ createAllSymlink() {
     for file in "${filesToLinkInConfig[@]}"; do
        createSymlinks $file ".config/"
     done
+    
+    # symlink Windsurf config
+    rm -rf ~/.config/Windsurf/User/settings.json
+    ln -s ~/.dotfiles/windsurf/settings.json ~/.config/Windsurf/User/settings.json
 }
 
 importConfig() {
@@ -160,8 +166,8 @@ askForReboot() {
 
 
 askForCopy "/media"
-installUbuntuConfig
-installUbuntuExtensions
+installPackages
+installExtensions
 setGnomeConfig
 createAllSymlink
 gitinit

@@ -1,12 +1,11 @@
+#!/bin/bash
+
 source ~/.dotfiles/script/colors.sh
 
-# echo -e "------------------${color2} ¤${colorEnd} ${color3}| set gnome configuration |${colorEnd}---"
-
 setGnomeConfig() {
-    # echo -e "${color4}- Setting Gnome config ---------------------------------------- ${colorEnd}"
     echo -e "------------------${color2} ¤${colorEnd} ${color3}| Setting Gnome config |${colorEnd}---"
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    gsettings set org.gnome.desktop.background picture-uri-dark file:///home/"$USER"/Images/wallpapers/1.jpg
+    gsettings set org.gnome.desktop.background picture-uri-dark "file:///home/$USER/Images/wallpapers/1.jpg"
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
     gsettings set org.gnome.desktop.peripherals.touchpad click-method 'fingers'
     gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click false
@@ -34,11 +33,3 @@ setGnomeConfig() {
 
     rfkill block bluetooth
 }
-
-# setGnomeConfig
-
-# echo -e "------------------${color2} ¤${colorEnd} ${color3}| Gnome config done |${colorEnd}---"
-
-# gsettings set org.gnome.nautilus.icon-view default-zoom-level 'large'
-# icon_size=$(gsettings get org.gnome.nautilus.icon-view default-zoom-level)
-# echo "Icon size in Nautilus: $icon_size"

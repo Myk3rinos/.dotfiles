@@ -1,3 +1,6 @@
+#!/bin/bash
+
+
 source ~/.dotfiles/script/colors.sh
 
 
@@ -35,7 +38,6 @@ installWindsurfIA() {
 
 
 
-
 installYazi() {
     echo -e "${color4}- install Yazi $1 ${colorEnd}"
     #dependancy
@@ -50,7 +52,7 @@ installYazi() {
 
 
 
-installPackages() {
+installAllPackages() {
     echo -e "${color4}- install packages $1 ${colorEnd}"
     sudo apt install -y nala
     
@@ -59,7 +61,6 @@ installPackages() {
 		gnupg \
 		curl \
 		git-all \
-		touchegg \
 		gnome-shell-extension-manager \
 		gnome-tweaks \
 		gnome-shell-extensions \
@@ -95,7 +96,13 @@ installPackages() {
             exit 1
         fi
     done
-    
+
+
+    sudo add-apt-repository ppa:touchegg/stable
+    sudo apt update
+    sudo apt install touchegg
+
+
     installNodejs
     installYazi
     installWindsurfIA
@@ -169,9 +176,9 @@ installFont() {
     popd
 }
 
-installUbuntuConfig() {
+installPackages() {
     echo -e "------------------${color2} ¤${colorEnd} ${color3}| Install packages |${colorEnd}---"
-    installPackages
+    installAllPackages
     installFont
     installMongodb
 }
