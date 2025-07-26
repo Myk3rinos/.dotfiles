@@ -13,7 +13,7 @@ echo -e "------------------ ${color2} ¤${colorEnd} ${color1}| Install start |${
 echo -e "------------------------------------------------------"
 
 filesToLinkInHome=(.zshrc .themes)
-filesToLinkInConfig=( yazi kitty lazygit conky btop nvim neofetch starship.toml)
+filesToLinkInConfig=( yazi kitty lazygit conky btop nvim neofetch starship.toml lsd)
 
 createSymlinks() {
     if [ -f /home/$USER/.dotfiles/$1 ] || [ -r /home/$USER/.dotfiles/$1 ]; then # check if file exists

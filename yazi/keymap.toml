@@ -1,0 +1,31 @@
+# Yazi keymap configuration
+# Custom keyboard shortcuts
+
+# [mgr]
+# # # Existing default keybindings can be overridden here
+# # # Add custom shortcut: Shift+W to set wallpaper
+# keymap = [
+#     { on = [ "<p>" ], run = "gsettings set org.gnome.desktop.background picture-uri-dark file://\"$@\"", desc = "Set as wallpaper" },
+#     # { on = [ "<p>" ], run = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', desc = "Set as wallpaper" },
+# ]
+
+
+# [tasks]
+# keymap = [
+#     # Task-related keybindings can be added here
+# ]
+
+# [select]
+# keymap = [
+#     # Selection-related keybindings can be added here
+# ]
+
+# [input]
+# keymap = [
+#     { on = [ "<p>" ], run = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', desc = "Set as wallpaper" },
+# ]
+
+# [help]
+# keymap = [
+#     # Help-related keybindings can be added here
+# ]

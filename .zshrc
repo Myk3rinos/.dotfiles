@@ -61,7 +61,7 @@ alias c="clear"
 
 alias ".."="clear ; cd .. "
 # alias ls="clear ; lsd"
-alias ls="lsd"
+alias ls="lsd -al"
 # alias lsa="clear ; lsd -a"
 # alias lsl="clear ; lsd -l"
 # alias lsla="clear ; lsd -la"

@@ -29,43 +29,86 @@ show_symlink   = true
 # ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
-# edit = [
+edit = [
+	{ run = 'nvim "$@"', desc = "nvim", block = true, for = "unix" },
+	{ run = 'windsurf "$@"', desc = "windsurf", block = true, for = "unix" },
 # 	{ run = '${EDITOR:=nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
 # 	{ run = 'kitty --config /home/will/.config/kitty/kitty_n.conf ${EDITOR:=vi} "$@"', desc = 'new window ${EDITOR}', block = true, for = "unix" },
 # 	{ run = 'code "%*"',          orphan = true, for = "windows" },
 # 	{ run = 'bash "$@"', desc = "Execute", for = "unix" },
-# ]
+]
 open = [
-# 	{ run = 'xdg-open "$@"',                desc = "Open", for = "linux" },
+	{ run = 'xdg-open "$@"',                desc = "Open", for = "linux" },
+	{ run = 'nautilus "$@"',                desc = "Open Nautilus", for = "linux" },
+	# copie path
+	{ run = 'echo -n "$@" | xclip -selection clipboard', desc = "Copy path", for = "unix" },
+
 # 	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
 # 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
   
-	{ run = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
+	# { run = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
 #   { run = 'bash "$@"', desc = "Execute", for = "unix" },
 ]
-# reveal = [
+reveal = [
 # 	{ run = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
 # 	{ run = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
-# 	{ run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
-# ]
-# extract = [
-# 	{ run = 'unar "$1"', desc = "Extract here", for = "unix" },
+	{ run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
+]
+extract = [
+	{ run = 'unar "$1"', block = true, desc = "Extract here", for = "unix" },
 # 	{ run = 'unar "%1"', desc = "Extract here", for = "windows" },
-# ]
-# play = [
-# 	{ run = 'rhythmbox "$@"', orphan = true, for = "unix" },
+]
+play = [
+	{ run = 'rhythmbox "$@"', orphan = true, desc = "Play", for = "unix" },
 # 	{ run = 'clapper "$@"', orphan = true, for = "unix", desc = "clapper" },
 #   { run = 'sushi "${@// /_}"', block = true, for = "unix", desc = "sushi"},
 # 	{ run = 'mpv "%1"', orphan = true, for = "windows" },
 # 	{ run = 'stat "$@"', block = true, desc = "Show media info", for = "unix" },
-# ]
+]
+wallpaper = [
+	{ run = 'gsettings set org.gnome.desktop.background picture-uri-dark file://"$@"', orphan = true, desc = "Set as wallpaper", for = "linux" },
+]
 
+
+
+[open]
+rules = [
+	# # Tous les fichiers
+    # { name = "*", use = ["open", "reveal"] },
+    # # Fichiers audio spécifiques
+    # { name = "*.mp3", use = ["open", "play"] },
+    # { name = "*.flac", use = ["open", "play"] },
+    # { name = "*.wav", use = ["open", "play"] },
+    # { name = "*.ogg", use = ["open", "play"] },
+    
+    # # Images
+    { name = "*.{png,jpg,jpeg,gif,bmp,heic}", use = ["open", "reveal", "wallpaper"] },
+    
+    # # Videos
+    # { name = "*.{mp4,avi,mkv,webm}", use = ["open", "play"] },
+
+    # # PDF
+    # { name = "*.pdf", use = ["open", "reveal"] },
+
+	# Programmes
+	{ name = "*.{sh,md,zsh,c,cpp,cs,css,elm,erl,fish,go,h,hpp,html,java,js,json,kt,less,php,pl,py,rb,rs,scala,sql,swift,ts,xml,yml,yaml,ini,conf,txt,md,zshrc,toml,lua,tmTheme,theme,json}", use = ["edit", "open", "reveal"] },
+	
+	# Archives
+	{ name = "*.{zip,tar,7z,iso}", use = ["open", "reveal", "extract"] },
+
+	# Autres
+    { name = "*", use = ["open", "reveal"] },
+
+	# Dossier
+    { name = "*/", use = ["open", "reveal"] },
+    # Autres règles...
+]
 # [open]
 # rules = [
 # 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 
 # 	{ mime = "text/*",  use = [ "edit", "reveal" ] },
-# 	{ mime = "image/*", use = [ "open", "reveal" ] },
+	# { mime = "image/*", use = [ "open", "reveal" ] },
 # 	{ mime = "video/*", use = [ "play", "reveal" ] },
 # 	{ mime = "audio/*", use = [ "play", "reveal" ] },
 # 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },

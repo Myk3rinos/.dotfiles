@@ -86,7 +86,8 @@ installAllPackages() {
         sqlite3 \
         usbmuxd \
         libimobiledevice6 \
-        libimobiledevice-utils
+        libimobiledevice-utils \
+        libimage-exiftool-perl
     )
     sudo nala install -y ${PACKAGES[@]}
     # Vérification de l'installation
