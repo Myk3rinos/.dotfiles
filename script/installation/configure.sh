@@ -31,5 +31,12 @@ setGnomeConfig() {
 
     # gsettings set org.gnome.settings-daemon.plugins.power sleep-display-ac 600
 
+    firewall() {
+        # sudo ufw status
+        sudo ufw enable
+        # sudo ufw disable
+    }
+    firewall
+
     rfkill block bluetooth
 }

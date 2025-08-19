@@ -36,6 +36,12 @@ installWindsurfIA() {
     windsurf -v
 }
 
+installCursorIA() {
+    echo -e "${color4}- install WindsurfIA $1 ${colorEnd}"
+    sudo apt update
+    sudo apt install snapd
+    sudo snap install cursor 
+}
 
 
 installYazi() {
@@ -107,6 +113,7 @@ installAllPackages() {
     installNodejs
     installYazi
     installWindsurfIA
+    installCursorIA
 
 	sudo npm install -g pnpm
 	cargo install lsd

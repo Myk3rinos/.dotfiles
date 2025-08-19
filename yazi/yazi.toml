@@ -32,6 +32,7 @@ show_symlink   = true
 edit = [
 	{ run = 'nvim "$@"', desc = "nvim", block = true, for = "unix" },
 	{ run = 'windsurf "$@"', desc = "windsurf", block = true, for = "unix" },
+	{ run = '/opt/cursor/Cursor.AppImage --no-sandbox "$@"', desc = "cursor", block = true, for = "unix" },
 # 	{ run = '${EDITOR:=nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
 # 	{ run = 'kitty --config /home/will/.config/kitty/kitty_n.conf ${EDITOR:=vi} "$@"', desc = 'new window ${EDITOR}', block = true, for = "unix" },
 # 	{ run = 'code "%*"',          orphan = true, for = "windows" },

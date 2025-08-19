@@ -55,6 +55,8 @@ alias gmerge="git merge"
 
 
 alias v="clear ; nvim"
+alias w="clear ; windsurf"
+alias cu="clear ; /opt/cursor/Cursor.AppImage --no-sandbox &" # add & for background task
 alias bt="clear ; btop"
 alias n="clear ; neofetch"
 alias c="clear"
@@ -69,6 +71,7 @@ alias lst="clear ; ls --tree ."
 
 
 alias g="gemini"
+alias s="clear ; node $HOME/Synax/build/index.js"
 
 alias lg="lazygit"
 
