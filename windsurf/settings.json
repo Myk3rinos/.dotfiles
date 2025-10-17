@@ -1,12 +1,16 @@
 {
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Moegi Black",
     "editor.fontFamily": "\"CaskaydiaCove Nerd Font\"",
     "workbench.settings.applyToAllProfiles": [
-        "editor.fontFamily"
+        "editor.fontFamily",
+        "workbench.colorTheme"
     ],
     "editor.fontLigatures": true,
     "editor.fontWeight": "normal",
     "editor.indentSize": 4,
     "editor.tabSize": 4,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
+    "workbench.activityBar.location": "top",
+    "diffEditor.ignoreTrimWhitespace": false
 }

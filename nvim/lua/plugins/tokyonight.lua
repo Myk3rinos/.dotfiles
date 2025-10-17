@@ -4,7 +4,7 @@ return {
   name = "tokyonight", 
   priority = 100, 
   config = function()
-    vim.cmd.colorscheme "tokyonight"
+    -- vim.cmd.colorscheme "tokyonight"
 -- vim.o.background = "light"
     require("tokyonight").setup({
       -- your configuration comes here

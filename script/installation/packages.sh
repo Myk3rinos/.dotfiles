@@ -55,7 +55,36 @@ installYazi() {
     cargo install --locked yazi-fm #yazi-cli
 }
 
+installRMPC() {
+  #install MPD (music player deamon)
+  # Créer le répertoire de configuration s'il n'existe pas
+  # mkdir -p ~/.config/mpd
 
+  # Copier un exemple de configuration (si disponible)
+  # cp /usr/share/doc/mpd/mpdconf.example ~/.config/mpd/mpd.conf
+
+  # OU créer votre propre configuration
+  # (comme celle que vous avez déjà dans ~/.config/mpd/mpd.conf)
+
+  # Désactiver le service système
+  sudo systemctl stop mpd.service mpd.socket
+  sudo systemctl disable mpd.service mpd.socket
+
+  # Activer le service utilisateur
+  systemctl --user enable mpd.service
+  systemctl --user start mpd.service
+
+  # Mettre à jour la base de données
+  echo "update" | nc localhost 6600
+
+  #install RMCP
+  cargo install --git https://github.com/mierak/rmpc --locked
+}
+
+installBat() {
+    mkdir -p ~/.local/bin
+    ln -s /usr/bin/batcat ~/.local/bin/bat
+}
 
 
 installAllPackages() {
@@ -78,11 +107,13 @@ installAllPackages() {
 		bat \
 		gh \
 		btop \
+        screenfetch \
 		htop \
 		unar \
 		gparted \
 		testdisk \
 		rhythmbox \
+        mpd \
 		lm-sensors \
 		zsh-autosuggestions \
 		zsh-syntax-highlighting \
@@ -114,6 +145,8 @@ installAllPackages() {
     installYazi
     installWindsurfIA
     installCursorIA
+    installRMPC
+    installBat
 
 	sudo npm install -g pnpm
 	cargo install lsd

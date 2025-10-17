@@ -1,6 +1,19 @@
 # source $HOME/.dotfiles/script/gocrypt.sh
 # source $HOME/.dotfiles/script/mountDrive.sh
 
+# Add ~/.local/bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-autocomplete/zsh-autocomplete.zsh
+#  plugins=(
+#   git
+#   zsh-autosuggestions
+#   zsh-syntax-highlighting
+#   fast-syntax-highlighting
+#   zsh-autocomplete
+#  )
 # ------- Man color -------
 # function man() {
 #   /usr/bin/man $* | \
@@ -75,9 +88,23 @@ alias s="clear ; node $HOME/Synax/build/index.js"
 
 alias lg="lazygit"
 
-alias nixrs="sudo nixos-rebuild switch"
+# alias nixrs="sudo nixos-rebuild switch"
+
+# alias man="man | bat -l conf"
+alias lsblk="lsblk | bat -l conf"
+alias free="free | bat -l conf"
+alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+
+
+
+alias gtm="cd /media/$USER/dd2"
+
+
+
 
 export STARSHIP_CONFIG=~/.config/starship.toml
+
 
 # yazi
 function y() {
@@ -99,6 +126,7 @@ function cdh() {
   builtin cd ~ "$@" #&& ls
 }
 # echo "Welcome to the terminal"
+
 
 # if [ -e $HOME/.logon_script_done_v ]
 # then
@@ -174,3 +202,8 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+
+
+export MDB_MCP_CONNECTION_STRING="mongodb://localhost:27017/F1Dashboard"

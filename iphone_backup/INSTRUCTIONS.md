@@ -33,3 +33,11 @@ python3 extract_photos.py /path/to/backup/folder /path/to/output/folder
 ```
 
 Remplacez `/path/to/backup/folder` par le chemin de la sauvegarde que vous venez de créer et `/path/to/output/folder` par le dossier où vous souhaitez enregistrer les photos extraites.
+
+
+
+cd ~/Documents/iphone_backup
+python3 -m venv venv
+source venv/bin/activate
+pip install piexif
+python extract_photos.py 00008101-000164583EE0001E_1 photo1
