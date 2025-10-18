@@ -9,6 +9,7 @@ source "$SCRIPT_DIR/menu_lib.sh"
 # Importer les menus
 source "$SCRIPT_DIR/dock_menu.sh"
 source "$SCRIPT_DIR/terminal_apps_menu.sh"
+source "$SCRIPT_DIR/applications_menu.sh"
 source "$SCRIPT_DIR/themes_menu.sh"
 
 # Menu principal
