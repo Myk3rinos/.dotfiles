@@ -14,6 +14,7 @@ show_terminal_apps_menu() {
         "󰚗 screenfetch"
         " music"
         " nvim"
+        "󰕮 yazi"
         "← Retour"
     )
 
@@ -30,26 +31,49 @@ show_terminal_apps_menu() {
         0)
             # Lancer btop
             clear
+            # Redimensionner la fenêtre OS pour btop (plus grande pour l'interface musicale)
+            kitty @ resize-os-window --width 100 --height 40 2>/dev/null || true
             btop
+            # Restaurer la taille d'origine du menu (300x600 selon kitty_menu.conf)
+            kitty @ resize-os-window --width 30 --height 40 2>/dev/null || true
             ;;
         1)
             # Lancer screenfetch
             clear
+            # Redimensionner la fenêtre OS pour screenfetch (plus grande pour l'interface musicale)
+            kitty @ resize-os-window --width 100 --height 40 2>/dev/null || true
             screenfetch
-            # echo ""
-            # read -p "Appuyez sur Entrée pour continuer..."
+            # Restaurer la taille d'origine du menu (300x600 selon kitty_menu.conf)
+            kitty @ resize-os-window --width 30 --height 40 2>/dev/null || true
             ;;
         2)
             # Lancer music
             clear
+            # Redimensionner la fenêtre OS pour rmpc (plus grande pour l'interface musicale)
+            kitty @ resize-os-window --width 100 --height 40 2>/dev/null || true
             rmpc
+            # Restaurer la taille d'origine du menu (300x600 selon kitty_menu.conf)
+            kitty @ resize-os-window --width 30 --height 40 2>/dev/null || true
             ;;
         3)
             # Lancer nvim
             clear
+            # Redimensionner la fenêtre OS pour nvim (plus grande pour l'interface musicale)
+            kitty @ resize-os-window --width 100 --height 40 2>/dev/null || true
             nvim
+            # Restaurer la taille d'origine du menu (300x600 selon kitty_menu.conf)
+            kitty @ resize-os-window --width 30 --height 40 2>/dev/null || true
             ;;
         4)
+            # Lancer nvim
+            clear
+            # Redimensionner la fenêtre OS pour nvim (plus grande pour l'interface musicale)
+            kitty @ resize-os-window --width 100 --height 40 2>/dev/null || true
+            yazi
+            # Restaurer la taille d'origine du menu (300x600 selon kitty_menu.conf)
+            kitty @ resize-os-window --width 30 --height 40 2>/dev/null || true
+            ;;
+        5)
             # Retour
             return 0
             ;;
