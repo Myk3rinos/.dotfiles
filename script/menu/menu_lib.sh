@@ -70,7 +70,7 @@ show_menu() {
     fi
 
     echo ""
-    echo -e "${BLUE_TEXT}↑/↓ naviguer | → ou Entrée valider | ← ou q retour${RESET}"
+    # echo -e "${BLUE_TEXT}↑/↓ naviguer | → ou Entrée valider | ← ou q retour${RESET}"
 }
 
 # Fonction principale de sélection
@@ -94,8 +94,7 @@ menu_select() {
             # Touche q pour quitter
             q|Q)
                 echo ""
-                echo "Annulé"
-                return 1
+                return 254
                 ;;
             # Touche Entrée (gestion de multiples codes)
             $'\x0a'|$'\x0d'|'')
