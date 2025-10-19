@@ -4,7 +4,7 @@
 source ~/.dotfiles/script/chooseFunction.sh
 
 # Chemin vers le dossier des thèmes
-THEMES_DIR="/home/will/.dotfiles/.themes"
+THEMES_DIR="$HOME/.dotfiles/.themes"
 
 # Vérifier si le dossier des thèmes existe
 if [ ! -d "$THEMES_DIR" ]; then

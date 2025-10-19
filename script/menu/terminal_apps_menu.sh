@@ -15,6 +15,7 @@ show_terminal_apps_menu() {
         " music"
         " nvim"
         "󰕮 yazi"
+        " lsblk"
         "← Retour"
     )
 
@@ -65,15 +66,24 @@ show_terminal_apps_menu() {
             kitty @ resize-os-window --width 30 --height 40 2>/dev/null || true
             ;;
         4)
-            # Lancer nvim
+            # Lancer yazi
             clear
-            # Redimensionner la fenêtre OS pour nvim (plus grande pour l'interface musicale)
+            # Redimensionner la fenêtre OS pour yazi (plus grande pour l'interface musicale)
             kitty @ resize-os-window --width 100 --height 40 2>/dev/null || true
             yazi
             # Restaurer la taille d'origine du menu (300x600 selon kitty_menu.conf)
             kitty @ resize-os-window --width 30 --height 40 2>/dev/null || true
             ;;
         5)
+            # Lancer lsblk
+            clear
+            # Redimensionner la fenêtre OS pour nvim (plus grande pour l'interface musicale)
+            kitty @ resize-os-window --width 100 --height 40 2>/dev/null || true
+            kitty lsblk
+            # Restaurer la taille d'origine du menu (300x600 selon kitty_menu.conf)
+            kitty @ resize-os-window --width 30 --height 40 2>/dev/null || true
+            ;;
+        6)
             # Retour
             return 0
             ;;

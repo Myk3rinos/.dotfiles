@@ -82,6 +82,9 @@ menu_select() {
     # Sauvegarder les paramètres du terminal
     local old_stty=$(stty -g)
 
+    # Cacher le curseur
+    tput civis
+
     while true; do
         show_menu $selected "${options[@]}"
 
@@ -93,11 +96,15 @@ menu_select() {
         case "$key" in
             # Touche q pour quitter
             q|Q)
+                # Réafficher le curseur
+                tput cnorm
                 echo ""
                 return 254
                 ;;
             # Touche Entrée (gestion de multiples codes)
             $'\x0a'|$'\x0d'|'')
+                # Réafficher le curseur
+                tput cnorm
                 echo ""
                 # echo "Vous avez sélectionné: ${options[$selected]}"
                 return $selected
@@ -123,11 +130,15 @@ menu_select() {
                         fi
                         ;;
                     '[C') # Flèche droite - Sélectionner
+                        # Réafficher le curseur
+                        tput cnorm
                         echo ""
                         # echo "Vous avez sélectionné: ${options[$selected]}"
                         return $selected
                         ;;
                     '[D') # Flèche gauche - Retour en arrière
+                        # Réafficher le curseur
+                        tput cnorm
                         echo ""
                         # echo "Annulé"
                         return 255

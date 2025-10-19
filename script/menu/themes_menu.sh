@@ -7,7 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/menu_lib.sh"
 
 # Chemin vers le dossier des thèmes
-THEMES_DIR="/home/will/.dotfiles/.themes"
+THEMES_DIR="$HOME/.dotfiles/.themes"
 
 # Fonction pour appliquer un thème
 apply_theme() {

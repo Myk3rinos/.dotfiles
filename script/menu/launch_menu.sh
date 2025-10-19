@@ -52,11 +52,11 @@ if xdotool search --class "kitty-menu" &>/dev/null; then
 fi
 
 # Lancer Kitty avec le menu
-kitty --config /home/will/.dotfiles/kitty/kitty_menu.conf \
+kitty --config $HOME/.dotfiles/kitty/kitty_menu.conf \
       --class kitty-menu \
       --name kitty-menu \
       --title "Menu de sélection" \
-      bash /home/will/.dotfiles/script/menu/menu_select.sh &
+      bash $HOME/.dotfiles/script/menu/menu_select.sh &
 
 KITTY_PID=$!
 
