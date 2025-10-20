@@ -46,7 +46,7 @@ border_style  = { fg = "#000000" }
 
 # Highlighting
 # syntect_theme = "~/.config/yazi/Dracula.tmTheme"
-syntect_theme = "~/.config/yazi/tokyonight_night.tmTheme"
+syntect_theme = "~/.config/yazi/themes/tokyonight_night.tmTheme"
 # syntect_theme = "~/.config/yazi/Material.tmTheme"
 # syntect_theme = "~/.config/yazi/CatppuccinLatte.tmTheme"
 # syntect_theme = "~/.config/yazi/Carbonfox.tmTheme"
@@ -177,7 +177,8 @@ footer  = { fg = "black", bg = "white" }
 #
 # rules = [
 # 	# Images
-# 	{ mime = "image/*", fg = "cyan" },
+	# { mime = "image/*", fg = "cyan" },
+	# { mime = "Images/*", fg = "cyan" },
 #
 # 	# Videos
 # 	{ mime = "video/*", fg = "#9dafff" },

@@ -129,23 +129,40 @@ show_dock_menu() {
         commands+=("gnome-control-center applications")
     fi
 
-    # Ajouter les médias montés
+    # Ajouter les médias (montés et non montés)
     local show_mounts=$(gsettings get org.gnome.shell.extensions.dash-to-dock show-mounts 2>/dev/null)
     if [ "$show_mounts" = "true" ]; then
-        # Vérifier les deux emplacements possibles pour les médias
-        local media_dirs=("/run/media/$USER" "/media/$USER")
+        # Détecter les volumes avec lsblk (supporte chiffré, monté et non monté)
+        while IFS='|' read -r name label fstype size mountpoint; do
+            # Ignorer les lignes vides et les disques sans système de fichiers
+            [ -z "$name" ] && continue
 
-        for media_dir in "${media_dirs[@]}"; do
-            if [ -d "$media_dir" ] && [ "$(ls -A "$media_dir" 2>/dev/null)" ]; then
-                for mount in "$media_dir"/*; do
-                    if [ -d "$mount" ]; then
-                        local mount_name=$(basename "$mount")
-                        apps+=("󰋊 $mount_name")
-                        commands+=("nautilus \"$mount\"")
-                    fi
-                done
+            # On s'intéresse aux partitions amovibles (sd*, mmcblk*)
+            if [[ "$name" =~ ^(sd[a-z][0-9]+|mmcblk[0-9]+p[0-9]+)$ ]]; then
+                local device_path="/dev/$name"
+                local display_name="$label"
+
+                # Si pas de label, utiliser la taille comme nom
+                if [ -z "$display_name" ]; then
+                    display_name="$size"
+                fi
+
+                # Volume chiffré
+                if [ "$fstype" = "crypto_LUKS" ]; then
+                    display_name="$display_name chiffrés"
+                fi
+
+                if [ -n "$mountpoint" ]; then
+                    # Volume monté
+                    apps+=("󰋊 $display_name")
+                    commands+=("nautilus \"$mountpoint\"")
+                else
+                    # Volume non monté - Nautilus gérera le montage/déverrouillage
+                    apps+=("󰋊 $display_name (non monté)")
+                    commands+=("nautilus \"file://$device_path\"")
+                fi
             fi
-        done
+        done < <(/usr/bin/lsblk -nlo NAME,LABEL,FSTYPE,SIZE,MOUNTPOINT | tr -s ' ' '|')
     fi
 
     # Ajouter la corbeille
