@@ -14,7 +14,7 @@ return {
     },
    config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { 
+        ensure_installed = {
           "lua_ls",
           "bashls",
 

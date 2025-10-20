@@ -44,11 +44,11 @@ return {
 
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
       -- Couleurs pour les lignes d'indentation normales (plus subtiles)
-      vim.api.nvim_set_hl(0, "IblIndent1", { fg = "#E0E0E0" })
-      vim.api.nvim_set_hl(0, "IblIndent2", { fg = "#D0D0D0" })
-      vim.api.nvim_set_hl(0, "IblIndent3", { fg = "#C0C0C0" })
-      vim.api.nvim_set_hl(0, "IblIndent4", { fg = "#B0B0B0" })
-      vim.api.nvim_set_hl(0, "IblIndent5", { fg = "#A0A0A0" })
+      vim.api.nvim_set_hl(0, "IblIndent1", { fg = "#383838" })
+      vim.api.nvim_set_hl(0, "IblIndent2", { fg = "#383838" })
+      vim.api.nvim_set_hl(0, "IblIndent3", { fg = "#383838" })
+      vim.api.nvim_set_hl(0, "IblIndent4", { fg = "#383838" })
+      vim.api.nvim_set_hl(0, "IblIndent5", { fg = "#383838" })
       vim.api.nvim_set_hl(0, "IblIndent6", { fg = "#909090" })
 
       -- Couleurs pour le scope actuel (plus visible)
