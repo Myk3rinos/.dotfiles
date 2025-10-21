@@ -85,7 +85,20 @@ installBat() {
     mkdir -p ~/.local/bin
     ln -s /usr/bin/batcat ~/.local/bin/bat
 }
+installNeovim() {
+    sudo add-apt-repository ppa:neovim-ppa/unstable
+    sudo apt update
+    sudo apt install neovim
+    # TSInstall markdown markdown_inline
+}
 
+installLazyGit() {
+    echo -e "${color4}- install LazyGit $1 ${colorEnd}"
+    sudo add-apt-repository ppa:lazygit-team/release -y
+    sudo apt update
+    sudo apt install -y lazygit
+    lazygit --version
+}
 
 installAllPackages() {
     echo -e "${color4}- install packages $1 ${colorEnd}"
@@ -147,6 +160,8 @@ installAllPackages() {
     installCursorIA
     installRMPC
     installBat
+    installNeovim
+    installLazyGit
 
 	sudo npm install -g pnpm
 	cargo install lsd

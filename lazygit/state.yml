@@ -1,7 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
-    - /home/will/.dotfiles
     - /home/will/Websites/F1/F1
+    - /home/will/.dotfiles
 startuppopupversion: 5
 didshowhunkstaginghint: true
 lastversion: 0.55.1
