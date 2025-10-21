@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.dotfiles/script/colors.sh
+source ~/.dotfiles/.themes/colors.sh
 
 
 

@@ -114,6 +114,9 @@ get_all_apps() {
 
 # Menu des applications
 show_applications_menu() {
+    # Définir le titre du sous-menu
+    MENU_TITLE="=== 󰀻 Applications ==="
+
     local apps=()
     local commands=()
 

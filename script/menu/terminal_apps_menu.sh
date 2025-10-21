@@ -8,6 +8,9 @@ source "$SCRIPT_DIR/menu_lib.sh"
 
 # Fonction pour afficher le menu des applications terminal
 show_terminal_apps_menu() {
+    # Définir le titre du sous-menu
+    MENU_TITLE="===  Applications Terminal ==="
+
     # Options du menu des applications terminal
     local APPS=(
         "󰕮 btop"

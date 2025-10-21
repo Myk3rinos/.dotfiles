@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.dotfiles/script/colors.sh
+source ~/.dotfiles/.themes/colors.sh
 
 setGnomeConfig() {
     echo -e "------------------${color2} ¤${colorEnd} ${color3}| Setting Gnome config |${colorEnd}---"

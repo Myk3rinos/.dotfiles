@@ -68,8 +68,8 @@ hideOnOpen = function()
           vim.cmd("set noruler")
           vim.cmd("set showtabline=0")
 end
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {       
-   pattern = "*.norg",       
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+   pattern = "*.norg",
    -- command = [[ hideOnOpen() ]]
    -- command = [[ :Neorg workspace dashboard  ]]
     callback = function()
@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
         -- vim.api.nvim_exec([[Neorg workspace dashboard ]], false)
         -- vim.cmd("Neorg workspace dashboard<CR>")
     end,
-}) 
+})
 
 
 -- {{{ :Hide tabline function
@@ -121,7 +121,7 @@ vim.api.nvim_set_keymap("n", "<leader>ha", "", {
           vim.cmd("set showtabline=2")
           hi_all = 0
           hi_tab = 0
-       end 
+       end
     end,
 })
 -- }}}

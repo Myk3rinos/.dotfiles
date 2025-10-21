@@ -15,6 +15,9 @@ source "$SCRIPT_DIR/themes_menu.sh"
 # Menu principal
 if [ "${BASH_SOURCE[0]}" == "${0}" ]; then
     while true; do
+        # Définir le titre du menu principal
+        MENU_TITLE="=== Menu Principal ==="
+
         # Options du menu principal
         OPTIONS=(
             "󰀻 Dock"

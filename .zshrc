@@ -5,6 +5,9 @@
 export PATH="$HOME/.local/bin:$PATH"
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 
+# ------- Source color configuration -------
+source "$HOME/.dotfiles/.themes/colors.sh"
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/.zsh/zsh-autocomplete/zsh-autocomplete.zsh
 #  plugins=(
@@ -21,26 +24,26 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #     nvim -R -c 'set ft=man nomod nolist' -
 # }
 # export LESS_TERMCAP_mb=$'\e[1;32m'
-function _colorman() {
-  env \
-    LESS_TERMCAP_mb=$'\e[1;35m' \
-    LESS_TERMCAP_md=$'\e[38;5;219m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[7;40m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[38;5;67m' \
-    LESS_TERMCAP_mr=$(tput rev) \
-    LESS_TERMCAP_mh=$(tput dim) \
-    LESS_TERMCAP_ZN=$(tput ssubm) \
-    LESS_TERMCAP_ZV=$(tput rsubm) \
-    LESS_TERMCAP_ZO=$(tput ssupm) \
-    LESS_TERMCAP_ZW=$(tput rsupm) \
-    GROFF_NO_SGR=1 \
-      "$@"
-}
-alias manc="LANG=C _colorman man"
-alias helpc="LANG=C _colorman --help"
+# function _colorman() {
+#   env \
+#     LESS_TERMCAP_mb=$'\e[1;35m' \
+#     LESS_TERMCAP_md=$'\e[38;5;219m' \
+#     LESS_TERMCAP_me=$'\e[0m' \
+#     LESS_TERMCAP_se=$'\e[0m' \
+#     LESS_TERMCAP_so=$'\e[7;40m' \
+#     LESS_TERMCAP_ue=$'\e[0m' \
+#     LESS_TERMCAP_us=$'\e[38;5;67m' \
+#     LESS_TERMCAP_mr=$(tput rev) \
+#     LESS_TERMCAP_mh=$(tput dim) \
+#     LESS_TERMCAP_ZN=$(tput ssubm) \
+#     LESS_TERMCAP_ZV=$(tput rsubm) \
+#     LESS_TERMCAP_ZO=$(tput ssupm) \
+#     LESS_TERMCAP_ZW=$(tput rsupm) \
+#     GROFF_NO_SGR=1 \
+#       "$@"
+# }
+# alias manc="LANG=C _colorman man"
+# alias helpc="LANG=C _colorman --help"
 
 GREP_OPTS='--color=auto'      # for aliases since $GREP_OPTIONS is deprecated
 GREP_COLOR='1;32'             # (legacy) bright green rather than default red

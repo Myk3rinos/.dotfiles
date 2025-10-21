@@ -27,7 +27,7 @@ require('transparent').clear_prefix('NeoTree')
 
       require("neo-tree").setup({
         popup_border_style = "rounded",
-        NeoTreeFloatBorder = "#ffffff",
+        NeoTreeFloatBorder = "#c792ea",
       -- NeoTreeFloatTitle = "File Explorer",
       -- NeoTreeTitleBar = "",
         window = {
@@ -87,12 +87,11 @@ require('transparent').clear_prefix('NeoTree')
               -- Status type
               untracked = "",
               ignored   = "",
-              unstaged  = "󰄱",
+              unstaged  = "",
               staged    = "",
               conflict  = "",
             }
           },
-          
         },
         filesystem = {
           filtered_items = {

@@ -104,6 +104,9 @@ get_dock_apps() {
 
 # Menu des applications
 show_dock_menu() {
+    # Définir le titre du sous-menu
+    MENU_TITLE="=== 󰀻 Dock ==="
+
     local apps=()
     local commands=()
 

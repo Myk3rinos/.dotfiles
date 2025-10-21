@@ -48,7 +48,7 @@ return {
             --     local custom_map = {toml: {icon = "[T]", hl}}
             -- end,
             -- separator_style = "slope",
-            always_show_bufferline = false,    
+            always_show_bufferline = false,
             hover = {
                 enabled = true,
                 delay = 200,

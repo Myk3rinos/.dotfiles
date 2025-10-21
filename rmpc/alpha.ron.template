@@ -6,40 +6,40 @@
     show_song_table_header: false,
     draw_borders: false,
     browser_column_widths: [20, 38, 42],
-    text_color: "#8B9DC3",
+    text_color: "${COLOR_PRIMARY}",
     tab_bar: (
         enabled: true,
-        active_style: (fg: "#8B9DC3", bg: "black", modifiers: "Bold"),
+        active_style: (fg: "${COLOR_PRIMARY}", bg: "black", modifiers: "Bold"),
         inactive_style: (fg: "gray", modifiers: ""),
     ),
-    highlighted_item_style: (fg: "#8B9DC3", modifiers: "Bold"),
-    current_item_style: (fg: "#7FC8A9", bg: "black", modifiers: "Bold"),
-    borders_style: (fg: "#8B9DC3", modifiers: "Bold"),
-    highlight_border_style: (fg: "#8B9DC3"),
+    highlighted_item_style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold"),
+    current_item_style: (fg: "${COLOR_INSERT}", bg: "black", modifiers: "Bold"),
+    borders_style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold"),
+    highlight_border_style: (fg: "${COLOR_PRIMARY}"),
     symbols: (song: "󰝚 ", dir: " ", marker: "* ", ellipsis: "..."),
     progress_bar: (
         symbols: ["-", "", " "],
         track_style: (fg: "gray"),
-        elapsed_style: (fg: "#8B9DC3"),
-        thumb_style: (fg: "#7FC8A9"),
+        elapsed_style: (fg: "${COLOR_PRIMARY}"),
+        thumb_style: (fg: "${COLOR_INSERT}"),
     ),
     scrollbar: (
         symbols: ["", "", "", ""],
         track_style: (fg: "gray"),
-        ends_style: (fg: "#8B9DC3"),
-        thumb_style: (fg: "#8B9DC3"),
+        ends_style: (fg: "${COLOR_PRIMARY}"),
+        thumb_style: (fg: "${COLOR_PRIMARY}"),
     ),
     song_table_format: [
         (
-            prop: (kind: Property(Title), style: (fg: "#8B9DC3"),
-                highlighted_item_style: (fg: "#8B9DC3", modifiers: "Bold"),
+            prop: (kind: Property(Title), style: (fg: "${COLOR_PRIMARY}"),
+                highlighted_item_style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold"),
                 default: (kind: Property(Filename), style: (fg: "gray"),)
             ),
             width: "70%",
         ),
         (
-            prop: (kind: Property(Album), style: (fg: "#8B9DC3"),
-                default: (kind: Text("Unknown Album"), style: (fg: "#8B9DC3"))
+            prop: (kind: Property(Album), style: (fg: "${COLOR_PRIMARY}"),
+                default: (kind: Text("Unknown Album"), style: (fg: "${COLOR_PRIMARY}"))
             ),
             width: "30%",
         ),
@@ -96,34 +96,34 @@
         rows: [
             (
                 left: [
-                    (kind: Property(Status(StateV2(playing_label: " ", paused_label: "❚❚", stopped_label: "❚❚"))), style: (fg: "#7FC8A9", modifiers: "Bold")),
+                    (kind: Property(Status(StateV2(playing_label: " ", paused_label: "❚❚", stopped_label: "❚❚"))), style: (fg: "${COLOR_INSERT}", modifiers: "Bold")),
                 ],
                 center: [
-                    (kind: Property(Song(Title)), style: (fg: "#8B9DC3", modifiers: "Bold"),
-                        default: (kind: Property(Song(Filename)), style: (fg: "#8B9DC3", modifiers: "Bold"))
+                    (kind: Property(Song(Title)), style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold"),
+                        default: (kind: Property(Song(Filename)), style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold"))
                     )
                 ],
                 right: [
-                    (kind: Text("Vol: "), style: (fg: "#8B9DC3", modifiers: "Bold")),
-                    (kind: Property(Status(Volume)), style: (fg: "#D4A574", modifiers: "Bold")),
-                    (kind: Text("% "), style: (fg: "#8B9DC3", modifiers: "Bold"))
+                    (kind: Text("Vol: "), style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold")),
+                    (kind: Property(Status(Volume)), style: (fg: "${COLOR_VISUAL}", modifiers: "Bold")),
+                    (kind: Text("% "), style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold"))
                 ]
             ),
             (
                 left: [
-                    (kind: Property(Status(Elapsed)), style: (fg: "#7FC8A9")),
+                    (kind: Property(Status(Elapsed)), style: (fg: "${COLOR_INSERT}")),
                     (kind: Text("/"), style: (fg: "gray")),
-                    (kind: Property(Status(Duration)), style: (fg: "#8B9DC3")),
+                    (kind: Property(Status(Duration)), style: (fg: "${COLOR_PRIMARY}")),
                 ],
                 center: [
-                    (kind: Property(Song(Artist)), style: (fg: "#8B9DC3", modifiers: "Bold"),
+                    (kind: Property(Song(Artist)), style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold"),
                         default: (kind: Text("Unknown Artist"), style: (fg: "gray", modifiers: "Bold"))
                     ),
                 ],
                 right: [
                     (
                         kind: Property(Widget(States(
-                            active_style: (fg: "#8B9DC3", modifiers: "Bold"),
+                            active_style: (fg: "${COLOR_PRIMARY}", modifiers: "Bold"),
                             separator_style: (fg: "gray")))
                         ),
                         style: (fg: "gray")

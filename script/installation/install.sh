@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.dotfiles/script/colors.sh
+source ~/.dotfiles/.themes/colors.sh
 source ~/.dotfiles/script/checkCopy.sh
 source ~/.dotfiles/script/chooseFunction.sh
 source ~/.dotfiles/script/installation/extensions.sh

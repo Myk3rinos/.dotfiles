@@ -90,7 +90,21 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { 'vim' }  -- Reconnaître 'vim' comme variable globale
+            },
+            -- workspace = {
+            --   library = vim.api.nvim_get_runtime_file("", true),  -- Charger les définitions Neovim
+            --   checkThirdParty = false  -- Désactiver les popups "Do you need to configure?"
+            -- },
+            -- telemetry = {
+            --   enable = false  -- Désactiver la télémétrie
+            -- }
+          }
+        }
       })
       lspconfig.bashls.setup({
         capabilities = capabilities

@@ -2,6 +2,7 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  dependencies = { "xiyaowong/transparent.nvim" },
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
@@ -128,6 +129,11 @@ return {
       end,
     }
   },
+  config = function(_, opts)
+    require("snacks").setup(opts)
+    -- Appliquer la transparence à Snacks comme pour Telescope
+    require('transparent').clear_prefix('snacks')
+  end,
   init = function()
     vim.api.nvim_create_autocmd("User", {
       pattern = "VeryLazy",

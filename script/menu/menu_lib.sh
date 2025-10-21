@@ -1,9 +1,19 @@
 #!/bin/bash
 
-# Codes de couleur ANSI
-BLUE_TEXT="\e[34m"    # Texte bleu
+# Obtenir le répertoire du script parent (.dotfiles)
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+
+# Sourcer le fichier de couleurs
+source "$DOTFILES_DIR/.themes/colors.sh"
+
+# Codes de couleur ANSI avec variables d'environnement
+BLUE_TEXT="\e[38;2;$(printf '%d;%d;%d' 0x${COLOR_PRIMARY:1:2} 0x${COLOR_PRIMARY:3:2} 0x${COLOR_PRIMARY:5:2})m"  # Utilise COLOR_PRIMARY
+INSERT_TEXT="\e[38;2;$(printf '%d;%d;%d' 0x${COLOR_INSERT:1:2} 0x${COLOR_INSERT:3:2} 0x${COLOR_INSERT:5:2})m"  # Utilise COLOR_INSERT
 RESET="\e[0m"         # Reset des couleurs
 BOLD="\e[1m"          # Texte gras
+
+# Variable globale pour le titre du menu
+MENU_TITLE="=== Menu Principal ==="
 
 # Fonction pour afficher le menu avec scrolling
 show_menu() {
@@ -40,7 +50,7 @@ show_menu() {
     fi
 
     clear
-    echo -e "${BOLD}=== Menu de sélection ===${RESET}"
+    echo -e "${BOLD}${INSERT_TEXT}${MENU_TITLE}${RESET}"
     echo ""
 
     # Indicateur si on peut scroller vers le haut
