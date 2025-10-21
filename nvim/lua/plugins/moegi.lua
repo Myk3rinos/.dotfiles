@@ -30,7 +30,7 @@ return {
 
       -- Personnaliser les couleurs des numéros de ligne
       vim.api.nvim_set_hl(0, 'LineNr', { fg = '#808080' })
-      vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = cursor_line, bold = true })
+      vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#00FF00', bold = true })
 
       -- Personnaliser la couleur de sélection visuelle
       vim.api.nvim_set_hl(0, 'Visual', { bg = visual_bg })
