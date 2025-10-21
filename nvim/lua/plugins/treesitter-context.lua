@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
-  commit = "b219328", -- Early 2024 commit, before LspRequest event was added
+  version = "v1.0.0", -- Version stable compatible avec Neovim 0.9.x
   lazy = false,
   priority = 100,
   config = function()
