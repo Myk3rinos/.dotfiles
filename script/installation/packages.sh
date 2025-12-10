@@ -100,6 +100,12 @@ installLazyGit() {
     lazygit --version
 }
 
+installLazyDocker() {
+    echo -e "${color4}- install LazyGit $1 ${colorEnd}"
+    sudo curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+    lazydocker --version
+}
+
 installAllPackages() {
     echo -e "${color4}- install packages $1 ${colorEnd}"
     sudo apt install -y nala
@@ -162,6 +168,7 @@ installAllPackages() {
     installBat
     installNeovim
     installLazyGit
+    installLazyDocker
 
 	sudo npm install -g pnpm
 	cargo install lsd

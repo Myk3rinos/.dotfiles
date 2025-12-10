@@ -248,6 +248,18 @@ return {
 
         require('render-markdown').setup(opts)
 
+        -- Configuration du folding pour Markdown avec treesitter
+        vim.api.nvim_create_autocmd('FileType', {
+            pattern = 'markdown',
+            callback = function()
+                -- Activer le folding avec treesitter pour markdown
+                vim.opt_local.foldmethod = 'expr'
+                vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                vim.opt_local.foldenable = true
+                vim.opt_local.foldlevel = 99  -- Ouvrir tous les folds par défaut
+            end,
+        })
+
         -- Keymap pour suivre les liens Markdown
         vim.api.nvim_create_autocmd('FileType', {
             pattern = 'markdown',
@@ -292,28 +304,48 @@ return {
                                 if code_node then
                                     local code = vim.treesitter.get_node_text(code_node, 0)
 
-                                    -- Créer un fichier temporaire pour éviter les problèmes d'échappement
-                                    local tmpfile = vim.fn.tempname() .. '.sh'
-                                    local f = io.open(tmpfile, 'w')
-                                    if f then
-                                        f:write(code)
-                                        f:write('\nread -p "Appuyez sur Entrée pour fermer..."')
-                                        f:close()
+                                    -- Vérifier si c'est un programme GUI à lancer (kitty, btop, yazi, etc.)
+                                    local is_gui_program = code:match('^%s*kitty') or
+                                                          code:match('^%s*btop') or
+                                                          code:match('^%s*yazi') or
+                                                          code:match('^%s*nvim') or
+                                                          code:match('^%s*lazygit')
+
+                                    if is_gui_program then
+                                        -- Lancer le programme en arrière-plan sans bloquer
+                                        vim.fn.jobstart(code, {
+                                            detach = true,
+                                            on_exit = function(_, exit_code)
+                                                if exit_code ~= 0 then
+                                                    vim.notify('Programme terminé avec code: ' .. exit_code, vim.log.levels.INFO)
+                                                end
+                                            end
+                                        })
+                                        vim.notify('Programme lancé: ' .. code:match('^%s*(%S+)'), vim.log.levels.INFO)
+                                    else
+                                        -- Créer un fichier temporaire pour les scripts normaux
+                                        local tmpfile = vim.fn.tempname() .. '.sh'
+                                        local f = io.open(tmpfile, 'w')
+                                        if f then
+                                            f:write(code)
+                                            f:write('\nread -p "Appuyez sur Entrée pour fermer..."')
+                                            f:close()
+                                        end
+
+                                        -- Exécuter le code bash dans un terminal
+                                        vim.cmd('new') -- Nouvelle fenêtre
+                                        vim.cmd('term bash ' .. tmpfile)
+                                        vim.cmd('startinsert')
+
+                                        -- Nettoyer le fichier temporaire après fermeture
+                                        vim.api.nvim_create_autocmd('TermClose', {
+                                            buffer = vim.api.nvim_get_current_buf(),
+                                            callback = function()
+                                                os.remove(tmpfile)
+                                            end,
+                                            once = true,
+                                        })
                                     end
-
-                                    -- Exécuter le code bash
-                                    vim.cmd('new') -- Nouvelle fenêtre
-                                    vim.cmd('term bash ' .. tmpfile)
-                                    vim.cmd('startinsert')
-
-                                    -- Nettoyer le fichier temporaire après fermeture
-                                    vim.api.nvim_create_autocmd('TermClose', {
-                                        buffer = vim.api.nvim_get_current_buf(),
-                                        callback = function()
-                                            os.remove(tmpfile)
-                                        end,
-                                        once = true,
-                                    })
                                     return
                                 end
                             end

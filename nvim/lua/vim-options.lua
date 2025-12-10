@@ -13,6 +13,13 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
 vim.opt.fillchars = { eob = ' ' } -- hide tilde at the end of file
 
+-- Folding options
+vim.opt.foldenable = true        -- Enable folding
+vim.opt.foldlevel = 99           -- Open all folds by default
+vim.opt.foldlevelstart = 99      -- Open all folds when opening a file
+vim.opt.foldmethod = 'manual'    -- Default to manual folding
+vim.opt.foldnestmax = 10         -- Limit fold nesting
+
 -- require colorscheme
 -- vim.cmd.colorscheme 'catppuccin-frappe'
 -- vim.cmd('colorscheme catppuccin-frappe'
@@ -37,7 +44,12 @@ end,
 -- move keymaps
 vim.keymap.set('x', '<leader>p', "\"_dP", {})
 
-vim.keymap.set('n', '<leader>zz', ":set foldmethod=indent<CR>", {})
+-- Fold method keymaps
+vim.keymap.set('n', '<leader>zz', function()
+  vim.opt.foldmethod = 'indent'
+  vim.opt.foldenable = true
+  print('Folding: indent method activated')
+end, { desc = 'Activate indent folding' })
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", {})
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {})
@@ -47,9 +59,13 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 --Fold Keymaps
-vim.keymap.set('n', '<leader>vm', ':set foldmethod=marker<CR>', {})
-vim.keymap.set('n', '<leader>vs', ':mkview<CR>', {})
-vim.keymap.set('n', '<leader>vl', ':loadview<CR>', {})
+vim.keymap.set('n', '<leader>vm', function()
+  vim.opt.foldmethod = 'marker'
+  vim.opt.foldenable = true
+  print('Folding: marker method activated')
+end, { desc = 'Activate marker folding' })
+vim.keymap.set('n', '<leader>vs', ':mkview<CR>', { desc = 'Save fold view' })
+vim.keymap.set('n', '<leader>vl', ':loadview<CR>', { desc = 'Load fold view' })
 -- vim.api.nvim_create_autocmd('BufEnter',  { command = ":loadview" }) 
 -- vim.api.nvim_create_autocmd('BufEnter',  { command = "set showtabline=0" }) 
 

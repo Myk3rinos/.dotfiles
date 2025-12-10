@@ -12,5 +12,6 @@
     "editor.minimap.enabled": false,
     "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
     "workbench.activityBar.location": "top",
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "claudeCode.preferredLocation": "panel"
 }

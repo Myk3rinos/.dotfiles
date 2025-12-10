@@ -3,6 +3,8 @@
 
 Guide complet des fonctionnalités de [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 
+1. [test](~/.dotfiles/test.md)
+2. [kitty conf](~/.dotfiles/kitty/kitty_n.conf)
 ---
 
 ## 📝 Table des matières
@@ -265,6 +267,35 @@ echo "✅ Nettoyage terminé!"
 
 ```bash
 btop
+```
+
+### Programmes GUI (lancés en arrière-plan)
+
+Ces programmes s'ouvrent sans bloquer Neovim :
+
+**Ouvrir Kitty :**
+```bash
+kitty
+```
+
+```bash
+kitty && rmpc
+```
+
+
+**Ouvrir Yazi (file manager) :**
+```bash
+yazi
+```
+
+**Ouvrir Lazygit :**
+```bash
+lazygit
+```
+
+**Ouvrir un nouveau Neovim :**
+```bash
+nvim ~/.dotfiles/MENU.md
 ```
 
 ---
