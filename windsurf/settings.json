@@ -13,5 +13,6 @@
     "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
     "workbench.activityBar.location": "top",
     "diffEditor.ignoreTrimWhitespace": false,
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "diffEditor.hideUnchangedRegions.enabled": true
 }

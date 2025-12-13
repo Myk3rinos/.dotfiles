@@ -133,15 +133,26 @@ format = "[$symbol]($style)"
 style = "060"
 
 [custom.github]
-when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
-command = "git remote -v | head -c 6"
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+command = "git remote | tr '\n' ' '"
 style = "237 italic"
 format = "[$output ┘        ]($style)"
 
+# [custom.github]
+# when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
+# command = "git remote -v | head -c 6"
+# style = "237 italic"
+# format = "[$output ┘        ]($style)"
+
 [custom.github_corner]
-when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 style = "238"
 format = "[ ┐]($style)"
+
+# [custom.github_corner]
+# when = "[[ $(git branch -a) == *'remotes/origin'* ]]"
+# style = "238"
+# format = "[ ┐]($style)"
 
 [git_status]
 format = '([$all_status$ahead_behind]($style))'
