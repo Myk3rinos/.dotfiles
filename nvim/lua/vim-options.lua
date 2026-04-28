@@ -20,6 +20,7 @@ vim.opt.foldlevelstart = 99      -- Open all folds when opening a file
 vim.opt.foldmethod = 'manual'    -- Default to manual folding
 vim.opt.foldnestmax = 10         -- Limit fold nesting
 
+-- en
 -- require colorscheme
 -- vim.cmd.colorscheme 'catppuccin-frappe'
 -- vim.cmd('colorscheme catppuccin-frappe'

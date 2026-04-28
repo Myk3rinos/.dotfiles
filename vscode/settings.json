@@ -1,0 +1,278 @@
+{
+    "workbench.colorTheme": "Moegi Black",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "terminal.integrated.fontLigatures.enabled": true,
+    "editor.fontFamily": "\"CaskaydiaCove Nerd Font\"",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily",
+        "vscode-neovim.revealCursorScrollLine",
+        "vscode-neovim.mouseSelectionStartVisualMode",
+    ],
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "normal",
+    // "editor.fontSize": 14,
+    "editor.indentSize": 4,
+    "editor.tabSize": 4,
+      // Indentation des arbres
+    "workbench.tree.indent": 14,
+
+    "workbench.colorCustomizations": {
+      // "editorLineNumber.activeForeground": "#ea4aff",
+      "editorLineNumber.activeForeground": "#5ef887",
+      "editor.background": "#0a0a0a"
+      // "editorLineNumber.foreground": "#5a5a5a"
+    },
+    // "editor.semanticTokenColorCustomizations": {
+    //   "rules": {
+    //     "function.declaration": {
+    //       "background": "#50fa7b",
+    //       // "foreground": "#50fa7b"
+    //     }
+    //   }
+    // },
+    
+    // "todohighlight.keywords": [
+    //   {
+    //     "text": " Timeline",
+    //     "regex": true,
+    //     "color": "#50005a",
+    //     "backgroundColor": "#ff4aff",
+    //     "isWholeLine": false
+    //   },
+    //   {
+    //     "text": " Dashboard",
+    //     "regex": true,
+    //     "color": "#50005a",
+    //     "backgroundColor": "#ff4aff",
+    //     "isWholeLine": false,
+    //   },
+    // ],
+
+    "vscode-neovim.useCtrlKeysForNormalMode": false,
+    "vscode-neovim.useCtrlKeysForInsertMode": false,
+    "vscode-neovim.mouseSelectionStartVisualMode": false,
+    "editor.smoothScrolling": false,
+    "editor.cursorSurroundingLines": 0,
+    "vscode-neovim.neovimInitVimPaths.linux": "",
+    "workbench.iconTheme": "symbols",
+    "vscode-neovim.compositeKeys": {
+
+    },
+    "workbench.activityBar.location": "top",
+    "claudeCode.preferredLocation": "panel",
+    "highlighter.overrideGitDecorations": false,
+
+    "better-comments.tags": [
+      {
+        "tag": "!",
+        "color": "#FF2D00",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "?",
+        "color": "#f7ba1f",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "todo",
+        "color": "#FF8C00",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "app_dash",
+        "color": "#d608ff",
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+
+      {
+        "tag": "£R",
+        "color": "black",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#bd91f6",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "£C",
+        "color": "#bd91f6",
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "£BS",
+        "color": "black",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#606fa1",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "$HOOK",
+        "color": "black",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#d261b6",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "$WR",
+        "color": "black",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#d261b6",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "$FC",
+        "color": "black",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#58f981",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "$CW",
+        "color": "#fc51fb",
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "$C",
+        "color": "#58f981",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "$ST",
+        "color": "black",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#ffff80",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "$A",
+        "color": "#fd7ac3",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "states",
+        "color": "#f5008f",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "functions",
+        "color": "#cc00f5",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "*",
+        "color": "#28C379",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+      {
+        "tag": "##OP",
+        "color": "#000000",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#31e0b4",
+        "bold": false,
+        "italic": true
+      },
+      {
+        "tag": "##O",
+        "color": "#31e0b4",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+      {
+        "tag": "##OP",
+        "color": "#000000",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#31e0b4",
+        "bold": false,
+        "italic": true
+      },
+      {
+        "tag": "##P",
+        "color": "#000000",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#3183e0",
+        "bold": false,
+        "italic": true
+      },
+      {
+        "tag": "##",
+        "color": "#3cc5f1",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      }
+    ],
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "claudeCode.selectedModel": "default",
+    "workbench.statusBar.visible": false,
+    "workbench.browser.showInTitleBar": true,
+    "breadcrumbs.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.minimap.enabled": false,
+    "workbench.navigationControl.enabled": false,
+    "window.commandCenter": false
+}

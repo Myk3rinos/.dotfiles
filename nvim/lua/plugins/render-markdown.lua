@@ -13,7 +13,8 @@ return {
             -- Activer l'icône et le fond pour les titres
             enabled = true,
             sign = true,
-            icons = { '󰎤 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+            -- icons = { '󰎤 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+            icons = { ' 󰎤 ', ' 󰎧 ', ' 󰎪 ', ' 󰎭 ', ' 󰎱 ', ' 󰎳 ', ' 󰎶 ', ' 󰎹 ', ' 󰎼 ', ' 󰽽 '},
         },
         code = {
             -- Style pour les blocs de code
@@ -205,7 +206,7 @@ return {
             h6 = '#FFCB6B',  -- Jaune/Orange
 
             -- Couleurs pour les blocs de code
-            code_bg = '#2A2A2A',      -- Fond gris foncé
+            code_bg = '#1A1A1A',      -- Fond gris foncé
             code_border = '#404040',   -- Bordure grise
 
             -- Autres éléments

@@ -1,0 +1,14 @@
+aaron-bond.better-comments
+abduwaly-cmd.vscode-project-tree-highlighter
+anseki.vscode-color
+anthropic.claude-code
+ddiu8081.moegi-theme
+emmanuelbeziat.vscode-great-icons
+github.copilot-chat
+miguelsolorio.symbols
+mongodb.mongodb-vscode
+ms-azuretools.vscode-containers
+ms-azuretools.vscode-docker
+tal7aouy.icons
+vscodevim.vim
+wayou.vscode-todo-highlight
