@@ -146,10 +146,28 @@ importConfig() {
         fi
     }
 
+    cpSsh() {
+        local src="$DEST_DIR/Documents/ssh"
+        local dest="$HOME/.ssh"
+        if [ ! -d "$src" ]; then
+            echo -e "${color4}- No SSH backup found at $src, skipping ${colorEnd}"
+            return
+        fi
+        echo -e "${color4}- Restoring SSH keys ${colorEnd}"
+        mkdir -p "$dest"
+        rsync -a "$src/" "$dest/"
+        # Restaurer les permissions strictes
+        chmod 700 "$dest"
+        find "$dest" -mindepth 1 -type f -exec chmod 600 {} \;
+        find "$dest" -mindepth 1 -type f -name "*.pub" -exec chmod 644 {} \;
+        echo -e "${colorG}- SSH keys restored in $dest ${colorEnd}"
+    }
+
     cpKeybinding
     cpAutostart
     cpFirefoxBookmarks
     cpWallpaper
+    cpSsh
     echo -e "------------------${color2} ¤${colorEnd} ${color3}  Import config done ${colorEnd}---"
 }
 
@@ -218,7 +236,7 @@ askForReboot() {
 }
 
 
-askForCopy "/media"
+# askForCopy "/media"
 installPackages
 installExtensions
 setGnomeConfig
