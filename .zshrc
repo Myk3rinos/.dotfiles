@@ -3,12 +3,11 @@
 
 # Add ~/.local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
-export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat -p -lman'"
 
 # ------- Source color configuration -------
 source "$HOME/.dotfiles/.themes/colors.sh"
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/.zsh/zsh-autocomplete/zsh-autocomplete.zsh
 #  plugins=(
 #   git
@@ -54,27 +53,27 @@ alias egrep='grep -E $GREP_OPTS'
 alias fgrep='LC_ALL=C grep -F $GREP_OPTS'
 
 ## git aliases
-alias gi="git init ."
-alias ga="git add ."
-alias gc="git commit -m 'Initial Commit'"
+# alias gi="git init ."
+# alias ga="git add ."
+# alias gc="git commit -m 'Initial Commit'"
 
-alias gp="git push"
-alias gpl="git pull"
-alias gclone="git clone"
+# alias gp="git push"
+# alias gpl="git pull"
+# alias gclone="git clone"
 
-alias gstatus="git status"
-alias glog="git log"
-alias gdiff="git diff"
-alias gcheckout="git checkout"
-alias gbranch="git branch"
-alias gmerge="git merge"
+# alias gstatus="git status"
+# alias glog="git log"
+# alias gdiff="git diff"
+# alias gcheckout="git checkout"
+# alias gbranch="git branch"
+# alias gmerge="git merge"
 
 
 alias v="clear ; nvim"
-alias w="clear ; windsurf"
-alias cu="clear ; /opt/cursor/Cursor.AppImage --no-sandbox &" # add & for background task
-alias bt="clear ; btop"
-alias n="clear ; neofetch"
+# alias w="clear ; windsurf"
+# alias cu="clear ; /opt/cursor/Cursor.AppImage --no-sandbox &" # add & for background task
+# alias bt="clear ; btop"
+# alias n="clear ; neofetch"
 alias c="clear"
 
 alias ".."="clear ; cd .. "
@@ -86,17 +85,17 @@ alias ls="lsd -al"
 alias lst="clear ; ls --tree ."
 
 
-alias g="gemini"
+# alias g="gemini"
 alias s="clear ; node $HOME/Synax/build/index.js"
 
-alias lg="lazygit"
+# alias lg="lazygit"
 
 # alias nixrs="sudo nixos-rebuild switch"
 
-# alias man="man | bat -l conf"
-alias lsblk="lsblk | bat -l conf"
-alias free="free | bat -l conf"
-alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias man="man | batcat -l conf"
+alias lsblk="lsblk | batcat -l conf"
+alias free="free | batcat -l conf"
+alias fzf="fzf --preview 'batcat --color=always --style=numbers --line-range=:500 {}'"
 
 
 
@@ -140,41 +139,41 @@ function cdh() {
 #  v
 # fi
 # ----------------- First run of the script. Performing some actions -----------------
-if [ -e $HOME/.logon_script_done ]
-then
- # echo "No actions to do"
-else
-  # v
- # echo "First run of the script. Performing some actions" >> $HOME/run-once.txt
- touch $HOME/.logon_script_done
- xdotool set_desktop 1
- v
- # firefox
-fi
+# if [ -e $HOME/.logon_script_done ]
+# then
+#  # echo "No actions to do"
+# else
+#   # v
+#  # echo "First run of the script. Performing some actions" >> $HOME/run-once.txt
+#  touch $HOME/.logon_script_done
+#  xdotool set_desktop 1
+#  v
+#  # firefox
+# fi
 
 # ----------------- Shutdown and reboot -----------------
-function rb() {
- if [ -e $HOME/.logon_script_done ]
-  then
-    rm $HOME/.logon_script_done
-    # rm $HOME/.logon_script_done_v
-    shutdown -r now
-   echo "Remove logon script done. Shutting down"
-  else
-    shutdown -r now
-  fi
-}
-function sd() {
- if [ -e $HOME/.logon_script_done ]
-  then
-    rm $HOME/.logon_script_done
-    # rm $HOME/.logon_script_done_v
-    shutdown -h now
-   echo "Remove logon script done. Shutting down"
-  else
-    shutdown -h now
-  fi
-}
+# function rb() {
+#  if [ -e $HOME/.logon_script_done ]
+#   then
+#     rm $HOME/.logon_script_done
+#     # rm $HOME/.logon_script_done_v
+#     shutdown -r now
+#    echo "Remove logon script done. Shutting down"
+#   else
+#     shutdown -r now
+#   fi
+# }
+# function sd() {
+#  if [ -e $HOME/.logon_script_done ]
+#   then
+#     rm $HOME/.logon_script_done
+#     # rm $HOME/.logon_script_done_v
+#     shutdown -h now
+#    echo "Remove logon script done. Shutting down"
+#   else
+#     shutdown -h now
+#   fi
+# }
 
 # ----------------- Mounting and unmounting encrypted drives -----------------
 function ms() {
@@ -200,7 +199,11 @@ function ud() {
   ~/.dotfiles/script/unmountDrive.sh
 }
 eval "$(starship init zsh)"
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -209,4 +212,4 @@ export NVM_DIR="$HOME/.nvm"
 
 
 
-export MDB_MCP_CONNECTION_STRING="mongodb://localhost:27017/F1Dashboard"
+# export MDB_MCP_CONNECTION_STRING="mongodb://localhost:27017/F1Dashboard"
